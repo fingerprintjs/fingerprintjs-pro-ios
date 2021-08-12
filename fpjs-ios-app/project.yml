@@ -1,0 +1,31 @@
+name: FingerprintJS_Demo
+options:
+  deploymentTarget:
+    iOS: 10.0
+
+settings:
+  MARKETING_VERSION: 1.0.0
+  CURRENT_PROJECT_VERSION: 1
+  TARGETED_DEVICE_FAMILY: 1,2
+  PRODUCT_BUNDLE_IDENTIFIER: com.fingerprint.fpjs-ios-wv-app-demo
+
+packages:
+  fpjs-ios-wv:
+    path: ../fpjs-ios-wv
+
+targets:
+  fpjs-ios-app:
+    platform: iOS
+    type: application
+    info:
+      path: Info.plist
+      properties:
+        CFBundleIdentifier: com.fingerprint.fpjs-ios-wv-app-demo
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
+    settings:
+      base:
+        CODE_SIGN_STYLE: Automatic
+    sources: Sources
+    dependencies:
+      - package: fpjs-ios-wv
