@@ -9,7 +9,41 @@ There are two common use cases:
 
 ## Using as an external library
 
-TBD
+### 1. Installation
+
+#### CocoaPods
+
+Specify the following dependency in your `Podfile`:
+
+```ruby
+pod 'fpjs-ios-wv', '~> 1.0'
+```
+
+#### Swift Package Manager
+
+Add the following dependency to your `Package.swift`.
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/fingerprintjs/fingerprintjs-pro-ios-webview", .upToNextMajor(from: "1.0.0"))
+]
+```
+
+### 2. Import
+
+```swift
+import fpjs_ios_wv
+```
+
+### 3. Usage
+
+```swift
+FingerprintJS.Factory
+    .getInstance(token: "kDIPlabQCHvWcgMHSyei", endpoint: nil, deviceId: nil)
+    .track { visitorId in
+        print(visitorId)
+    }
+```
 
 ## Using inside a webview (JavaScript)
 
@@ -28,14 +62,13 @@ function initFingerprintJS() {
     region: "your-region", // optional
   });
 
-  // var androidDeviceId = window["fpjs-pro-android"].getDeviceId();
 
   // Get the visitor identifier when you need it.
   fpPromise
     .then((fp) =>
       fp.get({
         tag: {
-          deviceId: // androidDeviceId,
+          deviceId: '', // add here
           deviceType: "android",
         },
       })
