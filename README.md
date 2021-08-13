@@ -49,7 +49,16 @@ FingerprintJS.Factory
 
 #### 1. Add a JavaScript interface to your webview
 
-TBD
+```swift
+let vendorId = UIDevice.current.identifierForVendor?.uuidString ?? "undefined"
+
+let script = WKUserScript(source: "window.fingerprintjs.vendorId = \(vendorId)",
+                          injectionTime: .atDocumentStart,
+                          forMainFrameOnly: false)
+                     
+webView.configuration.userContentController.addUserScript(script)
+
+```
 
 #### 2. Setup the JavaScript FPJS SDK in your webview
 
@@ -68,8 +77,8 @@ function initFingerprintJS() {
     .then((fp) =>
       fp.get({
         tag: {
-          deviceId: '', // add here
-          deviceType: "android",
+          deviceId: window.fingerprintjs.vendorId, // use vendor ID as device ID
+          deviceType: "ios",
         },
       })
     )
