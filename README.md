@@ -53,7 +53,7 @@ You can find your [browser api token](https://dev.fingerprintjs.com/docs) in you
 
 ```swift
 FingerprintJS.Factory
-    .getInstance(token: "kDIPlabQCHvWcgMHSyei", endpoint: nil, deviceId: nil)
+    .getInstance(token: "your-browser-token", endpoint: nil, region: nil)
     .track { visitorId in
         print(visitorId)
     }
