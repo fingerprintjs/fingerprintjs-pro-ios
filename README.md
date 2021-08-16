@@ -27,7 +27,7 @@ This integration approach uses our library [fpjs-ios-wv](https://github.com/fing
 Specify the following dependency in your `Podfile`:
 
 ```ruby
-pod 'fpjs-ios-wv', '~> 1.0'
+pod 'FingerprintJSPro', '~> 0.1.0'
 ```
 
 #### Swift Package Manager
@@ -36,26 +36,29 @@ Add the following dependency to your `Package.swift`.
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/fingerprintjs/fingerprintjs-pro-ios-webview", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/fingerprintjs/fingerprintjs-pro-ios-webview", .upToNextMajor(from: "0.1.0"))
 ]
 ```
 
 ### 2. Import
 
 ```swift
-import fpjs_ios_wv
+import FingerprintJSPro
 ```
 
 ### 3. Get the visitor identifier
 You can find your [browser api token](https://dev.fingerprintjs.com/docs) in your [dashboard](https://dashboard.fingerprintjs.com/subscriptions/).
 
 ```swift
-FingerprintJS.Factory
-    .getInstance(token: "your-browser-token", endpoint: nil, region: nil)
-    .track { visitorId in
+FingerprintJSPro.Factory
+    .getInstance(
+        token: `your-browser-token`,
+        endpoint: nil, // optional
+        region: nil // optional
+    )
+    .getVisitorId { visitorId in
         print(visitorId)
     }
-```
 
 ## Using inside a webview with JavaScript
 This approach uses signals from [FingerprintJS Pro browser agent](https://dev.fingerprintjs.com/docs/quick-start-guide#js-agent) together with iOS device [vendor identifier](https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor). The vendor identifier is added to the [`tag` field](https://dev.fingerprintjs.com/docs#tagging-your-requests) in the given format. FingerprintJS Pro browser agent adds an additional set of signals and sents them to the FingerprintJS Pro API. Eventually, the API returns accurate visitor identifier.
@@ -68,7 +71,7 @@ let vendorId = UIDevice.current.identifierForVendor?.uuidString ?? "undefined"
 let script = WKUserScript(source: "window.fingerprintjs.vendorId = \(vendorId)",
                           injectionTime: .atDocumentStart,
                           forMainFrameOnly: false)
-                     
+
 webView.configuration.userContentController.addUserScript(script)
 
 ```
@@ -83,7 +86,6 @@ function initFingerprintJS() {
     endpoint: "your-endpoint", // optional
     region: "your-region", // optional
   });
-
 
   // Get the visitor identifier when you need it.
   fpPromise
