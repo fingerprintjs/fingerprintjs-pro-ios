@@ -16,7 +16,7 @@ There are two common use cases:
 Specify the following dependency in your `Podfile`:
 
 ```ruby
-pod 'FingerprintJS', '~> 0.1.0'
+pod 'FingerprintJSPro', '~> 0.1.0'
 ```
 
 #### Swift Package Manager
@@ -32,13 +32,13 @@ dependencies: [
 ### 2. Import
 
 ```swift
-import FingerprintJS
+import FingerprintJSPro
 ```
 
 ### 3. Usage
 
 ```swift
-FingerprintJS.Factory
+FingerprintJSPro.Factory
     .getInstance(
         token: `your-browser-token`,
         endpoint: nil, // optional
@@ -59,7 +59,7 @@ let vendorId = UIDevice.current.identifierForVendor?.uuidString ?? "undefined"
 let script = WKUserScript(source: "window.fingerprintjs.vendorId = \(vendorId)",
                           injectionTime: .atDocumentStart,
                           forMainFrameOnly: false)
-                     
+
 webView.configuration.userContentController.addUserScript(script)
 
 ```
@@ -74,7 +74,6 @@ function initFingerprintJS() {
     endpoint: "your-endpoint", // optional
     region: "your-region", // optional
   });
-
 
   // Get the visitor identifier when you need it.
   fpPromise

@@ -1,10 +1,10 @@
+/**
+ Copyright (c) FingerprintJS, Inc, 2021 (https://fingerprintjs.com)
+ */
+
 import Foundation
 
 // MARK: - Keychain
-
-/**
-    Copyright (c) FingerprintJS, Inc, 2021 (https://fingerprintjs.com)
-*/
 
 internal func defaultAccount(for key: String) -> String {
     "com.fingerprintjs.keychain.\(key)"

@@ -1,25 +1,25 @@
 /**
-    Copyright (c) FingerprintJS, Inc, 2021 (https://fingerprintjs.com)
-*/
+ Copyright (c) FingerprintJS, Inc, 2021 (https://fingerprintjs.com)
+ */
 
 #if !os(macOS)
     import UIKit
     import WebKit
 
-    public protocol FingerprintJS {
+    public protocol FingerprintJSPro {
         typealias VisitorIdHandler = (Result<VisitorId, Swift.Error>) -> Void
 
         func getVisitorId(_ handler: @escaping VisitorIdHandler)
     }
 
-    public extension FingerprintJS {
-        typealias Factory = FingerprintJSFactory
+    public extension FingerprintJSPro {
+        typealias Factory = FingerprintJSProFactory
         typealias VisitorId = String
     }
 
-    public enum FingerprintJSFactory {
-        public static func getInstance(token: String, endpoint: URL? = nil, region: String? = nil) -> FingerprintJS {
-            return FingerprintJSImpl(token: token, endpoint: endpoint, region: region)
+    public enum FingerprintJSProFactory {
+        public static func getInstance(token: String, endpoint: URL? = nil, region: String? = nil) -> FingerprintJSPro {
+            return FingerprintJSProImpl(token: token, endpoint: endpoint, region: region)
         }
     }
 
@@ -66,7 +66,7 @@
 
     // MARK: - Private
 
-    private final class FingerprintJSImpl: NSObject, FingerprintJS, WKNavigationDelegate, WKScriptMessageHandler {
+    private final class FingerprintJSProImpl: NSObject, FingerprintJSPro, WKNavigationDelegate, WKScriptMessageHandler {
         // MARK: - Lifecycle
 
         public init(token: String, endpoint: URL? = nil, region: String? = nil) {
@@ -129,7 +129,7 @@
                 }
 
                 guard let vc = UIApplication.shared.keyWindow?.rootViewController else {
-                    throw Error.message("UIApplication.shared.keyWindow.rootViewController must be loaded before use")
+                    throw Error.message("UIApplication.shared.keyWindow.rootViewController must be loaded before use `getVisitorId` method")
                 }
 
                 DispatchQueue.main.async {
@@ -218,7 +218,7 @@
     #if !SWIFT_PACKAGE
         extension Bundle {
             static var module: Bundle {
-                Bundle(for: FingerprintJSImpl.self)
+                Bundle(for: FingerprintJSProImpl.self)
             }
         }
     #endif

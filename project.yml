@@ -8,13 +8,13 @@ settings:
   MARKETING_VERSION: 1.0.0
   CURRENT_PROJECT_VERSION: 1
   TARGETED_DEVICE_FAMILY: 1,2
-  PRODUCT_BUNDLE_IDENTIFIER: com.fingerprintjs.example
+  PRODUCT_BUNDLE_IDENTIFIER: com.fingerprintjspro.example
 packages:
-  FingerprintJS:
+  FingerprintJSPro:
     path: ./
 
 targets:
-  FingerprintJS_Example:
+  FingerprintJSPro_Example:
     platform: iOS
     type: application
     info:
@@ -28,5 +28,5 @@ targets:
       base:
         CODE_SIGN_STYLE: Automatic
     sources: Sources/Example
-#    dependencies:
-#      - package: FingerprintJS
+    dependencies:
+     - package: FingerprintJSPro

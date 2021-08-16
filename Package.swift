@@ -4,25 +4,25 @@
 import PackageDescription
 
 let package = Package(
-    name: "FingerprintJS",
+    name: "FingerprintJSPro",
     platforms: [
         .iOS(.v9),
     ],
     products: [
         .library(
-            name: "FingerprintJS",
-            targets: ["FingerprintJS"]
+            name: "FingerprintJSPro",
+            targets: ["FingerprintJSPro"]
         ),
     ],
     targets: [
         .target(
-            name: "FingerprintJS",
+            name: "FingerprintJSPro",
             dependencies: [],
             resources: [.process("Resources/fp.min.js")]
         ),
         .testTarget(
-            name: "FingerprintJSTests",
-            dependencies: ["FingerprintJS"]
+            name: "FingerprintJSProTests",
+            dependencies: ["FingerprintJSPro"]
         ),
     ]
 )

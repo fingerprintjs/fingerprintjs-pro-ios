@@ -7,28 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C18BF1FA358B27D39D69006 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0C7D7CDCC3AB7C99E21F032 /* LaunchScreen.storyboard */; };
-		8C0DB2F4D8D33B12C004A145 /* Pods_FingerprintJS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741854F0BD8EA50ECBF23F3B /* Pods_FingerprintJS_Example.framework */; };
-		B12ED7811A701EBD54BBB85D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A263B39369367A3901B6B7C0 /* AppDelegate.swift */; };
+		6C5AD7C7C570CDAF2AE73726 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A263B39369367A3901B6B7C0 /* AppDelegate.swift */; };
+		853120E5B901B7EE1C7E1F2E /* FingerprintJSPro in Frameworks */ = {isa = PBXBuildFile; productRef = 18BC69D6B908E1F5D34E2551 /* FingerprintJSPro */; };
+		E09EDC158169924067999375 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0C7D7CDCC3AB7C99E21F032 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1EAF0E0D17EF5EB28D0C0E8E /* Pods-FingerprintJS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FingerprintJS_Example.debug.xcconfig"; path = "Target Support Files/Pods-FingerprintJS_Example/Pods-FingerprintJS_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		21D602574D0D486C7B709F9F /* FingerprintJS_Example.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FingerprintJS_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4303613152E08714A9F941E1 /* FingerprintJSPro_Example.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FingerprintJSPro_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		507407AC79844EED8EE9D2F8 /* FingerprintJS-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "FingerprintJS-iOS"; path = .; sourceTree = SOURCE_ROOT; };
-		741854F0BD8EA50ECBF23F3B /* Pods_FingerprintJS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FingerprintJS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A263B39369367A3901B6B7C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A70CCE019BA3AE518E7FE7F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		AA30F745D20703A250DD212B /* Pods-FingerprintJS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FingerprintJS_Example.release.xcconfig"; path = "Target Support Files/Pods-FingerprintJS_Example/Pods-FingerprintJS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B0C7D7CDCC3AB7C99E21F032 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		426E3BE2307547889998BD21 /* Frameworks */ = {
+		A3BD1D25A56320FE218BA048 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C0DB2F4D8D33B12C004A145 /* Pods_FingerprintJS_Example.framework in Frameworks */,
+				853120E5B901B7EE1C7E1F2E /* FingerprintJSPro in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,7 +43,7 @@
 		3031F8ABC084F8D43CC56342 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21D602574D0D486C7B709F9F /* FingerprintJS_Example.app */,
+				4303613152E08714A9F941E1 /* FingerprintJSPro_Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,49 +65,30 @@
 				4F160DA0426D18FD4DFD3610 /* Example */,
 				12B9A666C278AB8CB5B6FA33 /* Packages */,
 				3031F8ABC084F8D43CC56342 /* Products */,
-				558FB44A17CE734CB5FB1AB8 /* Pods */,
-				A409388E36B74C70F97CA601 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		558FB44A17CE734CB5FB1AB8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1EAF0E0D17EF5EB28D0C0E8E /* Pods-FingerprintJS_Example.debug.xcconfig */,
-				AA30F745D20703A250DD212B /* Pods-FingerprintJS_Example.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		A409388E36B74C70F97CA601 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				741854F0BD8EA50ECBF23F3B /* Pods_FingerprintJS_Example.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8E2948D6F828E328C49661C9 /* FingerprintJS_Example */ = {
+		A0D28D87582AAFEC89CA1132 /* FingerprintJSPro_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ECA9E113517D7BFE961B8597 /* Build configuration list for PBXNativeTarget "FingerprintJS_Example" */;
+			buildConfigurationList = CEE0BD0B0697ACAD21D0B3C8 /* Build configuration list for PBXNativeTarget "FingerprintJSPro_Example" */;
 			buildPhases = (
-				3E167575E998C77977102DDE /* [CP] Check Pods Manifest.lock */,
-				DC69FB9FADBEF57265B568D7 /* Sources */,
-				2396326FFFFF78B9A07B1A7F /* Resources */,
-				426E3BE2307547889998BD21 /* Frameworks */,
-				CD5C95D056B7F411C1E4E1ED /* [CP] Embed Pods Frameworks */,
+				017565660E619D08A24764D1 /* Sources */,
+				4500EEDA19CADA7F5D032315 /* Resources */,
+				A3BD1D25A56320FE218BA048 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = FingerprintJS_Example;
-			productName = FingerprintJS_Example;
-			productReference = 21D602574D0D486C7B709F9F /* FingerprintJS_Example.app */;
+			name = FingerprintJSPro_Example;
+			packageProductDependencies = (
+				18BC69D6B908E1F5D34E2551 /* FingerprintJSPro */,
+			);
+			productName = FingerprintJSPro_Example;
+			productReference = 4303613152E08714A9F941E1 /* FingerprintJSPro_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -121,7 +99,7 @@
 			attributes = {
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
-					8E2948D6F828E328C49661C9 = {
+					A0D28D87582AAFEC89CA1132 = {
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -135,74 +113,31 @@
 				en,
 			);
 			mainGroup = 54E0667A38E60354DB90F776;
-			productRefGroup = 3031F8ABC084F8D43CC56342 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8E2948D6F828E328C49661C9 /* FingerprintJS_Example */,
+				A0D28D87582AAFEC89CA1132 /* FingerprintJSPro_Example */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2396326FFFFF78B9A07B1A7F /* Resources */ = {
+		4500EEDA19CADA7F5D032315 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C18BF1FA358B27D39D69006 /* LaunchScreen.storyboard in Resources */,
+				E09EDC158169924067999375 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		3E167575E998C77977102DDE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FingerprintJS_Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CD5C95D056B7F411C1E4E1ED /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FingerprintJS_Example/Pods-FingerprintJS_Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FingerprintJS_Example/Pods-FingerprintJS_Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FingerprintJS_Example/Pods-FingerprintJS_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		DC69FB9FADBEF57265B568D7 /* Sources */ = {
+		017565660E619D08A24764D1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B12ED7811A701EBD54BBB85D /* AppDelegate.swift in Sources */,
+				6C5AD7C7C570CDAF2AE73726 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +194,7 @@
 				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fingerprintjs.example;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fingerprintjspro.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -269,9 +204,8 @@
 			};
 			name = Release;
 		};
-		6B373B314FEB20621DA4BC1B /* Release */ = {
+		738D45998A51E4B59C5629FC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA30F745D20703A250DD212B /* Pods-FingerprintJS_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -286,9 +220,8 @@
 			};
 			name = Release;
 		};
-		7C800FC2AC0CA205A479FC99 /* Debug */ = {
+		9F3FBF57286A79E528C88E7F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1EAF0E0D17EF5EB28D0C0E8E /* Pods-FingerprintJS_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -360,7 +293,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fingerprintjs.example;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fingerprintjspro.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -382,16 +315,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		ECA9E113517D7BFE961B8597 /* Build configuration list for PBXNativeTarget "FingerprintJS_Example" */ = {
+		CEE0BD0B0697ACAD21D0B3C8 /* Build configuration list for PBXNativeTarget "FingerprintJSPro_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7C800FC2AC0CA205A479FC99 /* Debug */,
-				6B373B314FEB20621DA4BC1B /* Release */,
+				9F3FBF57286A79E528C88E7F /* Debug */,
+				738D45998A51E4B59C5629FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		18BC69D6B908E1F5D34E2551 /* FingerprintJSPro */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FingerprintJSPro;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CA8E1E974698BC95958F017F /* Project object */;
 }

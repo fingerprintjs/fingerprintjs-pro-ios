@@ -1,11 +1,11 @@
-@testable import FingerprintJS
+@testable import FingerprintJSPro
 import XCTest
 
 final class FingerprintJSTests: XCTestCase {
     func testVisitorId() {
         let expectation = XCTestExpectation(description: "Fingerprint visitorId")
 
-        FingerprintJS.Factory
+        FingerprintJSPro.Factory
             .getInstance(token: "",
                          endpoint: URL(string: "https://cdn.jsdelivr.net"),
                          region: "ru")

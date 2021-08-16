@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name = "FingerprintJS"
+  s.name = "FingerprintJSPro"
   s.version = "0.1.0"
   s.summary = "FingerprintJS Pro visitor identification in a mobile app"
 
@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = "9.0"
 
-  s.source_files = "Sources/FingerprintJS/**/*"
-  s.resources = "Sources/FingerprintJS/Resources/**/*"
+  s.source_files = "Sources/FingerprintJSPro/**/*"
+  s.resources = "Sources/FingerprintJSPro/Resources/**/*"
 
   s.frameworks = "UIKit"
 end
