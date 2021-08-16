@@ -5,10 +5,10 @@ Pod::Spec.new do |s|
 
   s.description = "Helps to retrieve a FingerprintJS Pro visitor identifier in a native mobile app within a webview"
 
-  s.homepage = "https://github.com/fingerprintjs/fingerprintjs-pro-ios-webview"
+  s.homepage = "https://github.com/fingerprintjs/fingerprintjs-pro-ios-integrations"
   s.license = { :type => "MIT", :file => "LICENSE" }
   s.author = { "Konstantin Darutkin" => "konstantin.darutkin@fingerprintjs.com" }
-  s.source = { :git => "https://github.com/fingerprintjs/fingerprintjs-pro-ios-webview", :tag => s.version.to_s }
+  s.source = { :git => "https://github.com/fingerprintjs/fingerprintjs-pro-ios-integrations", :tag => s.version.to_s }
 
   s.ios.deployment_target = "9.0"
 
