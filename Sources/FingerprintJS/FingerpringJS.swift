@@ -1,11 +1,15 @@
+/**
+    Copyright (c) FingerprintJS, Inc, 2021 (https://fingerprintjs.com)
+*/
+
 #if !os(macOS)
     import UIKit
     import WebKit
 
     public protocol FingerprintJS {
-        typealias ResultHandler = (Result<VisitorId, Swift.Error>) -> Void
+        typealias VisitorIdHandler = (Result<VisitorId, Swift.Error>) -> Void
 
-        func track(handler: @escaping ResultHandler)
+        func getVisitorId(_ handler: @escaping VisitorIdHandler)
     }
 
     public extension FingerprintJS {
@@ -14,13 +18,26 @@
     }
 
     public enum FingerprintJSFactory {
-        public static func getInstance(token: String, endpoint: URL? = nil, deviceId: String? = nil) -> FingerprintJS {
-            return Impl(token: token, endpoint: endpoint, deviceId: deviceId)
+        public static func getInstance(token: String, endpoint: URL? = nil, region: String? = nil) -> FingerprintJS {
+            return FingerprintJSImpl(token: token, endpoint: endpoint, region: region)
         }
     }
 
-    public enum Error: Swift.Error {
+    internal enum Error: Swift.Error, CustomStringConvertible {
         case `internal`
+        case message(String)
+
+        // MARK: - Public
+
+        /// A textual representation of this instance.
+        public var description: String {
+            switch self {
+            case .internal:
+                return "Unknown error"
+            case let .message(text):
+                return text
+            }
+        }
     }
 
     private struct Settings {
@@ -49,14 +66,14 @@
 
     // MARK: - Private
 
-    private final class Impl: NSObject, FingerprintJS, WKNavigationDelegate, WKScriptMessageHandler {
+    private final class FingerprintJSImpl: NSObject, FingerprintJS, WKNavigationDelegate, WKScriptMessageHandler {
         // MARK: - Lifecycle
 
-        public init(token: String, endpoint: URL? = nil, deviceId: String? = nil) {
+        public init(token: String, endpoint: URL? = nil, region: String? = nil) {
             settings = Settings(initializationArguments: .init(token: token,
                                                                endpoint: endpoint,
-                                                               region: nil),
-                                requestParameters: .init(tags: .init(deviceId: deviceId,
+                                                               region: region),
+                                requestParameters: .init(tags: .init(deviceId: Self.getIdentifierForVendor(),
                                                                      deviceType: "ios")))
 
             super.init()
@@ -75,14 +92,13 @@
                 else {
                     throw Error.internal
                 }
-
                 handler?(.success(visitorId))
             } catch {
                 handler?(.failure(error))
             }
         }
 
-        public func track(handler: @escaping ResultHandler) {
+        public func getVisitorId(_ handler: @escaping VisitorIdHandler) {
             do {
                 guard let scriptString = Bundle.module.url(forResource: "fp.min", withExtension: "js")
                     .map({ $0.path })
@@ -113,7 +129,7 @@
                 }
 
                 guard let vc = UIApplication.shared.keyWindow?.rootViewController else {
-                    throw Error.internal
+                    throw Error.message("UIApplication.shared.keyWindow.rootViewController must be loaded before use")
                 }
 
                 DispatchQueue.main.async {
@@ -140,7 +156,7 @@
 
         private let settings: Settings
 
-        private var handler: ResultHandler?
+        private var handler: VisitorIdHandler?
 
         private lazy var messageHandlerName: String = {
             UUID().uuidString
@@ -153,6 +169,22 @@
                 oldValue?.removeFromSuperview()
                 oldValue?.configuration.userContentController.removeScriptMessageHandler(forName: messageHandlerName)
             }
+        }
+
+        private static func getIdentifierForVendor() -> String? {
+            let account = defaultAccount(for: "identifierForVendor")
+
+            if let data = try? Keychain.readKey(account: account),
+               let id = String(data: data, encoding: .utf8)
+            {
+                return id
+            } else if let id = UIDevice.current.identifierForVendor?.uuidString,
+                      let data = id.data(using: .utf8)
+            {
+                try? Keychain.storeKey(data, account: account)
+                return id
+            }
+            return nil
         }
 
         private func makeWebView(in viewController: UIViewController) -> WKWebView {
@@ -182,5 +214,13 @@
             }
         }
     }
+
+    #if !SWIFT_PACKAGE
+        extension Bundle {
+            static var module: Bundle {
+                Bundle(for: FingerprintJSImpl.self)
+            }
+        }
+    #endif
 
 #endif

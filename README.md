@@ -16,7 +16,7 @@ There are two common use cases:
 Specify the following dependency in your `Podfile`:
 
 ```ruby
-pod 'fpjs-ios-wv', '~> 1.0'
+pod 'FingerprintJS', '~> 0.1.0'
 ```
 
 #### Swift Package Manager
@@ -25,22 +25,26 @@ Add the following dependency to your `Package.swift`.
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/fingerprintjs/fingerprintjs-pro-ios-webview", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/fingerprintjs/fingerprintjs-pro-ios-webview", .upToNextMajor(from: "0.1.0"))
 ]
 ```
 
 ### 2. Import
 
 ```swift
-import fpjs_ios_wv
+import FingerprintJS
 ```
 
 ### 3. Usage
 
 ```swift
 FingerprintJS.Factory
-    .getInstance(token: "kDIPlabQCHvWcgMHSyei", endpoint: nil, deviceId: nil)
-    .track { visitorId in
+    .getInstance(
+        token: `your-browser-token`,
+        endpoint: nil, // optional
+        region: nil // optional
+    )
+    .getVisitorId { visitorId in
         print(visitorId)
     }
 ```

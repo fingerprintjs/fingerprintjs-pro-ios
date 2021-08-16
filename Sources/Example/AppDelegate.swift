@@ -1,5 +1,5 @@
+import FingerprintJS
 import Foundation
-import fpjs_ios_wv
 import UIKit
 
 @UIApplicationMain
@@ -14,22 +14,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
 
+        #error("please setup `your-browser-token` and comment this line")
+        let token: String = "your-browser-token"
+
         FingerprintJS.Factory
-            .getInstance(token: "kDIPlabQCHvWcgMHSyei", endpoint: nil, deviceId: nil)
-            .track { result in
-
+            .getInstance(
+                token: token,
+                endpoint: nil, // optional
+                region: nil // optional
+            )
+            .getVisitorId { result in
                 let alert: UIAlertController
-
                 switch result {
                 case let .failure(error):
-                    alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                    alert = .init(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
                 case let .success(visitorId):
-                    alert = UIAlertController(title: "FingerprintJS.VisitorId:", message: visitorId, preferredStyle: .alert)
+                    alert = .init(title: "Success", message: visitorId, preferredStyle: .alert)
                 }
 
-                alert.addAction(.init(title: "OK", style: .default, handler: nil))
+                alert.addAction(.init(title: "Done", style: .default, handler: nil))
 
-                vc.present(alert, animated: true)
+                vc.present(alert, animated: true, completion: nil)
             }
 
         return true
