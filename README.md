@@ -13,8 +13,6 @@
 
 An example app and packages demonstrating [FingerprintJS Pro](https://fingerprintjs.com/) capabilities on the iOS platform. The repository illustrates how to retrieve a FingerprintJS Pro visitor identifier in a native mobile app. These integrations communicate with the FingerprintJS Pro API and require [browser token](https://dev.fingerprintjs.com/docs). If you are interested in the Android platform, you can also check our [FingerprintJS Pro Android integrations](https://github.com/fingerprintjs/fingerprintjs-pro-android-webview).
 
-There are two common use cases:
-
 There are two typical use cases:
 - Using our native library to retrieve a FingerprintJS Pro visitor identifier in the native code OR
 - Retrieving visitor identifier using signals from the FingerprintJS Pro browser agent in the webview on the JavaScript level combined with vendor identifier.
