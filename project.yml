@@ -1,22 +1,33 @@
-name: Example
+name: FingerprintJSPro
 
 options:
   deploymentTarget:
     iOS: 10.0
 
 settings:
-  MARKETING_VERSION: 1.0.0
+  MARKETING_VERSION: 0.1.0
   CURRENT_PROJECT_VERSION: 1
   TARGETED_DEVICE_FAMILY: 1,2
-  PRODUCT_BUNDLE_IDENTIFIER: com.fingerprintjspro.example
+  PRODUCT_BUNDLE_IDENTIFIER: com.fingerprintjspro.$(TARGET_NAME)
+  CODE_SIGN_STYLE: Automatic
+
 packages:
   FingerprintJSPro:
     path: ./
 
 targets:
-  FingerprintJSPro_Example:
+  FingerprintJSPro:
+    platform: iOS
+    type: framework
+    sources: Sources/FingerprintJSPro
+    info:
+      path: Sources/FingerprintJSPro/Resources/Info.plist
+      properties:
+        CFBundleIdentifier: $(PRODUCT_BUNDLE_IDENTIFIER)
+  Example:
     platform: iOS
     type: application
+    sources: Sources/Example
     info:
       path: Sources/Example/Info.plist
       properties:
@@ -24,9 +35,5 @@ targets:
         UILaunchStoryboardName: LaunchScreen
         NSAppTransportSecurity:
           NSAllowsArbitraryLoads: true
-    settings:
-      base:
-        CODE_SIGN_STYLE: Automatic
-    sources: Sources/Example
     dependencies:
-     - package: FingerprintJSPro
+      - package: FingerprintJSPro

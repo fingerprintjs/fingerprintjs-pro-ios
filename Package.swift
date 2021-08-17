@@ -18,6 +18,7 @@ let package = Package(
         .target(
             name: "FingerprintJSPro",
             dependencies: [],
+            exclude: ["Resources/Info.plist"],
             resources: [.process("Resources/fp.min.js")]
         ),
         .testTarget(

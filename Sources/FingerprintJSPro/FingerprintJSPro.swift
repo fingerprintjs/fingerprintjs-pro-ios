@@ -23,14 +23,19 @@
         }
     }
 
-    internal enum Error: Swift.Error, CustomStringConvertible {
+    internal enum Error: LocalizedError, CustomStringConvertible {
         case `internal`
         case message(String)
 
         // MARK: - Public
 
-        /// A textual representation of this instance.
-        public var description: String {
+        public var errorDescription: String? {
+            description
+        }
+
+        // MARK: - Internal
+
+        var description: String {
             switch self {
             case .internal:
                 return "Unknown error"
@@ -88,11 +93,18 @@
                     throw Error.internal
                 }
 
-                guard let visitorId = message.body as? String
-                else {
+                guard let body = message.body as? [String: Any] else {
                     throw Error.internal
                 }
-                handler?(.success(visitorId))
+
+                if let visitorId = body["success"] as? String {
+                    handler?(.success(visitorId))
+                } else if let error = body["error"] as? String {
+                    throw Error.message(error)
+                } else {
+                    throw Error.internal
+                }
+
             } catch {
                 handler?(.failure(error))
             }
@@ -110,6 +122,7 @@
 
                 let parametersString = try settings.requestParameters.makeJSONString()
                 let argumentsString = try settings.initializationArguments.makeJSONString()
+                let messageHandler = "window.webkit.messageHandlers.\(messageHandlerName)"
 
                 let html: String =
                     """
@@ -117,7 +130,8 @@
                      var FingerprintJS = \(scriptString);
                      FingerprintJS.load(\(argumentsString))
                             .then(fp => fp.get(\(parametersString)))
-                            .then(result => window.webkit.messageHandlers.\(messageHandlerName).postMessage(result.visitorId));
+                            .then(result => \(messageHandler).postMessage({ success: result.visitorId }))
+                            .catch(e => \(messageHandler).postMessage({ error: e.message }));
                     </script></body></html>
                     """
 
@@ -203,7 +217,6 @@
     private extension Encodable {
         func makeJSONString() throws -> String {
             let encoder = JSONEncoder()
-            encoder.outputFormatting = .prettyPrinted
 
             let data = try encoder.encode(self)
 

@@ -56,8 +56,13 @@ FingerprintJSPro.Factory
         endpoint: nil, // optional
         region: nil // optional
     )
-    .getVisitorId { visitorId in
-        print(visitorId)
+    .getVisitorId { result in
+        switch result {
+        case let .failure(error):
+            print("Error: ", error.localizedDescription)
+        case let .success(visitorId):
+            print("Success: ", visitorId)
+        }
     }
 ```
 
