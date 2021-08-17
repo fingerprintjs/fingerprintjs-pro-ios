@@ -72,9 +72,9 @@ This approach uses signals from [FingerprintJS Pro browser agent](https://dev.fi
 ### 1. Add a JavaScript interface to your webview
 
 ```swift
-let vendorId = UIDevice.current.identifierForVendor?.uuidString ?? "undefined"
+let vendorId = UIDevice.current.identifierForVendor.flatMap { "'\($0.uuidString)'" } ?? "undefined"
 
-let script = WKUserScript(source: "window.fingerprintjs.vendorId = \(vendorId)",
+let script = WKUserScript(source: "window.fingerprintjs = { 'vendorId' : \(vendorId) }",
                           injectionTime: .atDocumentStart,
                           forMainFrameOnly: false)
 
@@ -98,7 +98,7 @@ function initFingerprintJS() {
     .then((fp) =>
       fp.get({
         tag: {
-          deviceId: window.fingerprintjs, // use vendor ID as device ID
+          deviceId: window.fingerprintjs.vendorId, // use vendor ID as device ID
           deviceType: "ios",
         },
       })
