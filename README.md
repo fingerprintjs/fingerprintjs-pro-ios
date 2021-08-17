@@ -27,7 +27,7 @@ This integration approach uses our library [fpjs-ios-wv](https://github.com/fing
 Specify the following dependency in your `Podfile`:
 
 ```ruby
-pod 'FingerprintJSPro', '~> 0.1.0'
+pod 'FingerprintJSPro', '~> 0.1.1'
 ```
 
 #### Swift Package Manager
