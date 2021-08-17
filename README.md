@@ -52,9 +52,9 @@ You can find your [browser api token](https://dev.fingerprintjs.com/docs) in you
 ```swift
 FingerprintJSPro.Factory
     .getInstance(
-        token: `your-browser-token`,
-        endpoint: nil, // optional
-        region: nil // optional
+        token: "your-browser-token", // required
+        endpoint: URL(string: "https://fp.yourdomain.com"), // default: nil, optional: true
+        region: nil // default: nil, optional: true ("eu" for europe, nil for global)
     )
     .getVisitorId { result in
         switch result {
