@@ -78,7 +78,7 @@ let script = WKUserScript(source: "window.fingerprintjs.vendorId = \(vendorId)",
                           injectionTime: .atDocumentStart,
                           forMainFrameOnly: false)
 
-webView.configuration.userContentController.addUserScript(script)
+webView.configuration.userContentController.addUserScript(script) // the webview should contain a webpage with injected and configured fingerprintjs-pro
 
 ```
 
@@ -98,7 +98,7 @@ function initFingerprintJS() {
     .then((fp) =>
       fp.get({
         tag: {
-          deviceId: window.fingerprintjs.vendorId, // use vendor ID as device ID
+          deviceId: window.fingerprintjs, // use vendor ID as device ID
           deviceType: "ios",
         },
       })
@@ -107,6 +107,42 @@ function initFingerprintJS() {
 }
 ```
 You can find your [browser token](https://dev.fingerprintjs.com/docs) in your [dashboard](https://dashboard.fingerprintjs.com/subscriptions/).
+
+The full example content view for SwiftUI with configured fingerprintjs-pro might look like:
+```swift
+import SwiftUI
+import WebKit
+ 
+struct ContentView: View {
+    var body: some View {
+        Webview(url: URL(string: "https://eager-hermann-4ea017.netlify.app")!) // this URL should refer to the webpage with injected and configured fingerprintjs-pro
+    }
+}
+ 
+struct Webview: UIViewRepresentable {
+    let url: URL
+ 
+    func makeUIView(context: UIViewRepresentableContext<Webview>) -> WKWebView {
+        let webview = WKWebView()
+ 
+        let vendorId = UIDevice.current.identifierForVendor.flatMap { "'\($0.uuidString)'" } ?? "undefined"
+        
+        let script = WKUserScript(source: "window.fingerprintjs = { 'vendorId' : \(vendorId) }", injectionTime: .atDocumentStart, forMainFrameOnly: false)
+ 
+        webview.configuration.userContentController.addUserScript(script) 
+ 
+        let request = URLRequest(url: self.url, cachePolicy: .returnCacheDataElseLoad)
+        webview.load(request)
+ 
+        return webview
+    }
+ 
+    func updateUIView(_ webview: WKWebView, context: UIViewRepresentableContext<Webview>) {
+        let request = URLRequest(url: self.url, cachePolicy: .returnCacheDataElseLoad)
+        webview.load(request)
+    }
+}
+```
 
 ## Additional Resources
 [FingerprintJS Pro documentation](https://dev.fingerprintjs.com/docs)
