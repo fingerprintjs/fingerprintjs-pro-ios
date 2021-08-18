@@ -18,7 +18,7 @@ There are two typical use cases:
 - Retrieving visitor identifier using signals from the FingerprintJS Pro browser agent in the webview on the JavaScript level combined with vendor identifier.
 
 ## Using the external library to retrieve a FingerprintJS Pro visitor identifier
-This integration approach uses our library [fpjs-ios-wv](https://github.com/fingerprintjs/fingerprintjs-pro-ios-webview/tree/master/fpjs-ios-wv). It collects various signals from the iOS system, sends them to the FingerprintJS Pro API for processing, and retrieves an accurate visitor identifier.
+This integration approach uses our library FingerprintJSPro. It collects various signals from the iOS system, sends them to the FingerprintJS Pro API for processing, and retrieves an accurate visitor identifier.
 
 ### 1. Installation
 
@@ -36,7 +36,7 @@ Add the following dependency to your `Package.swift`.
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/fingerprintjs/fingerprintjs-pro-ios-integrations", .upToNextMajor(from: "0.1.0"))
+    .package(url: "https://github.com/fingerprintjs/fingerprintjs-pro-ios-integrations", .upToNextMajor(from: "0.1.1"))
 ]
 ```
 
@@ -52,7 +52,7 @@ You can find your [browser api token](https://dev.fingerprintjs.com/docs) in you
 ```swift
 FingerprintJSPro.Factory
     .getInstance(
-        token: `your-browser-token`,
+        token: "your-browser-token",
         endpoint: nil, // optional
         region: nil // optional
     )
@@ -65,6 +65,10 @@ FingerprintJSPro.Factory
         }
     }
 ```
+#### Params
+- `token: string` - API token from the [FingerprintJS dashboard](https://dashboard.fingerprintjs.com/)
+- `endpoint: URL?` - `nil` for default endpoint, possible format for custom endpoint: `URL(string: "https://fp.yourdomain.com")`
+- `region: String?` - `nil` for the Global region, `eu` for the European region
 
 ## Using inside a webview with JavaScript
 This approach uses signals from [FingerprintJS Pro browser agent](https://dev.fingerprintjs.com/docs/quick-start-guide#js-agent) together with iOS device [vendor identifier](https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor). The vendor identifier is added to the [`tag` field](https://dev.fingerprintjs.com/docs#tagging-your-requests) in the given format. FingerprintJS Pro browser agent adds an additional set of signals and sents them to the FingerprintJS Pro API. Eventually, the API returns accurate visitor identifier.
@@ -106,7 +110,9 @@ function initFingerprintJS() {
     .then((result) => console.log(result.visitorId));
 }
 ```
+#### Params
 You can find your [browser token](https://dev.fingerprintjs.com/docs) in your [dashboard](https://dashboard.fingerprintjs.com/subscriptions/).
+Params format and properties are the same as in [JS agent](https://dev.fingerprintjs.com/docs/js-agent)
 
 The full example content view for SwiftUI with configured fingerprintjs-pro might look like:
 ```swift
