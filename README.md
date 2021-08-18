@@ -18,7 +18,7 @@ There are two typical use cases:
 - Retrieving visitor identifier using signals from the FingerprintJS Pro browser agent in the webview on the JavaScript level combined with vendor identifier.
 
 ## Using the external library to retrieve a FingerprintJS Pro visitor identifier
-This integration approach uses our library [fpjs-ios-wv](https://github.com/fingerprintjs/fingerprintjs-pro-ios-webview/tree/master/fpjs-ios-wv). It collects various signals from the iOS system, sends them to the FingerprintJS Pro API for processing, and retrieves an accurate visitor identifier.
+This integration approach uses our library FingerprintJSPro. It collects various signals from the iOS system, sends them to the FingerprintJS Pro API for processing, and retrieves an accurate visitor identifier.
 
 ### 1. Installation
 
