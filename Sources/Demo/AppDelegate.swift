@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #error("please setup `your-browser-token` and comment this line")
         let token: String = "your-browser-token"
 
-        FingerprintJSPro.Factory
+        FingerprintJSProFactory
             .getInstance(
                 token: token,
                 endpoint: nil, // optional

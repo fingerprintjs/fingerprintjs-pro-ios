@@ -6,20 +6,20 @@
     import UIKit
     import WebKit
 
-    public protocol FingerprintJSPro {
+    public protocol FingerprintJSProClient {
+        typealias VisitorId = String
         typealias VisitorIdHandler = (Result<VisitorId, Swift.Error>) -> Void
 
         func getVisitorId(_ handler: @escaping VisitorIdHandler)
     }
 
-    public extension FingerprintJSPro {
-        typealias Factory = FingerprintJSProFactory
-        typealias VisitorId = String
-    }
-
     public enum FingerprintJSProFactory {
-        public static func getInstance(token: String, endpoint: URL? = nil, region: String? = nil) -> FingerprintJSPro {
-            return FingerprintJSProImpl(token: token, endpoint: endpoint, region: region)
+        public static func getInstance(
+            token: String,
+            endpoint: URL? = nil,
+            region: String? = nil
+        ) -> FingerprintJSProClient {
+            FingerprintJSProClientImpl(token: token, endpoint: endpoint, region: region)
         }
     }
 
@@ -71,7 +71,11 @@
 
     // MARK: - Private
 
-    private final class FingerprintJSProImpl: NSObject, FingerprintJSPro, WKNavigationDelegate, WKScriptMessageHandler {
+    private final class FingerprintJSProClientImpl: NSObject,
+        FingerprintJSProClient,
+        WKNavigationDelegate,
+        WKScriptMessageHandler
+    {
         // MARK: - Lifecycle
 
         public init(token: String, endpoint: URL? = nil, region: String? = nil) {
@@ -231,7 +235,7 @@
     #if !SWIFT_PACKAGE
         extension Bundle {
             static var module: Bundle {
-                Bundle(for: FingerprintJSProImpl.self)
+                Bundle(for: FingerprintJSProClientImpl.self)
             }
         }
     #endif
