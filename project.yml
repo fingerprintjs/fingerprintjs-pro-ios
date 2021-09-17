@@ -37,3 +37,17 @@ targets:
           NSAllowsArbitraryLoads: true
     dependencies:
       - package: FingerprintJSPro
+  DemoJavaScript:
+    platform: iOS
+    deploymentTarget: 14.0
+    type: application
+    sources: Sources/DemoJavaScript
+    settings:
+    info:
+      path: Sources/DemoJavaScript/Info.plist
+      properties:
+        CFBundleIdentifier: $(PRODUCT_BUNDLE_IDENTIFIER)
+        UILaunchStoryboardName: LaunchScreen
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
+

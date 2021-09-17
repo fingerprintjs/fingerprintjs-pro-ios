@@ -3,37 +3,47 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		93E72C2A0C6D8C59CEED2992 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457096FC7CECD9C2B1E2226F /* AppDelegate.swift */; };
+		0D32C118CB5D1C0AC97A820D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 189D387CA31D04B5B95AA0E2 /* Assets.xcassets */; };
+		0E9953576D18796428EAB972 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 989B1CC7E566CB594A7B11C8 /* LaunchScreen.storyboard */; };
+		342D6BEB19CB271ACE2BACD6 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE920382BC6D706946B136 /* DemoApp.swift */; };
+		3AF6E0E7F762D552C2C3D15A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78004474C4973624A7BA9304 /* AppDelegate.swift */; };
+		BA346FA76C6AD944FCB56D36 /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A85C24DA2CB23FCB198AC /* DemoView.swift */; };
 		CBA1CA95DDB7329F10488EAB /* FingerprintJSPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3805D25CFDD87064ADD4C6B9 /* FingerprintJSPro.swift */; };
-		E028CE5711A6328EEA78C8D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1080ADE7D7638CAA6EE624C2 /* LaunchScreen.storyboard */; };
+		CC4C886AB46B722F0CCFFF53 /* FingerprintJSPro in Frameworks */ = {isa = PBXBuildFile; productRef = 4E51F9AB3162F73BB69790E5 /* FingerprintJSPro */; };
+		D440AE5A718C6F41EB316A37 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A7E706C2EB5BDA24986DF6 /* Preview Assets.xcassets */; };
 		F3AB376FF316A44BC6007E53 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9020DA54B859266C04D08E2F /* Keychain.swift */; };
 		FDDA165E27862CC9BFC770F8 /* fp.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 5A0B99D00383DC6019DD8DF3 /* fp.min.js */; };
-		FEE068F503CC633585A1CDFC /* FingerprintJSPro in Frameworks */ = {isa = PBXBuildFile; productRef = 7146A610A58BBEFB5E8DF825 /* FingerprintJSPro */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		008F6E2428F233C43CDB0ACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		1080ADE7D7638CAA6EE624C2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		047A85C24DA2CB23FCB198AC /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
+		04A7E706C2EB5BDA24986DF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		189D387CA31D04B5B95AA0E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3805D25CFDD87064ADD4C6B9 /* FingerprintJSPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintJSPro.swift; sourceTree = "<group>"; };
-		457096FC7CECD9C2B1E2226F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3ADE920382BC6D706946B136 /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
 		56F9F222A72E52118912A83F /* FingerprintJS-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "FingerprintJS-iOS"; path = .; sourceTree = SOURCE_ROOT; };
-		58EA459A6F65399D3BA9CA31 /* Example.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A0B99D00383DC6019DD8DF3 /* fp.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = fp.min.js; sourceTree = "<group>"; };
-		5C01AD91861E100156112129 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		669F67B132C3818FE758787B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		78004474C4973624A7BA9304 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E6B3004E7D2E95426399874 /* FingerprintJSPro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FingerprintJSPro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9020DA54B859266C04D08E2F /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		989B1CC7E566CB594A7B11C8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A7BAE591E405028AAC957242 /* DemoJavaScript.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = DemoJavaScript.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDDF97E17B0DAE974B9A778C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F9A54EC404918F03D6791701 /* Demo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		05D24D5C0BAEC16894C654A3 /* Frameworks */ = {
+		75F9C4319FD71D36A360E948 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEE068F503CC633585A1CDFC /* FingerprintJSPro in Frameworks */,
+				CC4C886AB46B722F0CCFFF53 /* FingerprintJSPro in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,14 +58,39 @@
 			name = Packages;
 			sourceTree = SOURCE_ROOT;
 		};
+		8500AAC7D89838ABDF52DE88 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				78004474C4973624A7BA9304 /* AppDelegate.swift */,
+				CDDF97E17B0DAE974B9A778C /* Info.plist */,
+				989B1CC7E566CB594A7B11C8 /* LaunchScreen.storyboard */,
+			);
+			name = Demo;
+			path = Sources/Demo;
+			sourceTree = "<group>";
+		};
 		858972FA305DD1836C69F7AE = {
 			isa = PBXGroup;
 			children = (
-				F3A6CD9E4669D10A14374237 /* Example */,
+				8500AAC7D89838ABDF52DE88 /* Demo */,
+				A6BF43F1B51EC07BFC5D9E17 /* DemoJavaScript */,
 				AEB415E584233FD4EAA935B5 /* FingerprintJSPro */,
 				23C2B20D92CDE633DA38A321 /* Packages */,
 				DFB5D7CC524FBF66A306641D /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		A6BF43F1B51EC07BFC5D9E17 /* DemoJavaScript */ = {
+			isa = PBXGroup;
+			children = (
+				189D387CA31D04B5B95AA0E2 /* Assets.xcassets */,
+				047A85C24DA2CB23FCB198AC /* DemoView.swift */,
+				3ADE920382BC6D706946B136 /* DemoApp.swift */,
+				669F67B132C3818FE758787B /* Info.plist */,
+				E484AC4F536B4AA266CF5596 /* Preview Content */,
+			);
+			name = DemoJavaScript;
+			path = Sources/DemoJavaScript;
 			sourceTree = "<group>";
 		};
 		AEB415E584233FD4EAA935B5 /* FingerprintJSPro */ = {
@@ -72,10 +107,19 @@
 		DFB5D7CC524FBF66A306641D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				58EA459A6F65399D3BA9CA31 /* Example.app */,
+				F9A54EC404918F03D6791701 /* Demo.app */,
+				A7BAE591E405028AAC957242 /* DemoJavaScript.app */,
 				7E6B3004E7D2E95426399874 /* FingerprintJSPro.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E484AC4F536B4AA266CF5596 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				04A7E706C2EB5BDA24986DF6 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		ED71A9BF160EA8C8A15E2040 /* Resources */ = {
@@ -87,38 +131,43 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		F3A6CD9E4669D10A14374237 /* Example */ = {
-			isa = PBXGroup;
-			children = (
-				457096FC7CECD9C2B1E2226F /* AppDelegate.swift */,
-				5C01AD91861E100156112129 /* Info.plist */,
-				1080ADE7D7638CAA6EE624C2 /* LaunchScreen.storyboard */,
-			);
-			name = Example;
-			path = Sources/Example;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		12AF57F5CE67292A38631F90 /* Example */ = {
+		8BB82CDB77DD9F6588056549 /* Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B749E09ACADF3A7B39653C09 /* Build configuration list for PBXNativeTarget "Example" */;
+			buildConfigurationList = 71CC3C7BD6AD286C86A625AD /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
-				E36515A6FACB270CFBB30969 /* Sources */,
-				16D0FFFDD83B895E1240E32E /* Resources */,
-				05D24D5C0BAEC16894C654A3 /* Frameworks */,
+				37B5CAA00DDC9B26D2801934 /* Sources */,
+				3241761C07445E14F7A4A62A /* Resources */,
+				75F9C4319FD71D36A360E948 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Example;
+			name = Demo;
 			packageProductDependencies = (
-				7146A610A58BBEFB5E8DF825 /* FingerprintJSPro */,
+				4E51F9AB3162F73BB69790E5 /* FingerprintJSPro */,
 			);
-			productName = Example;
-			productReference = 58EA459A6F65399D3BA9CA31 /* Example.app */;
+			productName = Demo;
+			productReference = F9A54EC404918F03D6791701 /* Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B684FAC4BE917739A3029166 /* DemoJavaScript */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D78865AFBEDFC897BDE4ED96 /* Build configuration list for PBXNativeTarget "DemoJavaScript" */;
+			buildPhases = (
+				16B0379286BCFE64BDD9F58E /* Sources */,
+				A529F11B4971BF9556F9536D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DemoJavaScript;
+			productName = DemoJavaScript;
+			productReference = A7BAE591E405028AAC957242 /* DemoJavaScript.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DAC03A60668DEEF9171AB460 /* FingerprintJSPro */ = {
@@ -145,7 +194,10 @@
 			attributes = {
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
-					12AF57F5CE67292A38631F90 = {
+					8BB82CDB77DD9F6588056549 = {
+						ProvisioningStyle = Automatic;
+					};
+					B684FAC4BE917739A3029166 = {
 						ProvisioningStyle = Automatic;
 					};
 					DAC03A60668DEEF9171AB460 = {
@@ -165,18 +217,28 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				12AF57F5CE67292A38631F90 /* Example */,
+				8BB82CDB77DD9F6588056549 /* Demo */,
+				B684FAC4BE917739A3029166 /* DemoJavaScript */,
 				DAC03A60668DEEF9171AB460 /* FingerprintJSPro */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		16D0FFFDD83B895E1240E32E /* Resources */ = {
+		3241761C07445E14F7A4A62A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E028CE5711A6328EEA78C8D3 /* LaunchScreen.storyboard in Resources */,
+				0E9953576D18796428EAB972 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A529F11B4971BF9556F9536D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D32C118CB5D1C0AC97A820D /* Assets.xcassets in Resources */,
+				D440AE5A718C6F41EB316A37 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,20 +253,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		16B0379286BCFE64BDD9F58E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA346FA76C6AD944FCB56D36 /* DemoView.swift in Sources */,
+				342D6BEB19CB271ACE2BACD6 /* DemoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37B5CAA00DDC9B26D2801934 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AF6E0E7F762D552C2C3D15A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7E63DBA2EBFE43309E7F4646 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CBA1CA95DDB7329F10488EAB /* FingerprintJSPro.swift in Sources */,
 				F3AB376FF316A44BC6007E53 /* Keychain.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E36515A6FACB270CFBB30969 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				93E72C2A0C6D8C59CEED2992 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,36 +342,6 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
-		};
-		22437A78A6215A970C93DE78 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = Sources/Example/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		44462F39F6CDA8030B58212D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = Sources/Example/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
 		};
 		50386A8FA4F7EDF6D3CC3B4F /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -392,6 +433,52 @@
 			};
 			name = Debug;
 		};
+		683E1E564AD4260FBDBD8B6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Sources/Demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		81349D50113A1C93C827BA04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Sources/DemoJavaScript/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		942F020CEDA2B42E381F393D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Sources/Demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		A7A873F4E81AECA3209C5E5E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -414,6 +501,22 @@
 			};
 			name = Debug;
 		};
+		B3AEFAAB63CEEB9985096ADA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Sources/DemoJavaScript/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -422,6 +525,15 @@
 			buildConfigurations = (
 				A7A873F4E81AECA3209C5E5E /* Debug */,
 				50386A8FA4F7EDF6D3CC3B4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		71CC3C7BD6AD286C86A625AD /* Build configuration list for PBXNativeTarget "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				942F020CEDA2B42E381F393D /* Debug */,
+				683E1E564AD4260FBDBD8B6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -435,11 +547,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		B749E09ACADF3A7B39653C09 /* Build configuration list for PBXNativeTarget "Example" */ = {
+		D78865AFBEDFC897BDE4ED96 /* Build configuration list for PBXNativeTarget "DemoJavaScript" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				44462F39F6CDA8030B58212D /* Debug */,
-				22437A78A6215A970C93DE78 /* Release */,
+				B3AEFAAB63CEEB9985096ADA /* Debug */,
+				81349D50113A1C93C827BA04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -447,7 +559,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7146A610A58BBEFB5E8DF825 /* FingerprintJSPro */ = {
+		4E51F9AB3162F73BB69790E5 /* FingerprintJSPro */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FingerprintJSPro;
 		};
