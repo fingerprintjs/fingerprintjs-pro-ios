@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		0D32C118CB5D1C0AC97A820D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 189D387CA31D04B5B95AA0E2 /* Assets.xcassets */; };
 		0E9953576D18796428EAB972 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 989B1CC7E566CB594A7B11C8 /* LaunchScreen.storyboard */; };
-		342D6BEB19CB271ACE2BACD6 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE920382BC6D706946B136 /* DemoApp.swift */; };
 		3AF6E0E7F762D552C2C3D15A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78004474C4973624A7BA9304 /* AppDelegate.swift */; };
-		BA346FA76C6AD944FCB56D36 /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A85C24DA2CB23FCB198AC /* DemoView.swift */; };
+		6C3BB2441FC4E7EBA5D34B7A /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEC3AC52D84CF42BD2625FB /* DemoApp.swift */; };
+		AA710D5CEBF33D687D37CAAD /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293D18CB4A98F33A4DFCC773 /* DemoView.swift */; };
 		CBA1CA95DDB7329F10488EAB /* FingerprintJSPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3805D25CFDD87064ADD4C6B9 /* FingerprintJSPro.swift */; };
 		CC4C886AB46B722F0CCFFF53 /* FingerprintJSPro in Frameworks */ = {isa = PBXBuildFile; productRef = 4E51F9AB3162F73BB69790E5 /* FingerprintJSPro */; };
 		D440AE5A718C6F41EB316A37 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A7E706C2EB5BDA24986DF6 /* Preview Assets.xcassets */; };
@@ -21,11 +21,10 @@
 
 /* Begin PBXFileReference section */
 		008F6E2428F233C43CDB0ACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		047A85C24DA2CB23FCB198AC /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
 		04A7E706C2EB5BDA24986DF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		189D387CA31D04B5B95AA0E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		293D18CB4A98F33A4DFCC773 /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
 		3805D25CFDD87064ADD4C6B9 /* FingerprintJSPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintJSPro.swift; sourceTree = "<group>"; };
-		3ADE920382BC6D706946B136 /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
 		56F9F222A72E52118912A83F /* FingerprintJS-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "FingerprintJS-iOS"; path = .; sourceTree = SOURCE_ROOT; };
 		5A0B99D00383DC6019DD8DF3 /* fp.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = fp.min.js; sourceTree = "<group>"; };
 		669F67B132C3818FE758787B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -36,6 +35,7 @@
 		A7BAE591E405028AAC957242 /* DemoJavaScript.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = DemoJavaScript.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDF97E17B0DAE974B9A778C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F9A54EC404918F03D6791701 /* Demo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCEC3AC52D84CF42BD2625FB /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				189D387CA31D04B5B95AA0E2 /* Assets.xcassets */,
-				047A85C24DA2CB23FCB198AC /* DemoView.swift */,
-				3ADE920382BC6D706946B136 /* DemoApp.swift */,
+				FCEC3AC52D84CF42BD2625FB /* DemoApp.swift */,
+				293D18CB4A98F33A4DFCC773 /* DemoView.swift */,
 				669F67B132C3818FE758787B /* Info.plist */,
 				E484AC4F536B4AA266CF5596 /* Preview Content */,
 			);
@@ -257,8 +257,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA346FA76C6AD944FCB56D36 /* DemoView.swift in Sources */,
-				342D6BEB19CB271ACE2BACD6 /* DemoApp.swift in Sources */,
+				6C3BB2441FC4E7EBA5D34B7A /* DemoApp.swift in Sources */,
+				AA710D5CEBF33D687D37CAAD /* DemoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +317,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -330,7 +330,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fingerprintjspro.$(TARGET_NAME)";
@@ -400,7 +400,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -419,7 +419,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
