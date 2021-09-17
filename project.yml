@@ -24,12 +24,12 @@ targets:
       path: Sources/FingerprintJSPro/Resources/Info.plist
       properties:
         CFBundleIdentifier: $(PRODUCT_BUNDLE_IDENTIFIER)
-  Example:
+  Demo:
     platform: iOS
     type: application
-    sources: Sources/Example
+    sources: Sources/Demo
     info:
-      path: Sources/Example/Info.plist
+      path: Sources/Demo/Info.plist
       properties:
         CFBundleIdentifier: $(PRODUCT_BUNDLE_IDENTIFIER)
         UILaunchStoryboardName: LaunchScreen
