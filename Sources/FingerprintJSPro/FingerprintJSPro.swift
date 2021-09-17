@@ -6,20 +6,20 @@
     import UIKit
     import WebKit
 
-    public protocol FingerprintJSPro {
+    public protocol FingerprintJSProClient {
+        typealias VisitorId = String
         typealias VisitorIdHandler = (Result<VisitorId, Swift.Error>) -> Void
 
         func getVisitorId(_ handler: @escaping VisitorIdHandler)
     }
 
-    public extension FingerprintJSPro {
-        typealias Factory = FingerprintJSProFactory
-        typealias VisitorId = String
-    }
-
     public enum FingerprintJSProFactory {
-        public static func getInstance(token: String, endpoint: URL? = nil, region: String? = nil) -> FingerprintJSPro {
-            return FingerprintJSProImpl(token: token, endpoint: endpoint, region: region)
+        public static func getInstance(
+            token: String,
+            endpoint: URL? = nil,
+            region: String? = nil
+        ) -> FingerprintJSProClient {
+            FingerprintJSProClientImpl(token: token, endpoint: endpoint, region: region)
         }
     }
 
@@ -46,7 +46,7 @@
     }
 
     private struct Settings {
-        internal struct InitializationArguments: Codable {
+        internal struct InstanceSettings: Codable {
             let token: String
             let endpoint: URL?
             let region: String?
@@ -55,38 +55,46 @@
         internal struct RequestParameters: Codable {
             internal struct Tags: Codable {
                 let deviceId: String?
-                let deviceType: String?
+                let type: String?
             }
 
             // MARK: - Internal
 
-            internal let tags: Tags?
+            internal let environment: Tags?
         }
 
         // MARK: - Internal
 
-        internal var initializationArguments: InitializationArguments
+        internal var instanceSettings: InstanceSettings
         internal var requestParameters: RequestParameters
     }
 
     // MARK: - Private
 
-    private final class FingerprintJSProImpl: NSObject, FingerprintJSPro, WKNavigationDelegate, WKScriptMessageHandler {
+    private final class FingerprintJSProClientImpl: NSObject,
+        FingerprintJSProClient,
+        WKNavigationDelegate,
+        WKScriptMessageHandler
+    {
         // MARK: - Lifecycle
 
         public init(token: String, endpoint: URL? = nil, region: String? = nil) {
-            settings = Settings(initializationArguments: .init(token: token,
-                                                               endpoint: endpoint,
-                                                               region: region),
-                                requestParameters: .init(tags: .init(deviceId: Self.getIdentifierForVendor(),
-                                                                     deviceType: "ios")))
+            settings = Settings(
+                instanceSettings: .init(token: token,
+                                        endpoint: endpoint,
+                                        region: region),
+                requestParameters: .init(environment: .init(deviceId: Self.getIdentifierForVendor(),
+                                                            type: "ios"))
+            )
 
             super.init()
         }
 
         // MARK: - Public
 
-        public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        public func userContentController(_ userContentController: WKUserContentController,
+                                          didReceive message: WKScriptMessage)
+        {
             do {
                 guard message.name == messageHandlerName
                 else {
@@ -113,7 +121,7 @@
         public func getVisitorId(_ handler: @escaping VisitorIdHandler) {
             do {
                 guard let scriptString = Bundle.module.url(forResource: "fp.min", withExtension: "js")
-                    .map({ $0.path })
+                    .map(\.path)
                     .flatMap(FileManager.default.contents)?
                     .flatMap({ String(data: $0, encoding: .utf8) })
                 else {
@@ -121,14 +129,14 @@
                 }
 
                 let parametersString = try settings.requestParameters.makeJSONString()
-                let argumentsString = try settings.initializationArguments.makeJSONString()
+                let instanceSettingsString = try settings.instanceSettings.makeJSONString()
                 let messageHandler = "window.webkit.messageHandlers.\(messageHandlerName)"
 
                 let html: String =
                     """
                     <html><body><script>
-                     var FingerprintJS = \(scriptString);
-                     FingerprintJS.load(\(argumentsString))
+                     \(scriptString);
+                     FingerprintJS.load(\(instanceSettingsString))
                             .then(fp => fp.get(\(parametersString)))
                             .then(result => \(messageHandler).postMessage({ success: result.visitorId }))
                             .catch(e => \(messageHandler).postMessage({ error: e.message }));
@@ -146,9 +154,15 @@
                     throw Error.message("UIApplication.shared.keyWindow.rootViewController must be loaded before use `getVisitorId` method")
                 }
 
-                DispatchQueue.main.async {
+                let block = {
                     self.webView = self.makeWebView(in: vc)
-                    self.webView?.loadHTMLString(html, baseURL: self.settings.initializationArguments.endpoint)
+                    self.webView?.loadHTMLString(html, baseURL: self.settings.instanceSettings.endpoint)
+                }
+
+                if Thread.isMainThread {
+                    block()
+                } else {
+                    DispatchQueue.main.async { block() }
                 }
 
             } catch {
@@ -158,11 +172,17 @@
 
         // MARK: - Internal
 
-        func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Swift.Error) {
+        func webView(_ webView: WKWebView,
+                     didFailProvisionalNavigation navigation: WKNavigation!,
+                     withError error: Swift.Error)
+        {
             handler?(.failure(error))
         }
 
-        func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Swift.Error) {
+        func webView(_ webView: WKWebView,
+                     didFail navigation: WKNavigation!,
+                     withError error: Swift.Error)
+        {
             handler?(.failure(error))
         }
 
@@ -205,7 +225,8 @@
             let config = WKWebViewConfiguration()
             config.userContentController.add(self, name: messageHandlerName)
 
-            let webView = WKWebView(frame: .init(x: 1, y: 1, width: 0, height: 0), configuration: config)
+            let webView = WKWebView(frame: .init(x: 1.0, y: 1.0, width: 0, height: 0),
+                                    configuration: config)
             webView.translatesAutoresizingMaskIntoConstraints = false
 
             viewController.view.addSubview(webView)
@@ -231,7 +252,7 @@
     #if !SWIFT_PACKAGE
         extension Bundle {
             static var module: Bundle {
-                Bundle(for: FingerprintJSProImpl.self)
+                Bundle(for: FingerprintJSProClientImpl.self)
             }
         }
     #endif

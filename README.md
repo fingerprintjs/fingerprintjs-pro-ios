@@ -50,7 +50,7 @@ import FingerprintJSPro
 You can find your [browser api token](https://dev.fingerprintjs.com/docs) in your [dashboard](https://dashboard.fingerprintjs.com/subscriptions/).
 
 ```swift
-FingerprintJSPro.Factory
+FingerprintJSProFactory
     .getInstance(
         token: "your-browser-token",
         endpoint: nil, // optional
