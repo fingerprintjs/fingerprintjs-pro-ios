@@ -7,7 +7,7 @@ import Foundation
 // MARK: - Keychain
 
 internal func defaultAccount(for key: String) -> String {
-    "com.fingerprintjs.keychain.\(key)"
+    String(format: "%@.com.fingerprintjs.keychain.%@", Bundle.main.bundleIdentifier ?? "default", key)
 }
 
 // MARK: - Keychain
