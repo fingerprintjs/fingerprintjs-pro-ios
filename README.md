@@ -101,10 +101,10 @@ function initFingerprintJS() {
   fpPromise
     .then((fp) =>
       fp.get({
-        tag: {
+        environment: {
           deviceId: window.fingerprintjs.vendorId, // use vendor ID as device ID
-          deviceType: "ios",
-        },
+          type: "ios",
+        }
       })
     )
     .then((result) => console.log(result.visitorId));
