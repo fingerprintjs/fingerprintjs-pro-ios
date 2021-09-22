@@ -7,10 +7,13 @@
     import WebKit
 
     public protocol FingerprintJSProClient {
+        typealias Tags = [String: Any]
+
         typealias VisitorId = String
         typealias VisitorIdHandler = (Result<VisitorId, Swift.Error>) -> Void
 
         func getVisitorId(_ handler: @escaping VisitorIdHandler)
+        func getVisitorId(tags: Tags?, _ handler: @escaping VisitorIdHandler)
     }
 
     public enum FingerprintJSProFactory {
@@ -45,28 +48,20 @@
         }
     }
 
-    private struct Settings {
-        internal struct InstanceSettings: Codable {
-            let token: String
-            let endpoint: URL?
-            let region: String?
+    internal struct Environment: Codable {
+        static var `default`: Self {
+            Self(deviceId: getIdentifierForVendor(),
+                 type: "ios")
         }
 
-        internal struct RequestParameters: Codable {
-            internal struct Tags: Codable {
-                let deviceId: String?
-                let type: String?
-            }
+        let deviceId: String?
+        let type: String?
+    }
 
-            // MARK: - Internal
-
-            internal let environment: Tags?
-        }
-
-        // MARK: - Internal
-
-        internal var instanceSettings: InstanceSettings
-        internal var requestParameters: RequestParameters
+    private struct Settings: Codable {
+        let token: String
+        let endpoint: URL?
+        let region: String?
     }
 
     // MARK: - Private
@@ -79,13 +74,9 @@
         // MARK: - Lifecycle
 
         public init(token: String, endpoint: URL? = nil, region: String? = nil) {
-            settings = Settings(
-                instanceSettings: .init(token: token,
-                                        endpoint: endpoint,
-                                        region: region),
-                requestParameters: .init(environment: .init(deviceId: Self.getIdentifierForVendor(),
-                                                            type: "ios"))
-            )
+            settings = Settings(token: token,
+                                endpoint: endpoint,
+                                region: region)
 
             super.init()
         }
@@ -119,6 +110,10 @@
         }
 
         public func getVisitorId(_ handler: @escaping VisitorIdHandler) {
+            getVisitorId(tags: nil, handler)
+        }
+
+        public func getVisitorId(tags: Tags?, _ handler: @escaping VisitorIdHandler) {
             do {
                 guard let scriptString = Bundle.module.url(forResource: "fp.min", withExtension: "js")
                     .map(\.path)
@@ -128,15 +123,25 @@
                     throw Error.internal
                 }
 
-                let parametersString = try settings.requestParameters.makeJSONString()
-                let instanceSettingsString = try settings.instanceSettings.makeJSONString()
+                var parameters: [String: Any] = [:]
+
+                parameters["environment"] = try encode(Environment.default)
+
+                if let tags = tags,
+                   tags.isEmpty == false
+                {
+                    parameters["tags"] = tags
+                }
+
+                let parametersString = try encode(parameters)
+                let settingsString = try encode(settings) as String
                 let messageHandler = "window.webkit.messageHandlers.\(messageHandlerName)"
 
                 let html: String =
                     """
                     <html><body><script>
                      \(scriptString);
-                     FingerprintJS.load(\(instanceSettingsString))
+                     FingerprintJS.load(\(settingsString))
                             .then(fp => fp.get(\(parametersString)))
                             .then(result => \(messageHandler).postMessage({ success: result.visitorId }))
                             .catch(e => \(messageHandler).postMessage({ error: e.message }));
@@ -156,7 +161,7 @@
 
                 let block = {
                     self.webView = self.makeWebView(in: vc)
-                    self.webView?.loadHTMLString(html, baseURL: self.settings.instanceSettings.endpoint)
+                    self.webView?.loadHTMLString(html, baseURL: self.settings.endpoint)
                 }
 
                 if Thread.isMainThread {
@@ -205,22 +210,6 @@
             }
         }
 
-        private static func getIdentifierForVendor() -> String? {
-            let account = defaultAccount(for: "identifierForVendor")
-
-            if let data = try? Keychain.readKey(account: account),
-               let id = String(data: data, encoding: .utf8)
-            {
-                return id
-            } else if let id = UIDevice.current.identifierForVendor?.uuidString,
-                      let data = id.data(using: .utf8)
-            {
-                try? Keychain.storeKey(data, account: account)
-                return id
-            }
-            return nil
-        }
-
         private func makeWebView(in viewController: UIViewController) -> WKWebView {
             let config = WKWebViewConfiguration()
             config.userContentController.add(self, name: messageHandlerName)
@@ -233,13 +222,33 @@
 
             return webView
         }
-    }
 
-    private extension Encodable {
-        func makeJSONString() throws -> String {
+        private func encode<T: Encodable>(_ parameters: T) throws -> Any {
+            guard let data = try encode(parameters).data(using: .utf8) else {
+                throw Error.internal
+            }
+
+            let any = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+
+            return any
+        }
+
+        private func encode<T: Encodable>(_ parameters: T) throws -> String {
             let encoder = JSONEncoder()
 
-            let data = try encoder.encode(self)
+            let data = try encoder.encode(parameters)
+
+            if let result = String(data: data, encoding: .utf8) {
+                return result
+            } else {
+                throw Error.internal
+            }
+        }
+
+        private func encode(_ parameters: [String: Any]) throws -> String {
+            let encoder = JSONSerialization.self
+
+            let data = try encoder.data(withJSONObject: parameters, options: [])
 
             if let result = String(data: data, encoding: .utf8) {
                 return result
@@ -256,5 +265,21 @@
             }
         }
     #endif
+
+    private func getIdentifierForVendor() -> String? {
+        let account = defaultAccount(for: "identifierForVendor")
+
+        if let data = try? Keychain.readKey(account: account),
+           let id = String(data: data, encoding: .utf8)
+        {
+            return id
+        } else if let id = UIDevice.current.identifierForVendor?.uuidString,
+                  let data = id.data(using: .utf8)
+        {
+            try? Keychain.storeKey(data, account: account)
+            return id
+        }
+        return nil
+    }
 
 #endif
