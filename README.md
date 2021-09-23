@@ -70,6 +70,26 @@ FingerprintJSProFactory
 - `endpoint: URL?` - `nil` for default endpoint, possible format for custom endpoint: `URL(string: "https://fp.yourdomain.com")`
 - `region: String?` - `nil` for the Global region, `eu` for the European region
 
+#### [Tags](https://dev.fingerprintjs.com/v2/docs/js-agent#tag) support
+
+```swift
+FingerprintJSProFactory
+    .getInstance(
+        token: "your-browser-token",
+        endpoint: nil, // optional
+        region: nil // optional
+    )
+    .getVisitorId(tags: ["sessionId": sessionId]) { result in
+        switch result {
+        case let .failure(error):
+            print("Error: ", error.localizedDescription)
+        case let .success(visitorId):
+            print("Success: ", visitorId)
+        }
+    }
+```
+
+
 ## Using inside a webview with JavaScript
 This approach uses signals from [FingerprintJS Pro browser agent](https://dev.fingerprintjs.com/docs/quick-start-guide#js-agent) together with iOS device [vendor identifier](https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor). The vendor identifier is added to the [`tag` field](https://dev.fingerprintjs.com/docs#tagging-your-requests) in the given format. FingerprintJS Pro browser agent adds an additional set of signals and sents them to the FingerprintJS Pro API. Eventually, the API returns accurate visitor identifier.
 
