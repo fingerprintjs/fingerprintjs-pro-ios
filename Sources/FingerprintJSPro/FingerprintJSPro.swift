@@ -130,7 +130,7 @@
                 if let tags = tags,
                    tags.isEmpty == false
                 {
-                    parameters["tags"] = tags
+                    parameters["tag"] = tags
                 }
 
                 let parametersString = try encode(parameters)
