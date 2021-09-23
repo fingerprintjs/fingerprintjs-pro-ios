@@ -27,7 +27,7 @@ This integration approach uses our library FingerprintJSPro. It collects various
 Specify the following dependency in your `Podfile`:
 
 ```ruby
-pod 'FingerprintJSPro', '~> 1.0.0'
+pod 'FingerprintJSPro', '~> 1.1.0'
 ```
 
 #### Swift Package Manager
@@ -36,7 +36,7 @@ Add the following dependency to your `Package.swift`.
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/fingerprintjs/fingerprintjs-pro-ios-integrations", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/fingerprintjs/fingerprintjs-pro-ios-integrations", .upToNextMajor(from: "1.1.0"))
 ]
 ```
 

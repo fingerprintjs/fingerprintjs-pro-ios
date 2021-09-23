@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "FingerprintJSPro"
-  s.version = "1.0.0"
+  s.version = "1.1.0"
   s.summary = "FingerprintJS Pro visitor identification in a mobile app"
 
   s.description = "Helps to retrieve a FingerprintJS Pro visitor identifier in a native mobile app within a webview"
