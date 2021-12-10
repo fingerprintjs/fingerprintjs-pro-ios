@@ -11,7 +11,7 @@
 
 # [FingerprintJS Pro](https://fingerprintjs.com/) iOS
 
-An example app and packages demonstrating [FingerprintJS Pro](https://fingerprintjs.com/) capabilities on the iOS platform. The repository illustrates how to retrieve a FingerprintJS Pro visitor identifier in a native mobile app. The library communicates with the FingerprintJS Pro API and requires [browser token](https://dev.fingerprintjs.com/docs). If you are interested in the Android platform, you can also check our [FingerprintJS Pro Android integrations](https://github.com/fingerprintjs/fingerprintjs-pro-android-webview).
+An example app and packages demonstrating [FingerprintJS Pro](https://fingerprintjs.com/) capabilities on the iOS platform. The repository illustrates how to retrieve a FingerprintJS Pro visitor identifier in a native mobile app. The library communicates with the FingerprintJS Pro API and requires [browser token](https://dev.fingerprintjs.com/docs). If you are interested in the Android platform, you can also check our [FingerprintJS Pro Android](https://github.com/fingerprintjs/fingerprintjs-pro-android-webview).
 
 There are two typical use cases:
 - Using our native library to retrieve a FingerprintJS Pro visitor identifier in the native code OR
@@ -89,86 +89,8 @@ FingerprintJSProFactory
     }
 ```
 
+For using FingerprintJS Pro Android inside of an PWA check the [full API reference](docs/client_api.md).
 
-## Using inside a webview with JavaScript
-This approach uses signals from [FingerprintJS Pro browser agent](https://dev.fingerprintjs.com/docs/quick-start-guide#js-agent) together with iOS device [vendor identifier](https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor). The vendor identifier is added to the [`tag` field](https://dev.fingerprintjs.com/docs#tagging-your-requests) in the given format. FingerprintJS Pro browser agent adds an additional set of signals and sents them to the FingerprintJS Pro API. Eventually, the API returns accurate visitor identifier.
-
-### 1. Add a JavaScript interface to your webview
-
-```swift
-let vendorId = UIDevice.current.identifierForVendor.flatMap { "'\($0.uuidString)'" } ?? "undefined"
-
-let script = WKUserScript(source: "window.fingerprintjs = { 'vendorId' : \(vendorId) }",
-                          injectionTime: .atDocumentStart,
-                          forMainFrameOnly: false)
-
-webView.configuration.userContentController.addUserScript(script) // the webview should contain a webpage with injected and configured fingerprintjs-pro
-
-```
-
-### 2. Setup the JavaScript FingerprintJS Pro integration in your webview
-
-```js
-function initFingerprintJS() {
-  // Initialize an agent at application startup.
-  const fpPromise = FingerprintJS.load({
-    token: "your-browser-token",
-    endpoint: "your-endpoint", // optional
-    region: "your-region", // optional
-  });
-
-  // Get the visitor identifier when you need it.
-  fpPromise
-    .then((fp) =>
-      fp.get({
-        environment: {
-          deviceId: window.fingerprintjs.vendorId, // use vendor ID as device ID
-          type: "ios",
-        }
-      })
-    )
-    .then((result) => console.log(result.visitorId));
-}
-```
-#### Params
-You can find your [browser token](https://dev.fingerprintjs.com/docs) in your [dashboard](https://dashboard.fingerprintjs.com/subscriptions/).
-Params format and properties are the same as in [JS agent](https://dev.fingerprintjs.com/docs/js-agent)
-
-The full example content view for SwiftUI with configured fingerprintjs-pro might look like:
-```swift
-import SwiftUI
-import WebKit
- 
-struct ContentView: View {
-    var body: some View {
-        Webview(url: URL(string: "https://eager-hermann-4ea017.netlify.app")!) // this URL should refer to the webpage with injected and configured fingerprintjs-pro
-    }
-}
- 
-struct Webview: UIViewRepresentable {
-    let url: URL
- 
-    func makeUIView(context: UIViewRepresentableContext<Webview>) -> WKWebView {
-        let webview = WKWebView()
- 
-        let vendorId = UIDevice.current.identifierForVendor.flatMap { "'\($0.uuidString)'" } ?? "undefined"
-        
-        let script = WKUserScript(source: "window.fingerprintjs = { 'vendorId' : \(vendorId) }", injectionTime: .atDocumentStart, forMainFrameOnly: false)
- 
-        webview.configuration.userContentController.addUserScript(script) 
- 
-        let request = URLRequest(url: self.url, cachePolicy: .returnCacheDataElseLoad)
-        webview.load(request)
- 
-        return webview
-    }
- 
-    func updateUIView(_ webview: WKWebView, context: UIViewRepresentableContext<Webview>) {
-        let request = URLRequest(url: self.url, cachePolicy: .returnCacheDataElseLoad)
-        webview.load(request)
-    }
-}
-```
 
 ## Additional Resources
 [FingerprintJS Pro documentation](https://dev.fingerprintjs.com/docs)
