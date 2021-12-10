@@ -89,7 +89,7 @@ FingerprintJSProFactory
     }
 ```
 
-For using FingerprintJS Pro Android inside of an PWA check the [full API reference](docs/client_api.md).
+For using FingerprintJS Pro iOS inside of an PWA check the [full API reference](docs/client_api.md).
 
 
 ## Additional Resources
