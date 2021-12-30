@@ -11,11 +11,40 @@
 
 # [FingerprintJS Pro](https://fingerprintjs.com/) iOS
 
-An example app and packages demonstrating [FingerprintJS Pro](https://fingerprintjs.com/) capabilities on the iOS platform. The repository illustrates how to retrieve a FingerprintJS Pro visitor identifier in a native mobile app. The library communicates with the FingerprintJS Pro API and requires [browser token](https://dev.fingerprintjs.com/docs). If you are interested in the Android platform, you can also check our [FingerprintJS Pro Android](https://github.com/fingerprintjs/fingerprintjs-pro-android-webview).
+```swift
 
-There are two typical use cases:
-- Using our native library to retrieve a FingerprintJS Pro visitor identifier in the native code OR
-- Retrieving visitor identifier using signals from the FingerprintJS Pro browser agent in the webview on the JavaScript level combined with vendor identifier.
+// Trust your user's identifiers with the FingerprintJS Pro
+
+FingerprintJSProFactory
+    .getInstance(
+        token: "my-api-token",
+        endpoint: nil, // optional
+        region: nil // optional
+    )
+    .getVisitorId { result in
+        switch result {
+        case let .failure(error):
+            print("Error: ", error.localizedDescription)
+        case let .success(visitorId):
+            // Prevent fraud cases in your apps with a unique
+            // sticky and reliable ID provided by FingerprintJS Pro.
+            print("Success: ", visitorId)
+        }
+    }
+```
+
+## #1 library for iOS device identification
+
+FingerprintJS Pro is a professional visitor identification service that processes all information server-side and transmits it securely to your servers using server-to-server APIs.
+
+Retrieve an accurate, sticky an stable [FingerprintJS Pro](https://fingerprintjs.com/) visitor identifier in an iOS app. This library communicates with the FingerprintJS Pro API and requires a [token](https://dev.fingerprintjs.com/docs). 
+
+If you are interested in the Android platform, you can also check our [FingerprintJS Pro Android](https://github.com/fingerprintjs/fingerprintjs-pro-android).
+
+## Features
+
+- Retrive a visitor ID in mobile apps or in  a [webview on the JavaScript level](docs/client_api.md#using-inside-a-webview-with-javascript)
+- [Server-to-Server API](https://dev.fingerprintjs.com/docs/server-api)
 
 ## Quick start
 Integrate the FingerprintJS Pro iOS framework to your project. The framework collects various signals from the iOS system, sends them to the FingerprintJS Pro API for processing, and retrieves a very accurate and stable identifier.
@@ -89,11 +118,10 @@ FingerprintJSProFactory
     }
 ```
 
-For using FingerprintJS Pro iOS inside of an PWA check the [full API reference](docs/client_api.md).
-
 
 ## Additional Resources
-[FingerprintJS Pro documentation](https://dev.fingerprintjs.com/docs)
+- [FingerprintJS Pro documentation](https://dev.fingerprintjs.com/docs)
+- [Full API reference](docs/client_api.md).
 
 ## License
 This library is MIT licensed.
