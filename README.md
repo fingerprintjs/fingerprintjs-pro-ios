@@ -9,7 +9,8 @@
   </a>
 </p>
 
-# [FingerprintJS Pro](https://fingerprintjs.com/) iOS
+# FingerprintJS Pro iOS 
+### Official iOS agent & SDK for 100% accurate device identification, created for the FingerprintJS Pro Server API.
 
 ```swift
 
