@@ -42,10 +42,6 @@ Retrieve an accurate, sticky an stable [FingerprintJS Pro](https://fingerprintjs
 
 If you are interested in the Android platform, you can also check our [FingerprintJS Pro Android](https://github.com/fingerprintjs/fingerprintjs-pro-android).
 
-## Features
-
-- Retrive a visitor ID in mobile apps or in  a [webview on the JavaScript level](docs/client_api.md#using-inside-a-webview-with-javascript)
-- [Server-to-Server API](https://dev.fingerprintjs.com/docs/server-api)
 
 ## Quick start
 Integrate the FingerprintJS Pro iOS framework to your project. The framework collects various signals from the iOS system, sends them to the FingerprintJS Pro API for processing, and retrieves a very accurate and stable identifier.
@@ -122,6 +118,7 @@ FingerprintJSProFactory
 
 ## Additional Resources
 - [FingerprintJS Pro documentation](https://dev.fingerprintjs.com/docs)
+- [Server-to-Server API](https://dev.fingerprintjs.com/docs/server-api)
 - [Full API reference](docs/client_api.md).
 
 ## License
