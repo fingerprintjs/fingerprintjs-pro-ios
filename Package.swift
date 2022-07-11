@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "FingerprintJSPro",
     platforms: [
-        .iOS(.v9),
+        .iOS(.v13), .tvOS(.v13)
     ],
     products: [
         .library(
@@ -15,15 +15,8 @@ let package = Package(
         ),
     ],
     targets: [
-        .target(
-            name: "FingerprintJSPro",
-            dependencies: [],
-            exclude: ["Resources/Info.plist"],
-            resources: [.process("Resources/fp.min.js")]
-        ),
-        .testTarget(
-            name: "FingerprintJSProTests",
-            dependencies: ["FingerprintJSPro"]
+        .binaryTarget(
+            name: "FingerprintJSPro"
         ),
     ]
 )
