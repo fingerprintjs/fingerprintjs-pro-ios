@@ -1,46 +1,55 @@
 //
-//  ContentView.swift
+//  RegionPickerView.swift
 //  DemoSPM
 //
-//  Created by Petr Palata on 11.07.2022.
+//  Created by Petr Palata on 12.07.2022.
 //
 
 import SwiftUI
 import FingerprintJSPro
 
-struct LibraryConfigurationView: View {
-    var body: some View {
-        RegionPickerView()
+class RegionPickerState: ObservableObject {
+    @Published public var selectedRegion: Region
+    
+    init(_ selectedRegion: Region = .global) {
+        self.selectedRegion = selectedRegion
     }
 }
 
 struct RegionPickerView: View {
-    @State var selectedRegion: Region = .global
+    @Binding var pickerState: RegionPickerState
     @State var selecting: Bool = false
+    
     var body: some View {
         HStack {
-            Text(selectedRegion.humanReadable)
+            Text(currentRegionString)
             Button("Change Region") {
                 selecting = !selecting
             }
         }.confirmationDialog("Select Region", isPresented: $selecting) {
             ForEach(Region.allCases) { region in
-                Button(region.humanReadable) { self.selectedRegion = region }
+                Button(region.humanReadable) { self.pickerState.selectedRegion = region }
             }
         }
     }
-}
-
-struct LibraryConfigurationView_Previews: PreviewProvider {
-    static var previews: some View {
-        LibraryConfigurationView()
+    
+    private var currentRegionString: String {
+        return pickerState.selectedRegion.humanReadable
     }
 }
 
+/*
+struct RegionPickerView_Previews: PreviewProvider {
+    static var previews: some View {
+        RegionPickerView(pickerState: RegionPickerState())
+    }
+}
+ */
 
+// MARK: - Region Extensions
 extension Region: CaseIterable, Identifiable {
     public static var allCases: [Region] {
-        return [.global, .ap, .eu, .custom(domain: "custom domain")]
+        return [.global, .ap, .eu, .custom(domain: "")]
     }
     
     public var id: String { self.humanReadable }
@@ -50,7 +59,7 @@ extension Region: CaseIterable, Identifiable {
         case .global: return "Global"
         case .ap: return "Asia/Pacific"
         case .eu: return "Europe"
-        case .custom(let domain): return "Domain: \(domain)"
+        case .custom(_): return "Custom Domain"
         @unknown default:
             return "Unknown"
         }

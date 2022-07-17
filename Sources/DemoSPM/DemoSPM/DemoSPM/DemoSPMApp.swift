@@ -12,7 +12,9 @@ import FingerprintJSPro
 struct DemoSPMApp: App {
     var body: some Scene {
         WindowGroup {
-            LibraryConfigurationView()
+            NavigationView {
+                LibraryConfigurationView()
+            }
         }
     }
 }
