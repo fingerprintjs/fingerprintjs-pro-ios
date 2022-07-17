@@ -24,18 +24,16 @@ class FingerprintViewModel: ObservableObject {
     
     func fetchResponse() async {
         loading = true
-        defer {
-            loading = false
-        }
-        
         do {
             let response = try await client.getVisitorIdResponse(true)
             await MainActor.run {
                 self.response = response
+                self.loading = false
             }
         } catch let fpjsError {
             await MainActor.run {
                 self.error = fpjsError as? FPJSError
+                self.loading = false
             }
         }
     }

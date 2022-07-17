@@ -34,15 +34,15 @@ struct ResponseDetailView: View {
     }
     
     @ViewBuilder var content: some View {
-        if let response = viewModel.response {
+        if viewModel.loading {
+            ProgressView()
+        } else if let response = viewModel.response {
             Text(response.visitorId)
             if let ipLocation = response.ipLocation {
                 IPLocationView(ipLocation)
             }
         } else if let error = viewModel.error {
             Text(error.description)
-        } else {
-            ProgressView()
         }
     }
 }
