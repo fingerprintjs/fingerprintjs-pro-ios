@@ -14,7 +14,7 @@ class LibraryConfigurationViewModel: ObservableObject {
     @Published var customDomain: String? = nil
     @Published var apiKey: String = ""
     @Published var url: String = ""
-    @Published var pickerState: RegionPickerState = RegionPickerState()
+    @Published var pickerState: RegionPickerViewModel = RegionPickerViewModel()
     
     var pickerStateCancellable: AnyCancellable? = nil
     
@@ -25,8 +25,7 @@ class LibraryConfigurationViewModel: ObservableObject {
     }
     
     var hasValidConfiguration: Bool {
-        NSLog(apiKey)
-        return apiKey.isEmpty
+        return !apiKey.isEmpty
     }
     
     var showsCustomDomainField: Bool {

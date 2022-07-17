@@ -7,18 +7,49 @@
 
 import SwiftUI
 import FingerprintJSPro
+import MapKit
 
 struct IPLocationView: View {
-    @State var ipLocation: IPLocation
+    @State private var internalMapRegion: MKCoordinateRegion = MKCoordinateRegion()
+    
+    private var ipLocation: IPLocation
+    private var userCoordinates: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    
+    init(_ ipLocation: IPLocation) {
+        self.ipLocation = ipLocation
+        
+        if let latitude = ipLocation.latitude, let longitude = ipLocation.longitude {
+            let userLocation = CLLocationCoordinate2D(
+                latitude: CLLocationDegrees(latitude),
+                longitude: CLLocationDegrees(longitude)
+            )
+            
+            self.userCoordinates = userLocation
+
+            let region = MKCoordinateRegion(
+                center: userLocation,
+                span: MKCoordinateSpan(
+                    latitudeDelta: 0.3,
+                    longitudeDelta: 0.3
+                )
+            )
+            
+            self._internalMapRegion = State(initialValue: region)
+        }
+    }
     
     var body: some View {
-        Text(ipLocation.country?.name ?? "No IP location")
+        VStack(alignment: .leading) {
+            Text("Visitor Location").padding(.horizontal)
+            Map(
+                coordinateRegion: $internalMapRegion,
+                annotationItems: [
+                    ipLocation
+                ],
+                annotationContent: { _ in
+                    MapPin(coordinate: self.userCoordinates, tint: .red)
+                }
+            ).frame(minHeight: 400)
+        }
     }
 }
-
-/*
-struct IPLocationView_Previews: PreviewProvider {
-    static var previews: some View {
-    }
-}
-*/

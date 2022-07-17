@@ -14,7 +14,6 @@ struct LibraryConfigurationView: View {
     var body: some View {
         VStack {
             RegionPickerView(pickerState: $viewModel.pickerState)
-            
             if viewModel.showsCustomDomainField {
                 TextField("Insert custom domain URL", text: $viewModel.url)
                     .disableAutocorrection(true)
@@ -25,9 +24,17 @@ struct LibraryConfigurationView: View {
             TextField("API Key", text: $viewModel.apiKey)
                 .disableAutocorrection(true)
             NavigationLink("Get Visitor ID") {
-                ResponseDetailView()
-            }.disabled(viewModel.hasValidConfiguration)
+                detailView
+            }.disabled(!viewModel.hasValidConfiguration)
         }.padding()
+    }
+    
+    var detailView: some View {
+        ResponseDetailView(
+            viewModel: FingerprintViewModel(
+                FingerprintJSProFactory.getInstance(viewModel.apiKey, region: viewModel.pickerState.selectedRegion)
+            )
+        )
     }
 }
 

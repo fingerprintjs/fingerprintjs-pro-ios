@@ -8,16 +8,8 @@
 import SwiftUI
 import FingerprintJSPro
 
-class RegionPickerState: ObservableObject {
-    @Published public var selectedRegion: Region
-    
-    init(_ selectedRegion: Region = .global) {
-        self.selectedRegion = selectedRegion
-    }
-}
-
 struct RegionPickerView: View {
-    @Binding var pickerState: RegionPickerState
+    @Binding var pickerState: RegionPickerViewModel
     @State var selecting: Bool = false
     
     var body: some View {
@@ -28,7 +20,9 @@ struct RegionPickerView: View {
             }
         }.confirmationDialog("Select Region", isPresented: $selecting) {
             ForEach(Region.allCases) { region in
-                Button(region.humanReadable) { self.pickerState.selectedRegion = region }
+                Button(region.humanReadable) {
+                    self.pickerState.selectedRegion = region
+                }
             }
         }
     }
