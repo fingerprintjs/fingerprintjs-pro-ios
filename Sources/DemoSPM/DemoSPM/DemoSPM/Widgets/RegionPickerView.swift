@@ -9,19 +9,29 @@ import SwiftUI
 import FingerprintJSPro
 
 struct RegionPickerView: View {
-    @Binding var pickerState: RegionPickerViewModel
+    @StateObject var pickerState: RegionPickerViewModel
     @State var selecting: Bool = false
     
     var body: some View {
-        HStack {
-            Text(currentRegionString)
-            Button("Change Region") {
-                selecting = !selecting
-            }
-        }.confirmationDialog("Select Region", isPresented: $selecting) {
-            ForEach(Region.allCases) { region in
-                Button(region.humanReadable) {
-                    self.pickerState.selectedRegion = region
+        VStack(alignment: .leading) {
+            Text("Region").font(.system(size: 12).bold())
+            HStack {
+                Text(currentRegionString)
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal)
+                    .padding(.vertical, 12)
+                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.init(red: 0.8, green: 0.8, blue: 0.8)))
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(.orange, lineWidth: 2))
+                
+                Button("Change") {
+                    selecting = !selecting
+                }
+                .foregroundColor(.orange)
+            }.confirmationDialog("Select Region", isPresented: $selecting) {
+                ForEach(Region.allCases) { region in
+                    Button(region.humanReadable) {
+                        self.pickerState.selectedRegion = region
+                    }
                 }
             }
         }
@@ -33,11 +43,11 @@ struct RegionPickerView: View {
 }
 
 /*
-struct RegionPickerView_Previews: PreviewProvider {
-    static var previews: some View {
-        RegionPickerView(pickerState: RegionPickerState())
-    }
-}
+ struct RegionPickerView_Previews: PreviewProvider {
+ static var previews: some View {
+ RegionPickerView(pickerState: RegionPickerState())
+ }
+ }
  */
 
 // MARK: - Region Extensions
