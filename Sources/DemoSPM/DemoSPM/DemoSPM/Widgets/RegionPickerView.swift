@@ -13,25 +13,22 @@ struct RegionPickerView: View {
     @State var selecting: Bool = false
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Region").font(.system(size: 12).bold())
-            HStack {
-                Text(currentRegionString)
-                    .frame(maxWidth: .infinity)
-                    .padding(.horizontal)
-                    .padding(.vertical, 12)
-                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.init(red: 0.8, green: 0.8, blue: 0.8)))
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(.orange, lineWidth: 2))
-                
-                Button("Change") {
-                    selecting = !selecting
-                }
-                .foregroundColor(.orange)
-            }.confirmationDialog("Select Region", isPresented: $selecting) {
-                ForEach(Region.allCases) { region in
-                    Button(region.humanReadable) {
-                        self.pickerState.selectedRegion = region
-                    }
+        HStack {
+            Text(currentRegionString)
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal)
+                .padding(.vertical, 12)
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color.init(red: 0.8, green: 0.8, blue: 0.8)))
+                .overlay(RoundedRectangle(cornerRadius: 10).stroke(.orange, lineWidth: 2))
+            
+            Button("Change") {
+                selecting = !selecting
+            }
+            .foregroundColor(.orange)
+        }.confirmationDialog("Select Region", isPresented: $selecting) {
+            ForEach(Region.allCases) { region in
+                Button(region.humanReadable) {
+                    self.pickerState.selectedRegion = region
                 }
             }
         }
