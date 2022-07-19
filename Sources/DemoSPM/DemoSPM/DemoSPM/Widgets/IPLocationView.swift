@@ -39,8 +39,7 @@ struct IPLocationView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Visitor Location").padding(.horizontal)
+        FormField(label: "Visitor Location") {
             Map(
                 coordinateRegion: $internalMapRegion,
                 annotationItems: [
@@ -49,7 +48,11 @@ struct IPLocationView: View {
                 annotationContent: { _ in
                     MapPin(coordinate: self.userCoordinates, tint: .red)
                 }
-            ).frame(minHeight: 400)
+            )
+            .frame(maxHeight: 400)
+            .cornerRadius(10)
+            .allowsHitTesting(false)
         }
+        .padding(.horizontal)
     }
 }

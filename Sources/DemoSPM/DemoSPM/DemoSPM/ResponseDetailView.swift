@@ -18,32 +18,37 @@ struct ResponseDetailView: View {
                 await viewModel.fetchResponse()
             }
             
+            Spacer()
             HStack {
                 Button("Get Visitor ID") {
                     Task.init {
                         await viewModel.fetchResponse()
                     }
                 }
+                .frame(maxWidth: .infinity)
+                .background(.orange)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
                 .disabled(viewModel.loading)
+                .padding()
+                .padding(.top, 16)
                 
                 if viewModel.loading {
                     ProgressView()
                 }
             }
-        }
+        }.navigationTitle("Response")
     }
     
     @ViewBuilder var content: some View {
+        Spacer()
         if viewModel.loading {
             ProgressView()
         } else if let response = viewModel.response {
-            Text(response.visitorId)
-            if let ipLocation = response.ipLocation {
-                IPLocationView(ipLocation)
-            }
+            ResponseItemsView(response: response)
         } else if let error = viewModel.error {
             Text(error.description)
         }
+        Spacer()
     }
 }
 
