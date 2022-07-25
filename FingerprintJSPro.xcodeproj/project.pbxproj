@@ -7,35 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D32C118CB5D1C0AC97A820D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 189D387CA31D04B5B95AA0E2 /* Assets.xcassets */; };
 		0E9953576D18796428EAB972 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 989B1CC7E566CB594A7B11C8 /* LaunchScreen.storyboard */; };
 		3AF6E0E7F762D552C2C3D15A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78004474C4973624A7BA9304 /* AppDelegate.swift */; };
-		6C3BB2441FC4E7EBA5D34B7A /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEC3AC52D84CF42BD2625FB /* DemoApp.swift */; };
-		AA710D5CEBF33D687D37CAAD /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293D18CB4A98F33A4DFCC773 /* DemoView.swift */; };
-		CBA1CA95DDB7329F10488EAB /* FingerprintJSPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3805D25CFDD87064ADD4C6B9 /* FingerprintJSPro.swift */; };
 		CC4C886AB46B722F0CCFFF53 /* FingerprintJSPro in Frameworks */ = {isa = PBXBuildFile; productRef = 4E51F9AB3162F73BB69790E5 /* FingerprintJSPro */; };
-		D440AE5A718C6F41EB316A37 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A7E706C2EB5BDA24986DF6 /* Preview Assets.xcassets */; };
-		F3AB376FF316A44BC6007E53 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9020DA54B859266C04D08E2F /* Keychain.swift */; };
-		FDDA165E27862CC9BFC770F8 /* fp.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 5A0B99D00383DC6019DD8DF3 /* fp.min.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		008F6E2428F233C43CDB0ACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		04A7E706C2EB5BDA24986DF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		189D387CA31D04B5B95AA0E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		293D18CB4A98F33A4DFCC773 /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
-		3805D25CFDD87064ADD4C6B9 /* FingerprintJSPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintJSPro.swift; sourceTree = "<group>"; };
 		56F9F222A72E52118912A83F /* FingerprintJS-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "FingerprintJS-iOS"; path = .; sourceTree = SOURCE_ROOT; };
-		5A0B99D00383DC6019DD8DF3 /* fp.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = fp.min.js; sourceTree = "<group>"; };
-		669F67B132C3818FE758787B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		78004474C4973624A7BA9304 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E6B3004E7D2E95426399874 /* FingerprintJSPro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FingerprintJSPro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9020DA54B859266C04D08E2F /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		989B1CC7E566CB594A7B11C8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A7BAE591E405028AAC957242 /* DemoJavaScript.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = DemoJavaScript.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDF97E17B0DAE974B9A778C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F9A54EC404918F03D6791701 /* Demo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FCEC3AC52D84CF42BD2625FB /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,35 +57,9 @@
 			isa = PBXGroup;
 			children = (
 				8500AAC7D89838ABDF52DE88 /* Demo */,
-				A6BF43F1B51EC07BFC5D9E17 /* DemoJavaScript */,
-				AEB415E584233FD4EAA935B5 /* FingerprintJSPro */,
 				23C2B20D92CDE633DA38A321 /* Packages */,
 				DFB5D7CC524FBF66A306641D /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		A6BF43F1B51EC07BFC5D9E17 /* DemoJavaScript */ = {
-			isa = PBXGroup;
-			children = (
-				189D387CA31D04B5B95AA0E2 /* Assets.xcassets */,
-				FCEC3AC52D84CF42BD2625FB /* DemoApp.swift */,
-				293D18CB4A98F33A4DFCC773 /* DemoView.swift */,
-				669F67B132C3818FE758787B /* Info.plist */,
-				E484AC4F536B4AA266CF5596 /* Preview Content */,
-			);
-			name = DemoJavaScript;
-			path = Sources/DemoJavaScript;
-			sourceTree = "<group>";
-		};
-		AEB415E584233FD4EAA935B5 /* FingerprintJSPro */ = {
-			isa = PBXGroup;
-			children = (
-				3805D25CFDD87064ADD4C6B9 /* FingerprintJSPro.swift */,
-				9020DA54B859266C04D08E2F /* Keychain.swift */,
-				ED71A9BF160EA8C8A15E2040 /* Resources */,
-			);
-			name = FingerprintJSPro;
-			path = Sources/FingerprintJSPro;
 			sourceTree = "<group>";
 		};
 		DFB5D7CC524FBF66A306641D /* Products */ = {
@@ -112,23 +70,6 @@
 				7E6B3004E7D2E95426399874 /* FingerprintJSPro.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		E484AC4F536B4AA266CF5596 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				04A7E706C2EB5BDA24986DF6 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		ED71A9BF160EA8C8A15E2040 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				5A0B99D00383DC6019DD8DF3 /* fp.min.js */,
-				008F6E2428F233C43CDB0ACF /* Info.plist */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,8 +178,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D32C118CB5D1C0AC97A820D /* Assets.xcassets in Resources */,
-				D440AE5A718C6F41EB316A37 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +185,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDDA165E27862CC9BFC770F8 /* fp.min.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +195,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C3BB2441FC4E7EBA5D34B7A /* DemoApp.swift in Sources */,
-				AA710D5CEBF33D687D37CAAD /* DemoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,8 +210,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBA1CA95DDB7329F10488EAB /* FingerprintJSPro.swift in Sources */,
-				F3AB376FF316A44BC6007E53 /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
