@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://fingerprintjs.com">
-    <img src="logo.svg" alt="FingerprintJS" width="312px" />
+  <a href="https://fingerprint.com">
+    <img src="logo.svg" alt="Fingerprint" width="312px" />
   </a>
 </p>
 <p align="center">
@@ -10,7 +10,7 @@
 </p>
 
 # FingerprintJS Pro iOS 
-### Official iOS agent & SDK for 100% accurate device identification, created for the FingerprintJS Pro Server API.
+### Second version of the official iOS/tvOS agent & SDK for accurate device identification. Created for the Fingerprint Pro Server API.
 
 ## Quick Start
 
@@ -20,7 +20,7 @@ We haven't released our library publicly yet (through SPM and CocoaPods). If you
 
 1. Add `FingerprintJSPro` as a dependency (drag and drop the .xcframework file into your Xcode project)
 
-2. Obtain a public API key from [FingerprintJS Dashboard](https://dashboard.fingerprint.com)
+2. Obtain a public API key from [Fingerprint Dashboard](https://dashboard.fingerprint.com)
 
 3. Use the library to interface with our service and get a `visitorId`
 
@@ -40,10 +40,9 @@ do {
 
 It is possible to manually select an endpoint from a predefined set of regions. The library uses the `global` region by default. The list of existing regions can be found in our [developer documentation](https://dev.fingerprint.com/docs/regions).
 
-Besides selecting a region from the predefined set, it's possible to point the library to a custom endpoint that has the correct API interface with the `.custom(String)` enum value. The `String` parameter represents the full URL of the endpoint. If the endpoint isn't a valid URL, the library throws a specific error during the `getVisitorId()` calls.
+Besides selecting a region from the predefined set, it's possible to point the library to a custom endpoint that has the correct API interface with the `.custom(domain:)` enum value. The `domain` parameter represents the full URL of the endpoint. If the endpoint isn't a valid URL, the library throws a specific error during API calls.
 
-
-Note: API keys are region-specific so make sure you have the correct one. 
+Note: API keys are region-specific so make sure you have selected the correct region during initialization. 
 
 ### Selecting a Region
 
@@ -70,18 +69,20 @@ let client = FingerprintJSProFactory.getInstance(configuration)
 let response = try? await client.getVisitorId() 
 ```
 
-# Default and Extended Response Formats
+## Default and Extended Response Formats
 
 The backend can return either a default or an extended response. Extended response contains more metadata that further explain the fingerprinting process. Both eefault and extended responses are captured in the `FingerprintResponse` object. 
 
-Using `getVisitorId(_)` with no parameters returns the default response and further contains the `extendedResult` boolean flag which determines whether the response should be default or extended.
+Using `getVisitorIdResponse(_)` with no parameters returns the default response unless `extendedResponseFormat` was set to true during library initialization.
 
 ```swift
 let client = FingerprintJSProFactory.getInstance("<your-api-key>")
+
+// returns default respones format
 let extendedResult = try? await client.getVisitorIdResponse()
 ```
 
-## Default Response
+### Default Response
 
 <details>
 <summary>Show Default Response</summary>
@@ -96,8 +97,17 @@ public struct FingerprintResponse {
 ```
 </details>
 
-## Extended Result
-Extended result contains extra information, namely the IP address and its geolocation. The extended result comes from the backend if the `extendedResponseFormat` flag is set on the `Configuration` object passed into the `getInstace(_)` factory method during client initialization.
+### Extended Result
+Extended result contains extra information, namely the IP address and its geolocation. The extended result comes from the backend if the `extendedResponseFormat` flag is set on the `Configuration` object passed into the `getInstance()` factory method during client initialization.
+
+```swift
+let configuration = Configuration(apiKey: <your-api-key>, extendedResponseFormat: true)
+
+let client = FingerprintJSProFactory.getInstance(configuration)
+
+// returns extended response format
+let extendedResult = try? await client.getVisitorIdResponse()
+```
 
 The extended format has the following fields.
 
@@ -149,12 +159,11 @@ public struct IPGeoInfo: Decodable {
 
 ## Metadata
 
-The `Metadata` structure can be passed to any library request through a parameter. Metadata serve as an extension point for developers that allows them to send additional data to our backend. The metadata can be then used to filter and identify the requests.
+The `Metadata` structure can be passed to any library request through a parameter. Metadata serve as an extension point for developers, allowing sending additional data to our backend. The metadata can be then used to filter and identify the requests.
 
 `Metadata` consist of `linkedId` and `tags`. `LinkedId` is a string value that can uniquely identify the request among the rest. `Tags` is an arbitrary set of data (with the only limitation that the data has to be encodable into a JSON object) that are sent to the backend and passed into the webhook call.
 
 The following example sets `linkedId`, `tags` and sends it to the backend within a request.
-
 
 ```swift
 let client = FingerprintJSProFactory.getInstance("<your-api-key>")
