@@ -18,7 +18,10 @@ We haven't released our library publicly yet (through SPM and CocoaPods). If you
 
 ### Installation Steps
 
+
 1. Add `FingerprintJSPro` as a dependency (drag and drop the .xcframework file into your Xcode project)
+
+If you're unsure how to setup the framework in Xcode, the `Examples/DemoXCFramework` folder contains a project that should work out of the box. The XCFramework file has to be copied to the root folder of the example (i.e. `cp -R <downloaded-framework-path> Examples/DemoXCFramework/FingerprintJSPro.xcframework`).
 
 2. Obtain a public API key from [Fingerprint Dashboard](https://dashboard.fingerprint.com)
 
