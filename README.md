@@ -25,8 +25,10 @@ We haven't released our library publicly yet (through SPM and CocoaPods). If you
 3. Use the library to interface with our service and get a `visitorId`
 
 ```swift
+import FingerprintJSPro
+
 // Creates FingerprintJS Pro client for the global region
-let client = FingerprintJSProFactory.getInstance("<your-api-key>")
+let client = FingerprintProFactory.getInstance("<your-api-key>")
 
 do {
     let response = try await client.getVisitorId()
@@ -48,9 +50,10 @@ Note: API keys are region-specific so make sure you have selected the correct re
 
 ```swift
 let region: Region = .ap
+let configuration = Configuration(apiKey: <your-api-key>, region: region)
 
 // Creates a client for the Asia/Pacific region
-let client = FingerprintJSProFactory.getInstance("<your-api-key>", region: region)
+let client = FingerprintProFactory.getInstance(configuration)
 
 // Uses the Asia/Pacific endpoint for API calls
 let response = try? await client.getVisitorId() 
@@ -59,11 +62,11 @@ let response = try? await client.getVisitorId()
 ### Using Custom Endpoint Domain
 
 ```swift
-let customDomain: Region = .custom("https://example.com")
+let customDomain: Region = .custom(domain: "https://example.com")
 let configuration = Configuration(apiKey: <your-api-key>, region: customDomain)
 
 // Creates client for the Asia/Pacific region
-let client = FingerprintJSProFactory.getInstance(configuration)
+let client = FingerprintProFactory.getInstance(configuration)
 
 // Uses https://example.com to make an API call
 let response = try? await client.getVisitorId() 
@@ -76,7 +79,7 @@ The backend can return either a default or an extended response. Extended respon
 Using `getVisitorIdResponse(_)` with no parameters returns the default response unless `extendedResponseFormat` was set to true during library initialization.
 
 ```swift
-let client = FingerprintJSProFactory.getInstance("<your-api-key>")
+let client = FingerprintProFactory.getInstance("<your-api-key>")
 
 // returns default respones format
 let extendedResult = try? await client.getVisitorIdResponse()
@@ -103,7 +106,7 @@ Extended result contains extra information, namely the IP address and its geoloc
 ```swift
 let configuration = Configuration(apiKey: <your-api-key>, extendedResponseFormat: true)
 
-let client = FingerprintJSProFactory.getInstance(configuration)
+let client = FingerprintProFactory.getInstance(configuration)
 
 // returns extended response format
 let extendedResult = try? await client.getVisitorIdResponse()
@@ -166,11 +169,11 @@ The `Metadata` structure can be passed to any library request through a paramete
 The following example sets `linkedId`, `tags` and sends it to the backend within a request.
 
 ```swift
-let client = FingerprintJSProFactory.getInstance("<your-api-key>")
+let client = FingerprintProFactory.getInstance("<your-api-key>")
 
 var metadata = Metadata(linkedId: "unique-id")
-metadata.setTag("purchase", for: "actionType")
-metadata.setTag(10, for: "purchaseCount")
+metadata.setTag("purchase", forKey: "actionType")
+metadata.setTag(10, forKey: "purchaseCount")
 
 let response = try? await client.getVisitorId(metadata) 
 ```
