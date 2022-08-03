@@ -21,7 +21,11 @@ We haven't released our library publicly yet (through SPM and CocoaPods). If you
 
 1. Add `FingerprintJSPro` as a dependency (drag and drop the .xcframework file into your Xcode project)
 
-If you're unsure how to setup the framework in Xcode, the `Examples/DemoXCFramework` folder contains a project that should work out of the box. The XCFramework file has to be copied to the root folder of the example (i.e. `cp -R <downloaded-framework-path> Examples/DemoXCFramework/FingerprintJSPro.xcframework`).
+If you're unsure how to setup the framework in Xcode, the `Examples/DemoXCFramework` folder contains a project that should work out of the box. The XCFramework file has to be copied to the root folder of the example:
+
+```shell
+cp -R <downloaded-framework-path> Examples/DemoXCFramework/FingerprintJSPro.xcframework
+```
 
 2. Obtain a public API key from [Fingerprint Dashboard](https://dashboard.fingerprint.com)
 
@@ -34,8 +38,8 @@ import FingerprintJSPro
 let client = FingerprintProFactory.getInstance("<your-api-key>")
 
 do {
-    let response = try await client.getVisitorId()
-    print(response.visitorId)
+    let visitorId = try await client.getVisitorId()
+    print(visitorId)
 } catch {
     // process error
 }
@@ -59,7 +63,7 @@ let configuration = Configuration(apiKey: <your-api-key>, region: region)
 let client = FingerprintProFactory.getInstance(configuration)
 
 // Uses the Asia/Pacific endpoint for API calls
-let response = try? await client.getVisitorId() 
+let visitorId = try? await client.getVisitorId() 
 ```
 
 ### Using Custom Endpoint Domain
@@ -72,12 +76,12 @@ let configuration = Configuration(apiKey: <your-api-key>, region: customDomain)
 let client = FingerprintProFactory.getInstance(configuration)
 
 // Uses https://example.com to make an API call
-let response = try? await client.getVisitorId() 
+let visitorId = try? await client.getVisitorId() 
 ```
 
 ## Default and Extended Response Formats
 
-The backend can return either a default or an extended response. Extended response contains more metadata that further explain the fingerprinting process. Both eefault and extended responses are captured in the `FingerprintResponse` object. 
+The backend can return either a default or an extended response. Extended response contains more metadata that further explain the fingerprinting process. Both default and extended responses are captured in the `FingerprintResponse` object. 
 
 Using `getVisitorIdResponse(_)` with no parameters returns the default response unless `extendedResponseFormat` was set to true during library initialization.
 
@@ -178,7 +182,7 @@ var metadata = Metadata(linkedId: "unique-id")
 metadata.setTag("purchase", forKey: "actionType")
 metadata.setTag(10, forKey: "purchaseCount")
 
-let response = try? await client.getVisitorId(metadata) 
+let visitorId = try? await client.getVisitorId(metadata) 
 ```
 
 ## Errors
