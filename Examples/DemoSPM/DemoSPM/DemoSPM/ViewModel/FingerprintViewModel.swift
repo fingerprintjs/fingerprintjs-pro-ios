@@ -10,7 +10,7 @@ import FingerprintJSPro
 import MapKit
 
 class FingerprintViewModel: ObservableObject {
-    let client: FingerprintJSClientProviding
+    let client: FingerprintClientProviding
     
     @Published var response: FingerprintResponse?
     @Published var error: FPJSError?
@@ -18,14 +18,14 @@ class FingerprintViewModel: ObservableObject {
     
     var mapRegion = MKCoordinateRegion()
     
-    init(_ client: FingerprintJSClientProviding) {
+    init(_ client: FingerprintClientProviding) {
         self.client = client
     }
     
     func fetchResponse() async {
         loading = true
         do {
-            let response = try await client.getVisitorIdResponse(true)
+            let response = try await client.getVisitorIdResponse()
             await MainActor.run {
                 self.response = response
                 self.loading = false

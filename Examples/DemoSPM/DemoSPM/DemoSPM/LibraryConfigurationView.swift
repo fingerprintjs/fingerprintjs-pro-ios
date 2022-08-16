@@ -51,11 +51,14 @@ struct LibraryConfigurationView: View {
     }
     
     var detailView: some View {
-        ResponseDetailView(
-            viewModel: FingerprintViewModel(
-                FingerprintJSProFactory.getInstance(viewModel.apiKey, region: selectedRegion)
-            )
+        let configuration = Configuration(
+            apiKey: viewModel.apiKey,
+            region: selectedRegion,
+            extendedResponseFormat: true
         )
+        
+        let client = FingerprintProFactory.getInstance(configuration)
+        return ResponseDetailView(viewModel: FingerprintViewModel(client))
     }
     
     private var selectedRegion: Region {
