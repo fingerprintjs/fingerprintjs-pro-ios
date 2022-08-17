@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import FingerprintJSPro
+import FingerprintPro
 
 struct ContentView: View {
     @State var visitorId = "No visitor ID"

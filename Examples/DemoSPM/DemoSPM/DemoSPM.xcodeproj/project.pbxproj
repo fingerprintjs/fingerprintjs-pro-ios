@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A6DA5D128AD4A5E007BA8DD /* FingerprintPro in Frameworks */ = {isa = PBXBuildFile; productRef = 6A6DA5D028AD4A5E007BA8DD /* FingerprintPro */; };
 		6A81D7E5287C88D9001C5E95 /* DemoSPMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81D7E4287C88D9001C5E95 /* DemoSPMApp.swift */; };
 		6A81D7E7287C88D9001C5E95 /* LibraryConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81D7E6287C88D9001C5E95 /* LibraryConfigurationView.swift */; };
 		6A81D7E9287C88DA001C5E95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A81D7E8287C88DA001C5E95 /* Assets.xcassets */; };
@@ -27,7 +28,6 @@
 		6A81D7E6287C88D9001C5E95 /* LibraryConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryConfigurationView.swift; sourceTree = "<group>"; };
 		6A81D7E8287C88DA001C5E95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A81D7EB287C88DA001C5E95 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		6A81D7F3287C894F001C5E95 /* fingerprintjs-pro-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "fingerprintjs-pro-ios"; path = ../../..; sourceTree = "<group>"; };
 		6A81D7F8287DADB5001C5E95 /* RegionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionPickerView.swift; sourceTree = "<group>"; };
 		6A81D7FA287F7F84001C5E95 /* ResponseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDetailView.swift; sourceTree = "<group>"; };
 		6A81D7FC287F7FC3001C5E95 /* IPLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPLocationView.swift; sourceTree = "<group>"; };
@@ -36,6 +36,7 @@
 		6A81D804288463A1001C5E95 /* RegionPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionPickerViewModel.swift; sourceTree = "<group>"; };
 		6A81D80628854A0E001C5E95 /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		6A81D8082886955A001C5E95 /* ResponseItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseItemsView.swift; sourceTree = "<group>"; };
+		6AC1F78428AD4A0100DE8916 /* fingerprintjs-pro-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "fingerprintjs-pro-ios"; path = ../../..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,18 +44,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A6DA5D128AD4A5E007BA8DD /* FingerprintPro in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A6DA5CF28AD4A5E007BA8DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6A81D7D8287C88D9001C5E95 = {
 			isa = PBXGroup;
 			children = (
 				6A81D7F2287C894F001C5E95 /* Packages */,
 				6A81D7E3287C88D9001C5E95 /* DemoSPM */,
 				6A81D7E2287C88D9001C5E95 /* Products */,
+				6A6DA5CF28AD4A5E007BA8DD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,7 +102,7 @@
 		6A81D7F2287C894F001C5E95 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				6A81D7F3287C894F001C5E95 /* fingerprintjs-pro-ios */,
+				6AC1F78428AD4A0100DE8916 /* fingerprintjs-pro-ios */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -134,6 +144,9 @@
 				6A81D7F6287C8AC0001C5E95 /* PBXTargetDependency */,
 			);
 			name = DemoSPM;
+			packageProductDependencies = (
+				6A6DA5D028AD4A5E007BA8DD /* FingerprintPro */,
+			);
 			productName = DemoSPM;
 			productReference = 6A81D7E1287C88D9001C5E95 /* DemoSPM.app */;
 			productType = "com.apple.product-type.application";
@@ -407,6 +420,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6A6DA5D028AD4A5E007BA8DD /* FingerprintPro */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FingerprintPro;
+		};
 		6A81D7F5287C8AC0001C5E95 /* FingerprintJSPro */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FingerprintJSPro;

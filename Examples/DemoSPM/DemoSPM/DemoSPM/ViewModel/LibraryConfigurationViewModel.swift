@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import FingerprintJSPro
+import FingerprintPro
 import SwiftUI
 import Combine
 

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import FingerprintJSPro
+import FingerprintPro
 
 struct RegionPickerView: View {
     @StateObject var pickerState: RegionPickerViewModel

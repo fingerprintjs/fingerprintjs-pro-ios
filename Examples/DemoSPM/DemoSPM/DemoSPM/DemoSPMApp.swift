@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import FingerprintJSPro
+import FingerprintPro
 
 @main
 struct DemoSPMApp: App {

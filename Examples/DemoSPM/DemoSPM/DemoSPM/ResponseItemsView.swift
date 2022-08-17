@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import FingerprintJSPro
+import FingerprintPro
 
 struct ResponseItemsView: View {
     var response: FingerprintResponse

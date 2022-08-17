@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import FingerprintJSPro
+import FingerprintPro
 
 struct LibraryConfigurationView: View {
     @StateObject var viewModel = LibraryConfigurationViewModel()

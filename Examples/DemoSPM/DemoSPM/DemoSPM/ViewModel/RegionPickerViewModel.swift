@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import FingerprintJSPro
+import FingerprintPro
 
 class RegionPickerViewModel: ObservableObject {
     @Published public var selectedRegion: Region
