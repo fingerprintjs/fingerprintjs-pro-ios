@@ -9,32 +9,42 @@
   </a>
 </p>
 
-# FingerprintJS Pro iOS 
+# FingerprintPro iOS 
 ### Second version of the official iOS/tvOS agent & SDK for accurate device identification. Created for the Fingerprint Pro Server API.
 
 ## Quick Start
 
-We haven't released our library publicly yet (through SPM and CocoaPods). If you'd like to try it out in a PoC application, shoot us an email with the details to ios@fingerprint.com and we'll send over the binary.
-
 ### Installation Steps
 
+1. Add `FingerprintPro` as a dependency
 
-1. Add `FingerprintPro` as a dependency (drag and drop the .xcframework file into your Xcode project)
-
-If you're unsure how to setup the framework in Xcode, the `Examples/DemoXCFramework` folder contains a project that should work out of the box. The XCFramework file has to be copied to the root folder of the example:
-
-```shell
-cp -R <downloaded-framework-path> Examples/DemoXCFramework/FingerprintPro.xcframework
-```
+   a) Use Swift Package Manager
+   ```swift
+   // Package.swift
+   let package = Package(
+       ...
+   
+       dependencies: [
+           .package(url: "https://github.com/fingerprintjs/fingerprintjs-pro-ios", from: "2.0.0")
+       ]
+   
+       ...
+   )
+   ```
+   b) Use Cocoapods
+   ```ruby
+   # Podfile
+   pod 'FingerprintPro', '~> 2.0'
+   ```
 
 2. Obtain a public API key from [Fingerprint Dashboard](https://dashboard.fingerprint.com)
 
-3. Use the library to interface with our service and get a `visitorId`
+3. Use the library to interface with our platform and get a `visitorId`
 
 ```swift
 import FingerprintPro
 
-// Creates FingerprintJS Pro client for the global region
+// Creates Fingerprint Pro client for the global region
 let client = FingerprintProFactory.getInstance("<your-api-key>")
 
 do {
