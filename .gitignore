@@ -3,6 +3,6 @@
 /Packages
 xcuserdata/
 /vendor
-/Pods
+Pods/
 DerivedData/
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
