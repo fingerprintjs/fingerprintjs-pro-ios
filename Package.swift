@@ -17,8 +17,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "FingerprintPro",
-            url: "https://fpjs-public.s3.amazonaws.com/ios/2.0.2/FingerprintPro-2.0.2-c2361af3e66764ab400d27cff300ed2134bd2e5fda1a64bcb28964937d661770.xcframework.zip",
-            checksum: "c2361af3e66764ab400d27cff300ed2134bd2e5fda1a64bcb28964937d661770"
+            url: "https://fpjs-public.s3.amazonaws.com/ios/2.1.0/FingerprintPro-2.1.0-7827cdc299af8d4c23f056ae53331e9041e36f5760bd27eda8faca76d9997f25.xcframework.zip",
+            checksum: "7827cdc299af8d4c23f056ae53331e9041e36f5760bd27eda8faca76d9997f25"
         ),
     ]
 )
