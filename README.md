@@ -10,7 +10,7 @@
 </p>
 
 # FingerprintPro iOS 
-### Second version of the official iOS/tvOS agent & SDK for accurate device identification. Created for the Fingerprint Pro Server API.
+### Second version of the official iOS/tvOS agent & SDK for accurate device identification. Created for the Fingerprint Pro identification API.
 
 ## Quick Start
 
