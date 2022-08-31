@@ -10,10 +10,23 @@ import FingerprintPro
 
 @main
 struct DemoSPMApp: App {
+    @ObservedObject var configurationViewModel = LibraryConfigurationViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                LibraryConfigurationView()
+            TabView {
+                LibraryConfigurationView(viewModel: configurationViewModel).tabItem {
+                    VStack {
+                        Image(systemName: "slider.vertical.3")
+                        Text("Config")
+                    }
+                }
+                SendRequestView(fingerprintClient: configurationViewModel.client).tabItem {
+                    VStack {
+                        Image(systemName: "message")
+                        Text("Identify")
+                    }
+                }
             }
         }
     }

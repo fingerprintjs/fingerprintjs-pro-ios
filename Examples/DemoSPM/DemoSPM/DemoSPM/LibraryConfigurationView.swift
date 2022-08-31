@@ -9,7 +9,7 @@ import SwiftUI
 import FingerprintPro
 
 struct LibraryConfigurationView: View {
-    @StateObject var viewModel = LibraryConfigurationViewModel()
+    @StateObject var viewModel: LibraryConfigurationViewModel
     
     var body: some View {
         VStack(spacing: 20) {
@@ -17,16 +17,7 @@ struct LibraryConfigurationView: View {
                 RegionPickerView(pickerState: viewModel.pickerState)
             }
             
-            if viewModel.showsCustomDomainField {
-                FormField(label: "URL") {
-                    TextField("Insert custom domain URL", text: $viewModel.url)
-                        .disableAutocorrection(true)
-                        .textInputAutocapitalization(.never)
-                        .padding(.horizontal)
-                        .padding(.vertical, 12)
-                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(.orange, lineWidth: 2))
-                }
-            }
+            customDomainField
             
             VStack(alignment: .leading) {
                 FormField(label: "API Key") {
@@ -47,6 +38,17 @@ struct LibraryConfigurationView: View {
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .disabled(!viewModel.hasValidConfiguration)
             .padding(.top, 16)
+            
+            Button("Save") {
+                let configuration = Configuration(
+                    apiKey: viewModel.apiKey,
+                    region: selectedRegion,
+                    extendedResponseFormat: true
+                )
+                
+                let client = FingerprintProFactory.getInstance(configuration)
+                viewModel.client = client
+            }
         }.padding()
     }
     
@@ -68,11 +70,27 @@ struct LibraryConfigurationView: View {
         }
         return pickerRegion
     }
+    
+    @ViewBuilder private var customDomainField: some View {
+        if viewModel.showsCustomDomainField {
+            FormField(label: "URL") {
+                TextField("Insert custom domain URL", text: $viewModel.url)
+                    .disableAutocorrection(true)
+                    .textInputAutocapitalization(.never)
+                    .padding(.horizontal)
+                    .padding(.vertical, 12)
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(.orange, lineWidth: 2))
+            }
+        }
+        
+    }
 }
 
+/*
 struct LibraryConfigurationView_Previews: PreviewProvider {
     static var previews: some View {
         LibraryConfigurationView()
     }
 }
+*/
 

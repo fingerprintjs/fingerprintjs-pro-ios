@@ -15,6 +15,7 @@ class LibraryConfigurationViewModel: ObservableObject {
     @Published var apiKey: String = ""
     @Published var url: String = ""
     @Published var pickerState: RegionPickerViewModel = RegionPickerViewModel()
+    @Published var client: FingerprintClientProviding? = nil
     
     var pickerStateCancellable: AnyCancellable? = nil
     
