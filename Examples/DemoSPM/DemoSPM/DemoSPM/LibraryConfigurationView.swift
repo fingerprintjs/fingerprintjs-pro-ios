@@ -10,11 +10,35 @@ import FingerprintPro
 
 struct LibraryConfigurationView: View {
     @StateObject var viewModel: LibraryConfigurationViewModel
+    @State var showHelp: Bool = false
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(alignment: .center, spacing: 20) {
+            Text("Configuration").font(.system(.largeTitle))
             FormField(label: "Region") {
                 RegionPickerView(pickerState: viewModel.pickerState)
+            }
+            
+            FormField(label: "Extended Response") {
+                HStack(alignment: .center) {
+                    Toggle("", isOn: $viewModel.extendedResponse)
+                        .tint(.orange)
+                        .toggleStyle(.switch)
+                        .frame(alignment: .leading)
+                    
+                    Button(action: {
+                        showHelp = true
+                    }, label: {
+                        Image(systemName: "info.circle")
+                    })
+                    .alert("Extended response determines whether Fingerprint Pro requests additional metadata that shows the device's location.", isPresented: $showHelp) {
+                        Button("Close") {
+                            showHelp = false
+                        }
+                    }
+                    .tint(.orange)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
             }
             
             customDomainField
@@ -29,27 +53,18 @@ struct LibraryConfigurationView: View {
                         .background(RoundedRectangle(cornerRadius: 10).stroke(.orange, lineWidth: 2))
                 }
             }
-            NavigationLink("Get Visitor ID") {
-                detailView
-            }
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(.orange)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .disabled(!viewModel.hasValidConfiguration)
-            .padding(.top, 16)
             
             Button("Save") {
                 let configuration = Configuration(
                     apiKey: viewModel.apiKey,
                     region: selectedRegion,
-                    extendedResponseFormat: true
+                    extendedResponseFormat: viewModel.extendedResponse
                 )
                 
                 let client = FingerprintProFactory.getInstance(configuration)
                 viewModel.client = client
             }
-        }.padding()
+        }.padding().frame(alignment: .top)
     }
     
     var detailView: some View {
@@ -87,10 +102,10 @@ struct LibraryConfigurationView: View {
 }
 
 /*
-struct LibraryConfigurationView_Previews: PreviewProvider {
-    static var previews: some View {
-        LibraryConfigurationView()
-    }
-}
-*/
+ struct LibraryConfigurationView_Previews: PreviewProvider {
+ static var previews: some View {
+ LibraryConfigurationView()
+ }
+ }
+ */
 
