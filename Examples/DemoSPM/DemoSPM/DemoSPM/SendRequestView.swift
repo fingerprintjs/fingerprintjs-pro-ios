@@ -9,20 +9,25 @@ import SwiftUI
 import FingerprintPro
 
 struct SendRequestView: View {
-    @State var fingerprintClient: FingerprintClientProviding?
+    var fingerprintClient: FingerprintClientProviding?
     
     var body: some View {
-        VStack {
-            if let client = fingerprintClient {
-                ResponseDetailView(viewModel: FingerprintViewModel(client))
+        NavigationView {
+            VStack {
+                if let client = fingerprintClient {
+                    NavigationLink("Edit Metadata") {
+                        MetadataView(MetadataViewModel())
+                    }
+                    ResponseDetailView(viewModel: FingerprintViewModel(client))
+                }
             }
         }
     }
 }
 
 /*
-struct SendRequestView_Previews: PreviewProvider {
-    static var previews: some View {
-    }
-}
+ struct SendRequestView_Previews: PreviewProvider {
+ static var previews: some View {
+ }
+ }
  */

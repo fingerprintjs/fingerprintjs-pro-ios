@@ -9,7 +9,7 @@ import SwiftUI
 import FingerprintPro
 
 struct LibraryConfigurationView: View {
-    @StateObject var viewModel: LibraryConfigurationViewModel
+    @ObservedObject var viewModel: LibraryConfigurationViewModel
     @State var showHelp: Bool = false
     
     var body: some View {
