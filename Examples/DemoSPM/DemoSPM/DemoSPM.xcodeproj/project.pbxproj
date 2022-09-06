@@ -84,6 +84,16 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		6A6B7FED28C7A67F005B309C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				6A81D7E6287C88D9001C5E95 /* LibraryConfigurationView.swift */,
+				6AEB868028C0DDBA001ECA04 /* MetadataView.swift */,
+				6AEB867928BF3D27001ECA04 /* SendRequestView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 		6A6DA5CF28AD4A5E007BA8DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,16 +122,15 @@
 		6A81D7E3287C88D9001C5E95 /* DemoSPM */ = {
 			isa = PBXGroup;
 			children = (
+				6A6B7FED28C7A67F005B309C /* Screens */,
 				6A6B7FE628C69BAD005B309C /* Utils */,
 				6A81D7FE2880C7A8001C5E95 /* ViewModel */,
 				6A81D7F7287DAD9B001C5E95 /* Widgets */,
 				6A81D7E4287C88D9001C5E95 /* DemoSPMApp.swift */,
-				6A81D7E6287C88D9001C5E95 /* LibraryConfigurationView.swift */,
 				6A81D7E8287C88DA001C5E95 /* Assets.xcassets */,
 				6A81D7EA287C88DA001C5E95 /* Preview Content */,
 				6A81D7FA287F7F84001C5E95 /* ResponseDetailView.swift */,
 				6A81D8082886955A001C5E95 /* ResponseItemsView.swift */,
-				6AEB867928BF3D27001ECA04 /* SendRequestView.swift */,
 			);
 			path = DemoSPM;
 			sourceTree = "<group>";
@@ -147,7 +156,6 @@
 				6A81D7F8287DADB5001C5E95 /* RegionPickerView.swift */,
 				6A81D7FC287F7FC3001C5E95 /* IPLocationView.swift */,
 				6A81D80628854A0E001C5E95 /* FormField.swift */,
-				6AEB868028C0DDBA001ECA04 /* MetadataView.swift */,
 				6A6B7FE928C79A11005B309C /* UnformattedStringTextField.swift */,
 			);
 			path = Widgets;
