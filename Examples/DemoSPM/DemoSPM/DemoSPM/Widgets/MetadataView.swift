@@ -17,16 +17,23 @@ struct MetadataView: View {
     
     var body: some View {
         VStack {
-            FormField(label: "Linked ID") {
+            FormField(label: Strings.linkedId) {
                 HStack {
-                    TextField("", text: $viewModel.linkedId)
+                UnformattedStringTextField("Insert Linked ID value", text: $viewModel.linkedId)
                     Button(action: {
                         showLinkedIdHelp = true
                     }, label: {
                         Image(systemName: "info.circle")
                     })
+                    .alert(
+                        Strings.linkedId,
+                        isPresented: $showLinkedIdHelp,
+                        actions: {},
+                        message: { Text(Strings.linkedIDHelpMessage) }
+                    )
                 }
             }
+            Spacer()
         }
         .padding()
         .navigationTitle("Edit Metadata")

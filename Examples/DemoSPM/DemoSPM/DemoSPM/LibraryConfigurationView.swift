@@ -45,13 +45,9 @@ struct LibraryConfigurationView: View {
                     }
                     
                     FormField(label: "API Key") {
-                        TextField("API Key", text: $viewModel.apiKey)
-                            .disableAutocorrection(true)
-                            .textInputAutocapitalization(.never)
-                            .padding(.horizontal)
-                            .padding(.vertical, 12)
-                            .background(RoundedRectangle(cornerRadius: 10).stroke(.fingerprintRed, lineWidth: 2))
-                    }.padding(.top, 20)
+                        UnformattedStringTextField("API Key", text: $viewModel.apiKey)
+                    }
+                    .padding(.top, 20)
                     
                     
                     Button(action: {
@@ -90,16 +86,8 @@ struct LibraryConfigurationView: View {
     
     @ViewBuilder private var customDomainField: some View {
         if viewModel.showsCustomDomainField {
-            FormField(label: "URL") {
-                TextField("Insert custom domain URL", text: $viewModel.url)
-                    .disableAutocorrection(true)
-                    .textInputAutocapitalization(.never)
-                    .padding(.horizontal)
-                    .padding(.vertical, 12)
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(.fingerprintRed, lineWidth: 2))
-            }
+            UnformattedStringTextField("URL", text: $viewModel.url)
         }
-        
     }
 }
 
