@@ -15,10 +15,15 @@ struct SendRequestView: View {
         NavigationView {
             VStack {
                 if let client = fingerprintClient {
-                    NavigationLink("Edit Metadata") {
-                        MetadataView(MetadataViewModel())
-                    }
                     ResponseDetailView(viewModel: FingerprintViewModel(client))
+                    NavigationLink(destination: MetadataView(MetadataViewModel())) {
+                        HStack {
+                            Text("Edit Metadata").accentColor(.fingerprintRed)
+                            Image(systemName: "chevron.right").imageScale(.small)
+                        }
+                        .frame(maxWidth: .infinity, minHeight: 40)
+                        .padding(.bottom, 8)
+                    }
                 }
             }
         }

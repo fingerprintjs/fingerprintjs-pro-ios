@@ -9,10 +9,11 @@ import SwiftUI
 
 struct FormField<Content: View>: View {
     var label: String?
+    var alignment: HorizontalAlignment = .leading
     var content: () -> Content
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: alignment) {
             if let label = label {
                 Text(label)
                     .font(.system(size: 12).bold())

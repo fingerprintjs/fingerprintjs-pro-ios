@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MetadataView: View {
     @ObservedObject private var viewModel: MetadataViewModel
+    @State private var showLinkedIdHelp = false
     
     init(_ viewModel: MetadataViewModel) {
         self.viewModel = viewModel
@@ -16,13 +17,19 @@ struct MetadataView: View {
     
     var body: some View {
         VStack {
-            FormField(label: "LinkedId") {
-                TextField("LinkedId", text: $viewModel.linkedId)
+            FormField(label: "Linked ID") {
+                HStack {
+                    TextField("", text: $viewModel.linkedId)
+                    Button(action: {
+                        showLinkedIdHelp = true
+                    }, label: {
+                        Image(systemName: "info.circle")
+                    })
+                }
             }
         }
+        .padding()
         .navigationTitle("Edit Metadata")
-        // .toolbar { ToolbarItem(label: "Save", content: <#() -> _#>, placement:  .navigationBarTrailing) {
-        // }
     }
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A6B7FE828C69BC1005B309C /* Color+Fingerprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6B7FE728C69BC1005B309C /* Color+Fingerprint.swift */; };
 		6A81D7E5287C88D9001C5E95 /* DemoSPMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81D7E4287C88D9001C5E95 /* DemoSPMApp.swift */; };
 		6A81D7E7287C88D9001C5E95 /* LibraryConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81D7E6287C88D9001C5E95 /* LibraryConfigurationView.swift */; };
 		6A81D7E9287C88DA001C5E95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A81D7E8287C88DA001C5E95 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6A6B7FE728C69BC1005B309C /* Color+Fingerprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Fingerprint.swift"; sourceTree = "<group>"; };
 		6A81D7E1287C88D9001C5E95 /* DemoSPM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoSPM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A81D7E4287C88D9001C5E95 /* DemoSPMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSPMApp.swift; sourceTree = "<group>"; };
 		6A81D7E6287C88D9001C5E95 /* LibraryConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryConfigurationView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A6B7FE628C69BAD005B309C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6A6B7FE728C69BC1005B309C /* Color+Fingerprint.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		6A6DA5CF28AD4A5E007BA8DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +107,7 @@
 		6A81D7E3287C88D9001C5E95 /* DemoSPM */ = {
 			isa = PBXGroup;
 			children = (
+				6A6B7FE628C69BAD005B309C /* Utils */,
 				6A81D7FE2880C7A8001C5E95 /* ViewModel */,
 				6A81D7F7287DAD9B001C5E95 /* Widgets */,
 				6A81D7E4287C88D9001C5E95 /* DemoSPMApp.swift */,
@@ -231,6 +242,7 @@
 				6A81D7FD287F7FC3001C5E95 /* IPLocationView.swift in Sources */,
 				6A81D7FB287F7F84001C5E95 /* ResponseDetailView.swift in Sources */,
 				6A81D7E7287C88D9001C5E95 /* LibraryConfigurationView.swift in Sources */,
+				6A6B7FE828C69BC1005B309C /* Color+Fingerprint.swift in Sources */,
 				6A81D803288441DC001C5E95 /* FingerprintViewModel.swift in Sources */,
 				6A81D805288463A1001C5E95 /* RegionPickerViewModel.swift in Sources */,
 				6AEB867A28BF3D27001ECA04 /* SendRequestView.swift in Sources */,

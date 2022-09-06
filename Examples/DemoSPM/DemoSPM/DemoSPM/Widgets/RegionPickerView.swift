@@ -18,18 +18,26 @@ struct RegionPickerView: View {
                 .frame(maxWidth: .infinity)
                 .padding(.horizontal)
                 .padding(.vertical, 12)
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color.init(red: 0.8, green: 0.8, blue: 0.8)))
-                .overlay(RoundedRectangle(cornerRadius: 10).stroke(.orange, lineWidth: 2))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(.fingerprintRed, lineWidth: 2)
+                )
+                .foregroundColor(.fingerprintRed)
             
-            Button("Change") {
+            Button("Select") {
                 selecting = !selecting
             }
-            .foregroundColor(.orange)
+            .buttonStyle(.borderedProminent)
+            .tint(.fingerprintRed)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
         }.confirmationDialog("Select Region", isPresented: $selecting) {
             ForEach(Region.allCases) { region in
-                Button(region.humanReadable) {
+                Button(action: {
                     self.pickerState.selectedRegion = region
-                }
+                }, label: {
+                    Text(region.humanReadable)
+                        .foregroundColor(.fingerprintRed)
+                }).accentColor(.fingerprintRed)
             }
         }
     }

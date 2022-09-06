@@ -10,38 +10,34 @@ import FingerprintPro
 import MapKit
 
 struct ResponseDetailView: View {
-    @StateObject var viewModel: FingerprintViewModel
+    @ObservedObject var viewModel: FingerprintViewModel
     
     var body: some View {
         VStack {
-            content.task {
-                await viewModel.fetchResponse()
-            }
-            
-            Spacer()
+            content
             HStack {
-                Button("Get Visitor ID") {
+                Button(action: {
                     Task.init {
                         await viewModel.fetchResponse()
                     }
-                }
-                .frame(maxWidth: .infinity)
-                .background(.orange)
+                }, label: {
+                    Text("Get Visitor ID").frame(maxWidth: .infinity, minHeight: 40)
+                })
+                .frame(maxWidth: .infinity, minHeight: 60)
+                .tint(.fingerprintRed)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .disabled(viewModel.loading)
-                .padding()
+                .buttonStyle(.borderedProminent)
+                .disabled(viewModel.loading ?? false)
                 .padding(.top, 16)
-                
-                if viewModel.loading {
-                    ProgressView()
-                }
+                .padding(.horizontal)
             }
-        }.navigationTitle("Response")
+        }
+        .navigationTitle("Identify")
     }
     
     @ViewBuilder var content: some View {
         Spacer()
-        if viewModel.loading {
+        if let loading = viewModel.loading, loading {
             ProgressView()
         } else if let response = viewModel.response {
             ResponseItemsView(response: response)

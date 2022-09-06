@@ -14,19 +14,36 @@ struct DemoSPMApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TabView {
-                LibraryConfigurationView(viewModel: configurationViewModel).tabItem {
-                    VStack {
-                        Image(systemName: "slider.vertical.3")
-                        Text("Config")
+            VStack(spacing: 0) {
+                Image("Logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxHeight: 40)
+                    .padding(.top, 16)
+                TabView {
+                    LibraryConfigurationView(viewModel: configurationViewModel).tabItem {
+                        VStack {
+                            Image(systemName: "slider.vertical.3")
+                            Text("Configure")
+                        }
+                    }.tint(.fingerprintRed)
+                    SendRequestView(fingerprintClient: configurationViewModel.client).tabItem {
+                        VStack {
+                            Image(systemName: "message")
+                            Text("Identify")
+                        }
                     }
                 }
-                SendRequestView(fingerprintClient: configurationViewModel.client).tabItem {
-                    VStack {
-                        Image(systemName: "message")
-                        Text("Identify")
-                    }
-                }
+                .accentColor(.fingerprintRed)
+            }
+            .onAppear {
+                let appearance = UITabBarAppearance()
+                appearance.backgroundColor = .white
+                
+                // Use this appearance when scrolling behind the TabView:
+                UITabBar.appearance().standardAppearance = appearance
+                // Use this appearance when scrolled all the way up:
+                UITabBar.appearance().scrollEdgeAppearance = appearance
             }
         }
     }
