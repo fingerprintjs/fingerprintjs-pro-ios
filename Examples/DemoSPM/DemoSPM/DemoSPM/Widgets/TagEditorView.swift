@@ -15,7 +15,7 @@ struct TagEditorView: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 8) {
                 if editing {
                     TagEditorCardView(tag: $tag, editing: $editing)
                 } else {
@@ -30,23 +30,13 @@ struct TagEditorView: View {
                     .tint(.fingerprintRed)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .padding(.vertical, 16)
+                    .padding(.top, -16)
                 }
                 
-                ForEach(Array(zip(tags.indices, tags)), id: \.0) { index, tuple in
-                    HStack {
-                        FormField(label: tuple.key) {
-                            Text("\(tuple.value.asJSONType().description)")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                        
-                        Button(action: {
-                            tags.remove(at: index)
-                        }, label: {
-                            Image(systemName: "trash").tint(.fingerprintRed)
-                        })
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding(.bottom, 8)
+                ForEach(Array(zip(tags.indices, tags)), id: \.0) { index, tag in
+                    TagRow(tag: tag, deleteAction: {
+                        tags.remove(at: index)
+                    })
                 }
             }
             .frame(maxWidth: .infinity)
@@ -64,7 +54,9 @@ struct TagEditorView: View {
 struct TagEditorView_Previews: PreviewProvider {
     struct Example: View {
         @State var tags: [TagTuple] = [
+            (key: "Test", value: 10),
             (key: "Test", value: 10)
+
         ]
         
         var body: some View {
@@ -77,26 +69,3 @@ struct TagEditorView_Previews: PreviewProvider {
     }
 }
 
-
-extension JSONType: CustomStringConvertible {
-    public var description: String {
-        switch self {
-        case .array(let array):
-            return "\(array)"
-        case .int(let int):
-            return "\(int)"
-        case .double(let double):
-            return "\(double)"
-        case .string(let string):
-            return string
-        case .bool(let bool):
-            return "\(bool)"
-        case .null:
-            return "null"
-        case .object(let object):
-            return "\(object.description)"
-        @unknown default:
-            return "<type not found>"
-        }
-    }
-}

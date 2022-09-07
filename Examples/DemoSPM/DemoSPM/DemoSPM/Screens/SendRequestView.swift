@@ -10,7 +10,7 @@ import FingerprintPro
 
 struct SendRequestView: View {
     var fingerprintClient: FingerprintClientProviding?
-    @ObservedObject private var metadataViewModel = MetadataViewModel()
+    @ObservedObject var metadataViewModel: MetadataViewModel
     
     var body: some View {
         NavigationView {
@@ -28,6 +28,7 @@ struct SendRequestView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
 }
 

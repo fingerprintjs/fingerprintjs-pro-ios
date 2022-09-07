@@ -33,9 +33,10 @@ struct MetadataView: View {
                     )
                 }
             }
+            .padding(.bottom, 16)
             
             FormField(label: "Tags") {
-                TagEditorView(tags: $viewModel.tags).padding(.horizontal, -16)
+                TagEditorView(tags: $viewModel.tags).padding(.horizontal, -16).padding(.top, -8)
             }
             Spacer()
         }

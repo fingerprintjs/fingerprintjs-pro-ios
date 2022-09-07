@@ -11,6 +11,7 @@ import FingerprintPro
 @main
 struct DemoSPMApp: App {
     @ObservedObject var configurationViewModel = LibraryConfigurationViewModel()
+    @StateObject var metadataViewModel = MetadataViewModel()
     
     var body: some Scene {
         WindowGroup {
@@ -27,7 +28,10 @@ struct DemoSPMApp: App {
                             Text("Configure")
                         }
                     }.tint(.fingerprintRed)
-                    SendRequestView(fingerprintClient: configurationViewModel.client).tabItem {
+                    SendRequestView(
+                        fingerprintClient: configurationViewModel.client,
+                        metadataViewModel: metadataViewModel
+                    ).tabItem {
                         VStack {
                             Image(systemName: "message")
                             Text("Identify")

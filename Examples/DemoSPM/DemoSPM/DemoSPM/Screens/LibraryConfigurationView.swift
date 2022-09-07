@@ -24,22 +24,23 @@ struct LibraryConfigurationView: View {
                     
                     FormField(label: "Extended Response") {
                         HStack(alignment: .center) {
-                            Toggle(isOn: $viewModel.extendedResponse) {
-                                
-                            }
-                            .toggleStyle(.switch)
-                            .tint(.fingerprintRed)
+                            Toggle("", isOn: $viewModel.extendedResponse)
+                                .labelsHidden()
+                                .tint(.fingerprintRed)
+                            
+                            Spacer()
                             
                             Button(action: {
                                 showHelp = true
                             }, label: {
                                 Image(systemName: "info.circle")
                             })
-                            .alert("Extended response determines whether Fingerprint Pro requests additional metadata that shows the device's location.", isPresented: $showHelp) {
-                                Button("Close") {
-                                    showHelp = false
-                                }
-                            }
+                            .alert(
+                                Strings.extendedResult,
+                                isPresented: $showHelp,
+                                actions: {},
+                                message: { Text(Strings.extendedResultHelpMessage) }
+                            )
                             .tint(.fingerprintRed)
                         }
                     }
@@ -74,6 +75,7 @@ struct LibraryConfigurationView: View {
             .padding()
             .navigationTitle("Configure")
         }
+        .navigationViewStyle(.stack)
     }
     
     private var selectedRegion: Region {
