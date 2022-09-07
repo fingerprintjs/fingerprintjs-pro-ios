@@ -12,6 +12,8 @@ import FingerprintPro
 struct DemoSPMApp: App {
     @ObservedObject var configurationViewModel = LibraryConfigurationViewModel()
     @StateObject var metadataViewModel = MetadataViewModel()
+    @State private var currentTab: Int = 0
+    @State private var previousTab: Int = 0
     
     var body: some Scene {
         WindowGroup {
@@ -21,24 +23,35 @@ struct DemoSPMApp: App {
                     .aspectRatio(contentMode: .fit)
                     .frame(maxHeight: 40)
                     .padding(.top, 16)
-                TabView {
-                    LibraryConfigurationView(viewModel: configurationViewModel).tabItem {
+                
+                TabView(selection: $currentTab) {
+                    LibraryConfigurationView(viewModel: configurationViewModel, onSave: {
+                        currentTab = 1
+                    }).tabItem {
                         VStack {
                             Image(systemName: "slider.vertical.3")
                             Text("Configure")
                         }
-                    }.tint(.fingerprintRed)
+                    }
+                    .tag(0)
+                    
                     SendRequestView(
                         fingerprintClient: configurationViewModel.client,
                         metadataViewModel: metadataViewModel
-                    ).tabItem {
+                    ).tabItem() {
                         VStack {
-                            Image(systemName: "message")
+                            Image(systemName: "message").tint(.black)
                             Text("Identify")
                         }
                     }
+                    .tag(1)
                 }
                 .accentColor(.fingerprintRed)
+                .onChange(of: currentTab) { _ in
+                    if currentTab == 1 && configurationViewModel.client == nil {
+                        currentTab = 0
+                    }
+                }
             }
             .onAppear {
                 let appearance = UITabBarAppearance()

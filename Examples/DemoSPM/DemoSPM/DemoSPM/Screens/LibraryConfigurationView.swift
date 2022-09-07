@@ -10,6 +10,8 @@ import FingerprintPro
 
 struct LibraryConfigurationView: View {
     @ObservedObject var viewModel: LibraryConfigurationViewModel
+    let onSave: () -> Void
+    
     @State var showHelp: Bool = false
     
     var body: some View {
@@ -60,6 +62,7 @@ struct LibraryConfigurationView: View {
                         
                         let client = FingerprintProFactory.getInstance(configuration)
                         viewModel.client = client
+                        onSave()
                     }, label: {
                         Text("Save")
                             .frame(maxWidth: .infinity, minHeight: 40)
@@ -69,6 +72,7 @@ struct LibraryConfigurationView: View {
                     .tint(.fingerprintRed)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .padding(.top, 16)
+                    .disabled(!viewModel.hasValidConfiguration)
                 }
                 Spacer()
             }
