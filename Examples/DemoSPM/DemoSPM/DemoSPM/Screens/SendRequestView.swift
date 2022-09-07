@@ -10,13 +10,14 @@ import FingerprintPro
 
 struct SendRequestView: View {
     var fingerprintClient: FingerprintClientProviding?
+    @ObservedObject private var metadataViewModel = MetadataViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
                 if let client = fingerprintClient {
-                    ResponseDetailView(viewModel: FingerprintViewModel(client))
-                    NavigationLink(destination: MetadataView(MetadataViewModel())) {
+                    ResponseDetailView(viewModel: FingerprintViewModel(client, metadata: metadataViewModel.metadata))
+                    NavigationLink(destination: MetadataView(metadataViewModel)) {
                         HStack {
                             Text("Edit Metadata").accentColor(.fingerprintRed)
                             Image(systemName: "chevron.right").imageScale(.small)

@@ -19,7 +19,7 @@ struct MetadataView: View {
         VStack {
             FormField(label: Strings.linkedId) {
                 HStack {
-                UnformattedStringTextField("Insert Linked ID value", text: $viewModel.linkedId)
+                    UnformattedStringTextField("Insert Linked ID value", text: $viewModel.linkedId)
                     Button(action: {
                         showLinkedIdHelp = true
                     }, label: {
@@ -32,6 +32,9 @@ struct MetadataView: View {
                         message: { Text(Strings.linkedIDHelpMessage) }
                     )
                 }
+            }
+            FormField(label: "Tags") {
+                TagEditorView(tags: $viewModel.tags)
             }
             Spacer()
         }

@@ -11,6 +11,7 @@ import MapKit
 
 class FingerprintViewModel: ObservableObject {
     var client: FingerprintClientProviding
+    var metadata: Metadata
     
     @Published var response: FingerprintResponse?
     @Published var error: FPJSError?
@@ -18,14 +19,15 @@ class FingerprintViewModel: ObservableObject {
     
     var mapRegion = MKCoordinateRegion()
     
-    init(_ client: FingerprintClientProviding) {
+    init(_ client: FingerprintClientProviding, metadata: Metadata) {
         self.client = client
+        self.metadata = metadata
     }
     
     func fetchResponse() async {
         loading = true
         do {
-            let response = try await client.getVisitorIdResponse()
+            let response = try await client.getVisitorIdResponse(metadata)
             await MainActor.run {
                 self.response = response
                 self.loading = false

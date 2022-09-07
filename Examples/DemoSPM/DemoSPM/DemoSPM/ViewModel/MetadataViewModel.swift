@@ -8,8 +8,10 @@
 import Foundation
 import FingerprintPro
 
+typealias TagTuple = (key: String, value: JSONTypeConvertible)
+
 class MetadataViewModel: ObservableObject {
-    @Published var tags: [String: JSONTypeConvertible] = [:]
+    @Published var tags: [TagTuple] = []
     @Published var linkedId: String = ""
     @Published var showTagDialog: Bool = false
     
