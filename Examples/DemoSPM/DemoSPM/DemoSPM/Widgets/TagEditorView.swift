@@ -9,157 +9,56 @@ import SwiftUI
 import FingerprintPro
 
 struct TagEditorView: View {
-    @Binding var tags: [(key: String, value: JSONTypeConvertible)]
-    @State private var isEditingNewTag = false
-    @State private var editedTagKey = ""
-    @State private var valueType = 0
-    @State private var jsonValue: JSONTypeConvertible? = nil
-    @State private var boolValue: Bool = false
-    @State private var stringValue: String = ""
-    @State private var integerValue: Int = 0
-    @State private var doubleValue: Double = 0.0
+    @Binding var tags: [TagTuple]
+    @State private var tag: TagTuple?
+    @State private var editing = false
     
     var body: some View {
-        VStack(alignment: .leading) {
-            ForEach(Array(zip(tags.indices, tags)), id: \.0) { index, tuple in
-                HStack {
-                    FormField(label: tuple.key) {
-                        Text("\(tuple.value.asJSONType().description)")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    
+        ScrollView {
+            VStack(alignment: .leading) {
+                if editing {
+                    TagEditorCardView(tag: $tag, editing: $editing)
+                } else {
                     Button(action: {
-                        tags.remove(at: index)
+                        editing = true
                     }, label: {
-                        Image(systemName: "trash").tint(.fingerprintRed)
+                        Text("Add Tag")
+                            .frame(maxWidth: .infinity, minHeight: 40)
                     })
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-            }
-            
-            if isEditingNewTag {
-                HStack {
-                    VStack {
-                        FormField(label: "Tag Key") {
-                            UnformattedStringTextField("Tag Key", text: $editedTagKey)
-                        }
-                        
-                        FormField(label: "Type") {
-                            Picker("Value Type", selection: $valueType, content: {
-                                Text("Boolean").tag(0)
-                                Text("Int").tag(1)
-                                Text("Double").tag(2)
-                                Text("String").tag(3)
-                            })
-                            .pickerStyle(.segmented)
-                            
-
-                        }
-                        
-                        FormField(label: "Value") {
-                            valueInputView
-                        }
-                    }
-                     
-                        
-                    VStack(alignment: .center, spacing: 30) {
-                            Button(action: {
-                                tags.append((key: editedTagKey, value: jsonTypeValue))
-                                stopEditing()
-                            }, label: {
-                                Image(systemName: "checkmark").imageScale(.large)
-                            }).tint(.fingerprintRed)
-                            
-                            Button(action: {
-                                stopEditing()
-                            }, label: {
-                                Image(systemName: "trash").imageScale(.large)
-                            }).tint(.fingerprintRed)
-                    }.padding(.leading, 16)
-                }
-                .padding()
-                .background(.white)
-                .cornerRadius(10)
-                .shadow(radius: 5)
-                .padding()
-            } else {
-                Button(action: {
-                    isEditingNewTag = true
-                }, label: {
-                    Text("Add tag")
-                })
-                .padding()
-                .tint(.fingerprintRed)
-            }
-        }
-    }
-    
-    private func stopEditing() {
-        isEditingNewTag = false
-        editedTagKey = ""
-        boolValue = false
-        stringValue = ""
-        integerValue = 0
-        doubleValue = 0
-    }
-    
-    private var jsonTypeValue: JSONTypeConvertible {
-        if valueType == 0 {
-            return boolValue
-        } else if valueType == 1 {
-            return integerValue
-        } else if valueType == 2 {
-            return doubleValue
-        } else if valueType == 3 {
-            return stringValue
-        } else {
-            return stringValue
-        }
-    }
-    
-    @ViewBuilder private var valueInputView: some View {
-        if valueType == 0 {
-            HStack {
-                Toggle("", isOn: $boolValue)
+                    .foregroundColor(.white)
+                    .buttonStyle(.borderedProminent)
                     .tint(.fingerprintRed)
-                    .labelsHidden()
-                    .frame(height: 46)
-                Spacer()
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .padding(.vertical, 16)
+                }
+                
+                ForEach(Array(zip(tags.indices, tags)), id: \.0) { index, tuple in
+                    HStack {
+                        FormField(label: tuple.key) {
+                            Text("\(tuple.value.asJSONType().description)")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                        
+                        Button(action: {
+                            tags.remove(at: index)
+                        }, label: {
+                            Image(systemName: "trash").tint(.fingerprintRed)
+                        })
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.bottom, 8)
+                }
             }
-        } else if valueType == 1 {
-            TextField(
-                "Enter Integer Value",
-                value: $integerValue,
-                format: .number
-            )
-            .disableAutocorrection(true)
-            .textInputAutocapitalization(.never)
-            .padding(.horizontal)
-            .padding(.vertical, 12)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(.fingerprintRed, lineWidth: 2)
-            )
-        } else if valueType == 2 {
-            TextField(
-                "Enter Double/Float Value",
-                value: $doubleValue,
-                format: .number
-            )
-            .disableAutocorrection(true)
-            .textInputAutocapitalization(.never)
-            .padding(.horizontal)
-            .padding(.vertical, 12)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(.fingerprintRed, lineWidth: 2)
-            )
-        } else if valueType == 3 {
-            UnformattedStringTextField("Insert String Value", text: $stringValue)
+            .frame(maxWidth: .infinity)
+            .onChange(of: editing, perform: { newState in
+                if let tag = self.tag {
+                    tags.append(tag)
+                    self.tag = nil
+                }
+            })
+            .padding()
         }
     }
-    
 }
 
 struct TagEditorView_Previews: PreviewProvider {
