@@ -88,7 +88,9 @@ struct LibraryConfigurationView: View {
     
     @ViewBuilder private var customDomainField: some View {
         if viewModel.showsCustomDomainField {
-            UnformattedStringTextField("URL", text: $viewModel.url)
+            FormField(label: "URL") {
+                UnformattedStringTextField("URL", text: $viewModel.url)
+            }
         }
     }
 }

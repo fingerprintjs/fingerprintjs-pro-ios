@@ -23,13 +23,17 @@ struct RegionPickerView: View {
                         .stroke(.fingerprintRed, lineWidth: 2)
                 )
                 .foregroundColor(.fingerprintRed)
-            
-            Button("Select") {
-                selecting = !selecting
-            }
-            .buttonStyle(.borderedProminent)
-            .tint(.fingerprintRed)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .overlay(content: {
+                    HStack {
+                        Spacer()
+                        Image(systemName: "chevron.down")
+                            .foregroundColor(.fingerprintRed)
+                            .padding()
+                    }
+                }).onTapGesture {
+                    selecting = true
+                }
         }.confirmationDialog("Select Region", isPresented: $selecting) {
             ForEach(Region.allCases) { region in
                 Button(action: {
@@ -47,13 +51,11 @@ struct RegionPickerView: View {
     }
 }
 
-/*
- struct RegionPickerView_Previews: PreviewProvider {
- static var previews: some View {
- RegionPickerView(pickerState: RegionPickerState())
- }
- }
- */
+struct RegionPickerView_Previews: PreviewProvider {
+    static var previews: some View {
+        RegionPickerView(pickerState: RegionPickerViewModel())
+    }
+}
 
 // MARK: - Region Extensions
 extension Region: CaseIterable, Identifiable {
