@@ -45,6 +45,14 @@ struct DemoSPMApp: App {
                         }
                     }
                     .tag(1)
+                    
+                    PrivacyPolicyView()
+                    .tabItem() {
+                        VStack {
+                            Image(systemName: "paragraph").tint(.black)
+                            Text("Policy")
+                        }
+                    }
                 }
                 .accentColor(.fingerprintRed)
                 .onChange(of: currentTab) { _ in
