@@ -98,7 +98,7 @@ struct TagEditorCardView: View {
                     .labelsHidden()
                     .frame(height: 46)
                 Spacer()
-            }
+            }.frame(maxWidth: .infinity)
         } else if valueType == 1 {
             TextField(
                 "Enter Integer Value",
