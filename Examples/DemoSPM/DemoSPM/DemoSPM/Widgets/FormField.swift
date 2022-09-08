@@ -10,7 +10,7 @@ import SwiftUI
 struct FormField<Content: View>: View {
     var label: String?
     var alignment: HorizontalAlignment = .leading
-    var font: Font = .system(size: 12).bold()
+    var font: Font = .system(size: 13).bold()
     var content: () -> Content
     
     var body: some View {

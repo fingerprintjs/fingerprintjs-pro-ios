@@ -14,9 +14,14 @@ struct ResponseItemsView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                FormField(label: "Visitor ID") {
-                    Text(response.visitorId).font(.system(size: 13)).foregroundColor(.gray)
-                }.padding(.horizontal).padding(.bottom)
+                FormField(label: "Your Visitor ID", font: .system(size: 25)) {
+                    Text(response.visitorId)
+                        .font(.system(size: 18).monospaced())
+                        .foregroundColor(.black)
+                }
+                .padding(.horizontal)
+                .padding(.bottom)
+                .foregroundColor(.fingerprintRed)
                 
                 FormField(label: "Confidence") {
                     confidencePercentageText

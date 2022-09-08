@@ -17,7 +17,7 @@ struct RegionPickerView: View {
             Text(currentRegionString)
                 .frame(maxWidth: .infinity)
                 .padding(.horizontal)
-                .padding(.vertical, 12)
+                .padding(.vertical, 13)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(.fingerprintRed, lineWidth: 2)
