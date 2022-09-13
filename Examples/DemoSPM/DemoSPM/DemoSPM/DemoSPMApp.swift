@@ -53,6 +53,7 @@ struct DemoSPMApp: App {
                             Text("Policy")
                         }
                     }
+                    .tag(2)
                 }
                 .accentColor(.fingerprintRed)
                 .onChange(of: currentTab) { _ in
