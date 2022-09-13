@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "FingerprintPro",
     platforms: [
-        .iOS(.v13), .tvOS(.v13)
+        .iOS(.v12), .tvOS(.v12)
     ],
     products: [
         .library(
@@ -17,8 +17,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "FingerprintPro",
-            url: "https://fpjs-public.s3.amazonaws.com/ios/2.1.1/FingerprintPro-2.1.1-a1ac572ee1f8196001248182129ab79c173bbdb81e4505e5cc2b1e6a5f935363.xcframework.zip",
-            checksum: "a1ac572ee1f8196001248182129ab79c173bbdb81e4505e5cc2b1e6a5f935363"
+            url: "https://fpjs-public.s3.amazonaws.com/ios/2.1.2/FingerprintPro-2.1.2-744c827b920ac90278e29446f2230f818df9791c493fb9615c8c9c70f6cc2f15.xcframework.zip",
+            checksum: "744c827b920ac90278e29446f2230f818df9791c493fb9615c8c9c70f6cc2f15"
         ),
     ]
 )
