@@ -55,7 +55,7 @@
 		6A6B7FF028C8BD22005B309C /* TagEditorCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagEditorCardView.swift; sourceTree = "<group>"; };
 		6A6B7FF228C8D45D005B309C /* TagRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRow.swift; sourceTree = "<group>"; };
 		6A6B7FF428C90EF0005B309C /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
-		6A81D7E1287C88D9001C5E95 /* FingerprintPro Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FingerprintPro Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A81D7E1287C88D9001C5E95 /* Fingerprint Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fingerprint Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A81D7E4287C88D9001C5E95 /* DemoSPMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSPMApp.swift; sourceTree = "<group>"; };
 		6A81D7E6287C88D9001C5E95 /* LibraryConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryConfigurationView.swift; sourceTree = "<group>"; };
 		6A81D7E8287C88DA001C5E95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		6A81D7E2287C88D9001C5E95 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6A81D7E1287C88D9001C5E95 /* FingerprintPro Demo.app */,
+				6A81D7E1287C88D9001C5E95 /* Fingerprint Pro.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,7 +220,7 @@
 				6AEB867C28BFAE26001ECA04 /* FingerprintPro */,
 			);
 			productName = DemoSPM;
-			productReference = 6A81D7E1287C88D9001C5E95 /* FingerprintPro Demo.app */;
+			productReference = 6A81D7E1287C88D9001C5E95 /* Fingerprint Pro.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -431,12 +431,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoSPM/Preview Content\"";
 				DEVELOPMENT_TEAM = AQ93X82PXZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoSPM/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fingerprint Pro";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
@@ -449,7 +450,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fingerprintjs.FingerprintProDemo;
-				PRODUCT_NAME = "FingerprintPro Demo";
+				PRODUCT_NAME = "Fingerprint Pro";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -462,12 +463,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoSPM/Preview Content\"";
 				DEVELOPMENT_TEAM = AQ93X82PXZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoSPM/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fingerprint Pro";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
@@ -480,7 +482,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fingerprintjs.FingerprintProDemo;
-				PRODUCT_NAME = "FingerprintPro Demo";
+				PRODUCT_NAME = "Fingerprint Pro";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
