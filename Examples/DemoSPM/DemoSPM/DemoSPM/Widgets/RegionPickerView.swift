@@ -17,19 +17,31 @@ struct RegionPickerView: View {
             Text(currentRegionString)
                 .frame(maxWidth: .infinity)
                 .padding(.horizontal)
-                .padding(.vertical, 12)
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color.init(red: 0.8, green: 0.8, blue: 0.8)))
-                .overlay(RoundedRectangle(cornerRadius: 10).stroke(.orange, lineWidth: 2))
-            
-            Button("Change") {
-                selecting = !selecting
-            }
-            .foregroundColor(.orange)
+                .padding(.vertical, 13)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(.fingerprintRed, lineWidth: 2)
+                )
+                .foregroundColor(.fingerprintRed)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .overlay(content: {
+                    HStack {
+                        Spacer()
+                        Image(systemName: "chevron.down")
+                            .foregroundColor(.fingerprintRed)
+                            .padding()
+                    }
+                }).onTapGesture {
+                    selecting = true
+                }
         }.confirmationDialog("Select Region", isPresented: $selecting) {
             ForEach(Region.allCases) { region in
-                Button(region.humanReadable) {
+                Button(action: {
                     self.pickerState.selectedRegion = region
-                }
+                }, label: {
+                    Text(region.humanReadable)
+                        .foregroundColor(.fingerprintRed)
+                }).accentColor(.fingerprintRed)
             }
         }
     }
@@ -39,13 +51,11 @@ struct RegionPickerView: View {
     }
 }
 
-/*
- struct RegionPickerView_Previews: PreviewProvider {
- static var previews: some View {
- RegionPickerView(pickerState: RegionPickerState())
- }
- }
- */
+struct RegionPickerView_Previews: PreviewProvider {
+    static var previews: some View {
+        RegionPickerView(pickerState: RegionPickerViewModel())
+    }
+}
 
 // MARK: - Region Extensions
 extension Region: CaseIterable, Identifiable {

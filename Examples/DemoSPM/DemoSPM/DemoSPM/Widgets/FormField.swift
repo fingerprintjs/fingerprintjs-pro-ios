@@ -9,13 +9,17 @@ import SwiftUI
 
 struct FormField<Content: View>: View {
     var label: String?
+    var alignment: HorizontalAlignment = .leading
+    var font: Font = .system(size: 13).bold()
     var content: () -> Content
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: alignment) {
             if let label = label {
                 Text(label)
-                    .font(.system(size: 12).bold())
+                    .font(font)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
             }
             
             content()
@@ -25,8 +29,15 @@ struct FormField<Content: View>: View {
 
 struct FormField_Previews: PreviewProvider {
     static var previews: some View {
-        FormField(label: "Test") {
-            Button("Test") {}
+        VStack {
+            FormField(label: "Test") {
+                Button("Test") {}
+            }
+            
+            FormField(label: "This is a very long title that should be truncated somewhere along the way at the end") {
+                Button("Test") {}
+            }
         }
     }
+        
 }
