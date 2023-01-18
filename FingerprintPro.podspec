@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '12.0'
   spec.tvos.deployment_target = '12.0'
 
-  spec.swift_versions = ['5.4', '5.5', '5.6', '5.7']
+  spec.swift_versions = ['5.5', '5.6', '5.7']
 
   spec.vendored_frameworks = 'FingerprintPro.xcframework'
 
