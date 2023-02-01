@@ -1,6 +1,10 @@
 <p align="center">
   <a href="https://fingerprint.com">
-    <img src="logo.svg" alt="Fingerprint" width="312px" />
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="resources/logo_light.svg" />
+      <source media="(prefers-color-scheme: light)" srcset="resources/logo_dark.svg" />
+      <img src="resources/logo_dark.svg" alt="Fingerprint" width="312px" />
+    </picture>
   </a>
 </p>
 <p align="center">
