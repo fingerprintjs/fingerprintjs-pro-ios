@@ -1,4 +1,4 @@
-// swift-tools-version:5.5
+// swift-tools-version: 5.7
 
 import PackageDescription
 
@@ -8,19 +8,20 @@ let version = "2.1.8"
 let package = Package(
     name: "FingerprintPro",
     platforms: [
-        .iOS(.v12), .tvOS(.v12)
+        .iOS(.v12),
+        .tvOS(.v12),
     ],
     products: [
         .library(
             name: "FingerprintPro",
             targets: ["FingerprintPro"]
-        ),
+        )
     ],
     targets: [
         .binaryTarget(
             name: "FingerprintPro",
             url: "https://fpjs-public.s3.amazonaws.com/ios/\(version)/FingerprintPro-\(version)-\(checksum).xcframework.zip",
             checksum: checksum
-        ),
+        )
     ]
 )
