@@ -18,6 +18,11 @@
 
 ## Quick Start
 
+### Requirements
+
+* iOS 12 or higher (or tvOS 12 or higher)
+* Swift 5.7 or higher
+
 ### Installation Steps
 
 1. Add `FingerprintPro` as a dependency
