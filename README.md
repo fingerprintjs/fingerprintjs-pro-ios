@@ -8,6 +8,8 @@
   </a>
 </p>
 <p align="center">
+  <img src="https://img.shields.io/badge/Swift-5.8%20%7C%205.7-red" alt="Swift">
+  <img src="https://img.shields.io/badge/Platforms-iOS%2012+%20%7C%20tvOS%2012+-red" alt="Platforms">
   <a href="https://discord.gg/39EpE2neBg">
     <img src="https://img.shields.io/discord/852099967190433792?style=logo&label=Discord&logo=Discord&logoColor=white" alt="Discord server">
   </a>
