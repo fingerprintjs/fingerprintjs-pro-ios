@@ -23,7 +23,7 @@
 ### Requirements
 
 * iOS 12 or higher (or tvOS 12 or higher)
-* Swift 5.7 or higher
+* Xcode 14.1 or higher
 
 ### Installation Steps
 
