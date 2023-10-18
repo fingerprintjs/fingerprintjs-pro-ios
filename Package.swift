@@ -2,14 +2,14 @@
 
 import PackageDescription
 
-let checksum = "dd5172878f002876409906b391f37def52592580a90ece9b4142135577c982e0"
-let version = "2.2.0"
+let checksum = "833ad7912f2f38204ae94aa6e165e8f68c9c8039c1638947dc7826efad9a3a15"
+let version = "2.3.0"
 
 let package = Package(
     name: "FingerprintPro",
     platforms: [
-        .iOS(.v12),
-        .tvOS(.v12),
+        .iOS(.v13),
+        .tvOS(.v15),
     ],
     products: [
         .library(

@@ -8,21 +8,21 @@
   </a>
 </p>
 <p align="center">
-  <img src="https://img.shields.io/badge/Swift-5.8%20%7C%205.7-red" alt="Swift">
-  <img src="https://img.shields.io/badge/Platforms-iOS%2012+%20%7C%20tvOS%2012+-red" alt="Platforms">
+  <img src="https://img.shields.io/badge/Swift-5.9%20%7C%205.8%20%7C%205.7-red" alt="Swift">
+  <img src="https://img.shields.io/badge/Platforms-iOS%2013+%20%7C%20tvOS%2015+-red" alt="Platforms">
   <a href="https://discord.gg/39EpE2neBg">
     <img src="https://img.shields.io/discord/852099967190433792?style=logo&label=Discord&logo=Discord&logoColor=white" alt="Discord server">
   </a>
 </p>
 
-# FingerprintPro iOS 
+# Fingerprint Pro iOS
 ### Second version of the official iOS/tvOS agent & SDK for accurate device identification. Created for the Fingerprint Pro identification API.
 
 ## Quick Start
 
 ### Requirements
 
-* iOS 12 or higher (or tvOS 12 or higher)
+* iOS 13 or higher (or tvOS 15 or higher)
 * Xcode 14.1 or higher
 
 ### Installation Steps
