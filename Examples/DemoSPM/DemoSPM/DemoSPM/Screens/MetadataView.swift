@@ -8,23 +8,30 @@
 import SwiftUI
 
 struct MetadataView: View {
+
     @ObservedObject private var viewModel: MetadataViewModel
     @State private var showLinkedIdHelp = false
-    
+
     init(_ viewModel: MetadataViewModel) {
         self.viewModel = viewModel
     }
-    
+
     var body: some View {
         VStack {
             FormField(label: Strings.linkedId) {
                 HStack {
-                    UnformattedStringTextField("Insert Linked ID value", text: $viewModel.linkedId)
-                    Button(action: {
-                        showLinkedIdHelp = true
-                    }, label: {
-                        Image(systemName: "info.circle")
-                    })
+                    UnformattedStringTextField(
+                        "Insert Linked ID value",
+                        text: $viewModel.linkedId
+                    )
+                    Button(
+                        action: {
+                            showLinkedIdHelp = true
+                        },
+                        label: {
+                            Image(systemName: "info.circle")
+                        }
+                    )
                     .alert(
                         Strings.linkedId,
                         isPresented: $showLinkedIdHelp,
@@ -34,9 +41,11 @@ struct MetadataView: View {
                 }
             }
             .padding(.bottom, 16)
-            
+
             FormField(label: "Tags") {
-                TagEditorView(tags: $viewModel.tags).padding(.horizontal, -16).padding(.top, -8)
+                TagEditorView(tags: $viewModel.tags)
+                    .padding(.horizontal, -16)
+                    .padding(.top, -8)
             }
             Spacer()
         }
@@ -46,6 +55,7 @@ struct MetadataView: View {
 }
 
 struct MetadataView_Previews: PreviewProvider {
+
     static var previews: some View {
         MetadataView(MetadataViewModel())
     }

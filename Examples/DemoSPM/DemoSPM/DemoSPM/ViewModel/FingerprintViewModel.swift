@@ -5,27 +5,27 @@
 //  Created by Petr Palata on 17.07.2022.
 //
 
-import Foundation
+import Combine
 import FingerprintPro
-import MapKit
 
-class FingerprintViewModel: ObservableObject {
+final class FingerprintViewModel: ObservableObject {
+
     var client: FingerprintClientProviding
     var metadata: Metadata
-    
-    @Published var response: FingerprintResponse?
-    @Published var error: FPJSError?
-    @Published var loading: Bool? = nil
-    
-    var mapRegion = MKCoordinateRegion()
-    
+
+    @Published private(set) var response: FingerprintResponse?
+    @Published private(set) var error: FPJSError?
+    @Published private(set) var loading: Bool?
+
     init(_ client: FingerprintClientProviding, metadata: Metadata) {
         self.client = client
         self.metadata = metadata
     }
-    
+
     func fetchResponse() async {
-        loading = true
+        await MainActor.run {
+            loading = true
+        }
         do {
             let response = try await client.getVisitorIdResponse(metadata)
             await MainActor.run {

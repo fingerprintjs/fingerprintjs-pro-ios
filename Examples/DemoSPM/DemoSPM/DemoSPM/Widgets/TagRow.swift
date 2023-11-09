@@ -9,28 +9,37 @@ import SwiftUI
 import FingerprintPro
 
 struct TagRow: View {
+
     let tag: TagTuple
     let deleteAction: () -> Void
-    
+
     var body: some View {
         HStack {
-            FormField(label: tag.key, font: .system(size: 15, weight: .bold, design: .default)) {
+            FormField(
+                label: tag.key,
+                font: .system(size: 15, weight: .bold, design: .default)
+            ) {
                 Text("\(tag.value.asJSONType().description)")
                     .font(.system(size: 13))
                     .foregroundColor(.gray)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .foregroundColor(Color(red: 0.3, green: 0.3, blue: 0.3))
-            
-            Button(action: deleteAction, label: {
-                Image(systemName: "trash").tint(.fingerprintRed)
-            })
+
+            Button(
+                action: deleteAction,
+                label: {
+                    Image(systemName: "trash")
+                        .tint(.fingerprintRed)
+                }
+            )
         }
         .frame(maxWidth: .infinity)
     }
 }
 
 struct TagRow_Previews: PreviewProvider {
+
     static var previews: some View {
         VStack(spacing: 10) {
             TagRow(tag: (key: "Test", value: false), deleteAction: {})
@@ -42,6 +51,7 @@ struct TagRow_Previews: PreviewProvider {
 }
 
 extension JSONType: CustomStringConvertible {
+
     public var description: String {
         switch self {
         case .array(let array):

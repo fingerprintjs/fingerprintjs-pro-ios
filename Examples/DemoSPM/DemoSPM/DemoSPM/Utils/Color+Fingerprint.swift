@@ -8,13 +8,15 @@
 import SwiftUI
 
 extension Color {
+
     static var fingerprintRed: Color {
-        return Self("FingerprintRed")
+        .init("FingerprintRed")
     }
 }
 
 extension ShapeStyle where Self == Color {
+
     static var fingerprintRed: Color {
-        return Color.fingerprintRed
+        Color.fingerprintRed
     }
 }

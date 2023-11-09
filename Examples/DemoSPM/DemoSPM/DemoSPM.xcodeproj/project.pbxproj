@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		156D06332B03DDB80015A456 /* FingerprintPro in Frameworks */ = {isa = PBXBuildFile; productRef = 156D06322B03DDB80015A456 /* FingerprintPro */; };
+		15D4F54F2AFE44FE00D610D2 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 15D4F54E2AFE44FE00D610D2 /* PrivacyInfo.xcprivacy */; };
 		6A6B7FE828C69BC1005B309C /* Color+Fingerprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6B7FE728C69BC1005B309C /* Color+Fingerprint.swift */; };
 		6A6B7FEA28C79A11005B309C /* UnformattedStringTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6B7FE928C79A11005B309C /* UnformattedStringTextField.swift */; };
 		6A6B7FEC28C7A017005B309C /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6B7FEB28C7A017005B309C /* Strings.swift */; };
@@ -17,7 +19,6 @@
 		6A81D7E5287C88D9001C5E95 /* DemoSPMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81D7E4287C88D9001C5E95 /* DemoSPMApp.swift */; };
 		6A81D7E7287C88D9001C5E95 /* LibraryConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81D7E6287C88D9001C5E95 /* LibraryConfigurationView.swift */; };
 		6A81D7E9287C88DA001C5E95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A81D7E8287C88DA001C5E95 /* Assets.xcassets */; };
-		6A81D7EC287C88DA001C5E95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A81D7EB287C88DA001C5E95 /* Preview Assets.xcassets */; };
 		6A81D7F9287DADB5001C5E95 /* RegionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81D7F8287DADB5001C5E95 /* RegionPickerView.swift */; };
 		6A81D7FB287F7F84001C5E95 /* ResponseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81D7FA287F7F84001C5E95 /* ResponseDetailView.swift */; };
 		6A81D7FD287F7FC3001C5E95 /* IPLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81D7FC287F7FC3001C5E95 /* IPLocationView.swift */; };
@@ -27,9 +28,8 @@
 		6A81D80728854A0E001C5E95 /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81D80628854A0E001C5E95 /* FormField.swift */; };
 		6A81D8092886955A001C5E95 /* ResponseItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81D8082886955A001C5E95 /* ResponseItemsView.swift */; };
 		6A8CB90128D0DF82007E0E98 /* POLICY.html in Resources */ = {isa = PBXBuildFile; fileRef = 6A8CB90028D0DBD4007E0E98 /* POLICY.html */; };
-		6AE7E70B28CA5A35003FE00B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AE7E70A28CA5A35003FE00B /* Launch Screen.storyboard */; };
+		6AE7E70B28CA5A35003FE00B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AE7E70A28CA5A35003FE00B /* LaunchScreen.storyboard */; };
 		6AEB867A28BF3D27001ECA04 /* SendRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEB867928BF3D27001ECA04 /* SendRequestView.swift */; };
-		6AEB867D28BFAE26001ECA04 /* FingerprintPro in Frameworks */ = {isa = PBXBuildFile; productRef = 6AEB867C28BFAE26001ECA04 /* FingerprintPro */; };
 		6AEB867F28C0D9E0001ECA04 /* MetadataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEB867E28C0D9E0001ECA04 /* MetadataViewModel.swift */; };
 		6AEB868128C0DDBA001ECA04 /* MetadataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEB868028C0DDBA001ECA04 /* MetadataView.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		15D4F54E2AFE44FE00D610D2 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		6A6B7FE728C69BC1005B309C /* Color+Fingerprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Fingerprint.swift"; sourceTree = "<group>"; };
 		6A6B7FE928C79A11005B309C /* UnformattedStringTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnformattedStringTextField.swift; sourceTree = "<group>"; };
 		6A6B7FEB28C7A017005B309C /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 		6A81D7E4287C88D9001C5E95 /* DemoSPMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSPMApp.swift; sourceTree = "<group>"; };
 		6A81D7E6287C88D9001C5E95 /* LibraryConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryConfigurationView.swift; sourceTree = "<group>"; };
 		6A81D7E8287C88DA001C5E95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6A81D7EB287C88DA001C5E95 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6A81D7F8287DADB5001C5E95 /* RegionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionPickerView.swift; sourceTree = "<group>"; };
 		6A81D7FA287F7F84001C5E95 /* ResponseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDetailView.swift; sourceTree = "<group>"; };
 		6A81D7FC287F7FC3001C5E95 /* IPLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPLocationView.swift; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		6A81D80628854A0E001C5E95 /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		6A81D8082886955A001C5E95 /* ResponseItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseItemsView.swift; sourceTree = "<group>"; };
 		6A8CB90028D0DBD4007E0E98 /* POLICY.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = POLICY.html; sourceTree = "<group>"; };
-		6AE7E70A28CA5A35003FE00B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		6AE7E70A28CA5A35003FE00B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6AEB867928BF3D27001ECA04 /* SendRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendRequestView.swift; sourceTree = "<group>"; };
 		6AEB867E28C0D9E0001ECA04 /* MetadataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataViewModel.swift; sourceTree = "<group>"; };
 		6AEB868028C0DDBA001ECA04 /* MetadataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataView.swift; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AEB867D28BFAE26001ECA04 /* FingerprintPro in Frameworks */,
+				156D06332B03DDB80015A456 /* FingerprintPro in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,20 +142,12 @@
 				6A81D7F7287DAD9B001C5E95 /* Widgets */,
 				6A81D7E4287C88D9001C5E95 /* DemoSPMApp.swift */,
 				6A81D7E8287C88DA001C5E95 /* Assets.xcassets */,
-				6A81D7EA287C88DA001C5E95 /* Preview Content */,
 				6A81D7FA287F7F84001C5E95 /* ResponseDetailView.swift */,
 				6A81D8082886955A001C5E95 /* ResponseItemsView.swift */,
-				6AE7E70A28CA5A35003FE00B /* Launch Screen.storyboard */,
+				6AE7E70A28CA5A35003FE00B /* LaunchScreen.storyboard */,
+				15D4F54E2AFE44FE00D610D2 /* PrivacyInfo.xcprivacy */,
 			);
 			path = DemoSPM;
-			sourceTree = "<group>";
-		};
-		6A81D7EA287C88DA001C5E95 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				6A81D7EB287C88DA001C5E95 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		6A81D7F2287C894F001C5E95 /* Packages */ = {
@@ -213,11 +205,10 @@
 			buildRules = (
 			);
 			dependencies = (
-				6A81D7F6287C8AC0001C5E95 /* PBXTargetDependency */,
 			);
 			name = DemoSPM;
 			packageProductDependencies = (
-				6AEB867C28BFAE26001ECA04 /* FingerprintPro */,
+				156D06322B03DDB80015A456 /* FingerprintPro */,
 			);
 			productName = DemoSPM;
 			productReference = 6A81D7E1287C88D9001C5E95 /* Fingerprint Pro.app */;
@@ -231,7 +222,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					6A81D7E0287C88D9001C5E95 = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -248,7 +239,7 @@
 			);
 			mainGroup = 6A81D7D8287C88D9001C5E95;
 			packageReferences = (
-				6AEB867B28BFAE26001ECA04 /* XCRemoteSwiftPackageReference "fingerprintjs-pro-ios" */,
+				156D06312B03DDB80015A456 /* XCRemoteSwiftPackageReference "fingerprintjs-pro-ios" */,
 			);
 			productRefGroup = 6A81D7E2287C88D9001C5E95 /* Products */;
 			projectDirPath = "";
@@ -265,8 +256,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A8CB90128D0DF82007E0E98 /* POLICY.html in Resources */,
-				6AE7E70B28CA5A35003FE00B /* Launch Screen.storyboard in Resources */,
-				6A81D7EC287C88DA001C5E95 /* Preview Assets.xcassets in Resources */,
+				6AE7E70B28CA5A35003FE00B /* LaunchScreen.storyboard in Resources */,
+				15D4F54F2AFE44FE00D610D2 /* PrivacyInfo.xcprivacy in Resources */,
 				6A81D7E9287C88DA001C5E95 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,13 +293,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6A81D7F6287C8AC0001C5E95 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = 6A81D7F5287C8AC0001C5E95 /* FingerprintJSPro */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6A81D7ED287C88DA001C5E95 /* Debug */ = {
@@ -431,24 +415,24 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_ASSET_PATHS = "\"DemoSPM/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = AQ93X82PXZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoSPM/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Fingerprint Pro";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fingerprintjs.FingerprintProDemo;
 				PRODUCT_NAME = "Fingerprint Pro";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -463,24 +447,24 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_ASSET_PATHS = "\"DemoSPM/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = AQ93X82PXZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoSPM/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Fingerprint Pro";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fingerprintjs.FingerprintProDemo;
 				PRODUCT_NAME = "Fingerprint Pro";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -513,24 +497,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6AEB867B28BFAE26001ECA04 /* XCRemoteSwiftPackageReference "fingerprintjs-pro-ios" */ = {
+		156D06312B03DDB80015A456 /* XCRemoteSwiftPackageReference "fingerprintjs-pro-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/fingerprintjs/fingerprintjs-pro-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				minimumVersion = 2.3.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6A81D7F5287C8AC0001C5E95 /* FingerprintJSPro */ = {
+		156D06322B03DDB80015A456 /* FingerprintPro */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = FingerprintJSPro;
-		};
-		6AEB867C28BFAE26001ECA04 /* FingerprintPro */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6AEB867B28BFAE26001ECA04 /* XCRemoteSwiftPackageReference "fingerprintjs-pro-ios" */;
+			package = 156D06312B03DDB80015A456 /* XCRemoteSwiftPackageReference "fingerprintjs-pro-ios" */;
 			productName = FingerprintPro;
 		};
 /* End XCSwiftPackageProductDependency section */

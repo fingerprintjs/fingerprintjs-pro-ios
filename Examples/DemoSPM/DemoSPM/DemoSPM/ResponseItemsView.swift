@@ -5,43 +5,54 @@
 //  Created by Petr Palata on 19.07.2022.
 //
 
-import SwiftUI
 import FingerprintPro
+import SwiftUI
 
 struct ResponseItemsView: View {
+
     var response: FingerprintResponse
-    
+
+    @Environment(\.colorScheme) private var colorScheme
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 FormField(label: "Your Visitor ID", font: .system(size: 25)) {
                     Text(response.visitorId)
                         .font(.system(size: 18).monospaced())
-                        .foregroundColor(.black)
+                        .foregroundStyle(colorScheme == .light ? .black : .white)
                 }
                 .padding(.horizontal)
                 .padding(.bottom)
                 .foregroundColor(.fingerprintRed)
-                
+
                 FormField(label: "Confidence") {
                     confidencePercentageText
-                }.padding(.horizontal).padding(.bottom)
-                
-                timestampFields.padding(.horizontal).padding(.bottom)
-                
+                }
+                .padding(.horizontal)
+                .padding(.bottom)
+
+                timestampFields
+                    .padding(.horizontal)
+                    .padding(.bottom)
+
                 if let ipAddress = response.ipAddress {
                     FormField(label: "IP Address") {
-                        Text(ipAddress).font(.system(size: 12)).foregroundColor(.gray)
-                    }.padding(.horizontal)
+                        Text(ipAddress)
+                            .font(.system(size: 12))
+                            .foregroundColor(.gray)
+                    }
+                    .padding(.horizontal)
                 }
-                
+
                 if let ipLocation = response.ipLocation {
-                    IPLocationView(ipLocation).frame(minHeight: 450)
+                    IPLocationView(ipLocation)
+                        .frame(minHeight: 450)
                 }
             }
         }
     }
-    
+
     @ViewBuilder private var timestampFields: some View {
         HStack {
             if let firstSeen = response.firstSeenAt?.global {
@@ -57,7 +68,7 @@ struct ResponseItemsView: View {
             }
         }
     }
-    
+
     private var confidencePercentageText: Text {
         let percentConfidence = response.confidence
         let numberFormatter = NumberFormatter()
@@ -69,7 +80,7 @@ struct ResponseItemsView: View {
         }
         return Text(percentage).foregroundColor(.gray).font(.system(size: 12))
     }
-    
+
     private func formattedTimestamp(_ timestamp: Date) -> Text {
         let formattedTimestamp = timestamp.formatted(date: .abbreviated, time: .shortened)
         return Text(formattedTimestamp)
@@ -77,11 +88,3 @@ struct ResponseItemsView: View {
             .foregroundColor(.gray)
     }
 }
-
-/*
-struct ResponseItemsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ResponseItemsView()
-    }
-}
-*/
