@@ -9,8 +9,7 @@ Pod::Spec.new do |spec|
   # Contact information
   spec.homepage     = 'https://fingerprint.com/'
   spec.authors      = {
-    'FingerprintJS': 'ios@fingerprint.com',
-    'Petr Palata': 'petr.palata@fingerprint.com'
+    'Fingerprint.com': 'support@fingerprint.com'
   }
 
   # Fingerprint Pro library description
