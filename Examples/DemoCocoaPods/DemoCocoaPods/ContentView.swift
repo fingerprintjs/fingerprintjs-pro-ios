@@ -14,7 +14,7 @@ struct ContentView: View {
         Text(message ?? "").task {
             Task {
                 do {
-#error("Insert your public API Key")
+                    #error("Insert your public API Key")
                     let client = FingerprintProFactory.getInstance("<api-key>")
                     message = try await client.getVisitorId()
                 } catch FPJSError.apiError(let apiError)  {

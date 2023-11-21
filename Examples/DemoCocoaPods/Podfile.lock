@@ -1,5 +1,5 @@
 PODS:
-  - FingerprintPro (2.0.1)
+  - FingerprintPro (2.3.1)
 
 DEPENDENCIES:
   - FingerprintPro (~> 2.0)
@@ -9,8 +9,8 @@ SPEC REPOS:
     - FingerprintPro
 
 SPEC CHECKSUMS:
-  FingerprintPro: d9d570a49335e312a89af48909904e4dad1c6615
+  FingerprintPro: 6dc84ac1995e7316ad735e5454baa0f095c56573
 
-PODFILE CHECKSUM: b8b25ad7851c76fad21fefac8c66f5b2ea0363d6
+PODFILE CHECKSUM: 735e6ea9d6cfc31161aa444fbef4732cd3c8096e
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.14.3
