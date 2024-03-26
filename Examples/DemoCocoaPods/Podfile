@@ -1,7 +1,0 @@
-platform :ios, '15.5'
-
-target 'DemoCocoaPods' do
-  use_frameworks!
-
-  pod 'FingerprintPro', '~> 2.0'
-end
