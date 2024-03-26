@@ -7,16 +7,27 @@
     </picture>
   </a>
 </p>
+
 <p align="center">
-  <img src="https://img.shields.io/badge/Swift-5.9%20%7C%205.8%20%7C%205.7-red" alt="Swift">
-  <img src="https://img.shields.io/badge/Platforms-iOS%2013+%20%7C%20tvOS%2015+-red" alt="Platforms">
-  <a href="https://discord.gg/39EpE2neBg">
-    <img src="https://img.shields.io/discord/852099967190433792?style=logo&label=Discord&logo=Discord&logoColor=white" alt="Discord server">
+  <img src="https://img.shields.io/badge/Swift-5.10%20%7C%205.9%20%7C%205.8%20%7C%205.7-red" alt="Supported Swift versions">
+  <img src="https://img.shields.io/badge/Platforms-iOS%2013+%20%7C%20tvOS%2015+-lightgrey" alt="Supported platforms">
+  <a href="https://github.com/fingerprintjs/fingerprint-device-intelligence-ios-demo">
+    <img src="https://img.shields.io/badge/Fingerprint%20Pro%20Demo%20App-red" alt="Fingerprint Pro Demo App">
   </a>
 </p>
 
-# Fingerprint Pro iOS
-### Second version of the official iOS/tvOS agent & SDK for accurate device identification. Created for the Fingerprint Pro identification API.
+<p align="center">
+  <a href="https://discord.gg/39EpE2neBg">
+    <img src="https://img.shields.io/discord/852099967190433792?style=for-the-badge&label=Discord&logo=Discord&logoColor=white" alt="Discord server">
+  </a>
+</p>
+
+# Fingerprint Identification SDK for iOS
+
+[Fingerprint’s Device Intelligence platform for iOS](https://dev.fingerprint.com/docs/ios) helps you to accurately identify the devices on which your mobile app is being used. The platform also provides high-quality [Smart Signals](https://dev.fingerprint.com/docs/smart-signals-overview#smart-signals-for-mobile-devices) that will help you identify risky transactions before they happen.
+
+> [!TIP]
+> Check out the [Fingerprint Pro Demo App](https://github.com/fingerprintjs/fingerprint-device-intelligence-ios-demo) to better understand and experience the capabilities of our device intelligence platform.
 
 ## Quick Start
 
@@ -36,7 +47,7 @@
        ...
    
        dependencies: [
-           .package(url: "https://github.com/fingerprintjs/fingerprintjs-pro-ios", from: "2.0.0")
+           .package(url: "https://github.com/fingerprintjs/fingerprintjs-pro-ios", from: "2.2.0")
        ]
    
        ...
@@ -45,7 +56,7 @@
    b) Use Cocoapods
    ```ruby
    # Podfile
-   pod 'FingerprintPro', '~> 2.0'
+   pod 'FingerprintPro', '~> 2.2'
    ```
 
 2. Obtain a public API key from [Fingerprint Dashboard](https://dashboard.fingerprint.com)
@@ -62,7 +73,7 @@ do {
     let visitorId = try await client.getVisitorId()
     print(visitorId)
 } catch {
-    // process error
+    // handle error
 }
 ```
 
@@ -129,6 +140,7 @@ public struct FingerprintResponse {
 </details>
 
 ### Extended Result
+
 Extended result contains extra information, namely the IP address and its geolocation. The extended result comes from the backend if the `extendedResponseFormat` flag is set on the `Configuration` object passed into the `getInstance()` factory method during client initialization.
 
 ```swift
@@ -150,8 +162,9 @@ public struct FingerprintResponse {
     public let version: String
     public let requestId: String
     public let visitorId: String
+    public var visitorFound: Bool { get }
     public let confidence: Float
-    
+
     public let ipAddress: String?
     public let ipLocation: IPLocation?
     public let firstSeenAt: SeenAt?
@@ -207,4 +220,5 @@ let visitorId = try? await client.getVisitorId(metadata)
 ```
 
 ## Errors
+
 The library parses backend errors and introduces its own error enum called `FPJSError`.
