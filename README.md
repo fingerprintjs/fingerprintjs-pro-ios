@@ -3,14 +3,14 @@
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="resources/logo_light.svg" />
       <source media="(prefers-color-scheme: light)" srcset="resources/logo_dark.svg" />
-      <img src="resources/logo_dark.svg" alt="Fingerprint" width="312px" />
+      <img src="resources/logo_light.svg" alt="Fingerprint" width="312px" />
     </picture>
   </a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Swift-5.10%20%7C%205.9%20%7C%205.8%20%7C%205.7-red" alt="Supported Swift versions">
-  <img src="https://img.shields.io/badge/Platforms-iOS%2013+%20%7C%20tvOS%2015+-lightgrey" alt="Supported platforms">
+  <img src="https://img.shields.io/badge/Swift-5.10%20%7C%205.9-red" alt="Supported Swift versions">
+  <img src="https://img.shields.io/badge/Platforms-iOS%2013.0+%20%7C%20tvOS%2015.0+-lightgrey" alt="Supported platforms">
   <a href="https://github.com/fingerprintjs/fingerprint-device-intelligence-ios-demo">
     <img src="https://img.shields.io/badge/Fingerprint%20Pro%20Demo%20App-red" alt="Fingerprint Pro Demo App">
   </a>
@@ -33,8 +33,8 @@
 
 ### Requirements
 
-* iOS 13 or higher (or tvOS 15 or higher)
-* Xcode 14.1 or higher
+* iOS 13.0 or higher (or tvOS 15.0 or higher)
+* Xcode 15.0 or higher
 
 ### Installation Steps
 
