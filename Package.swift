@@ -1,9 +1,9 @@
-// swift-tools-version: 5.7
+// swift-tools-version: 5.9
 
 import PackageDescription
 
-let checksum = "af5b73cd297aa2c939b3d300fd0e8d384142712b61f4fba811bb79f64db693e5"
-let version = "2.4.0"
+let checksum = "ef756635f72f9f073baeabb9a1091ca3a143ebc7d2c08758b1e8893e86127985"
+let version = "2.5.0"
 
 let package = Package(
     name: "FingerprintPro",
