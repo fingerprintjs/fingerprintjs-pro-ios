@@ -47,7 +47,7 @@
        ...
    
        dependencies: [
-           .package(url: "https://github.com/fingerprintjs/fingerprintjs-pro-ios", from: "2.2.0")
+           .package(url: "https://github.com/fingerprintjs/fingerprintjs-pro-ios", from: "2.6.0")
        ]
    
        ...
@@ -56,7 +56,7 @@
    b) Use Cocoapods
    ```ruby
    # Podfile
-   pod 'FingerprintPro', '~> 2.2'
+   pod 'FingerprintPro', '~> 2.6'
    ```
 
 2. Obtain a public API key from [Fingerprint Dashboard](https://dashboard.fingerprint.com)
