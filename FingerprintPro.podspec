@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
   # Name and version
   spec.name         = 'FingerprintPro'
-  spec.version      = '2.6.0'
+  spec.version      = '2.7.0'
 
   # License
   spec.license      = { type: 'Custom', file: 'LICENSE' }
@@ -24,11 +24,11 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '13.0'
   spec.tvos.deployment_target = '15.0'
 
-  spec.swift_versions = ['5.9', '5.10']
+  spec.swift_versions = ['5.9', '5.10', '6.0']
 
   spec.vendored_frameworks = 'FingerprintPro.xcframework'
 
-  checksum = "678df5bce7478060b0fe9490bf7ed10d6fd96eb024890943b51b265504809bb7"
+  checksum = "cdceb6f13d2302bfdbf95f26d013264c678058ffbf1226034aaa0be1763d796b"
 
   spec.source = {
     :http => "https://fpjs-public.s3.amazonaws.com/ios/#{spec.version}/FingerprintPro-#{spec.version}-#{checksum}.xcframework.zip" 
