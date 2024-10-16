@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Swift-5.10%20%7C%205.9-red" alt="Supported Swift versions">
+  <img src="https://img.shields.io/badge/Swift-6.0%20%7C%205.10%20%7C%205.9-red" alt="Supported Swift versions">
   <img src="https://img.shields.io/badge/Platforms-iOS%2013.0+%20%7C%20tvOS%2015.0+-lightgrey" alt="Supported platforms">
   <a href="https://github.com/fingerprintjs/fingerprint-device-intelligence-ios-demo">
     <img src="https://img.shields.io/badge/Fingerprint%20Pro%20Demo%20App-red" alt="Fingerprint Pro Demo App">
