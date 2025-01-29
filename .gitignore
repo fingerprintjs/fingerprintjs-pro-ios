@@ -1,8 +1,16 @@
+### macOS ###
+
 .DS_Store
-/.build
-/Packages
+
+### Xcode ###
+
 xcuserdata/
-/vendor
-Pods/
-DerivedData/
+
+### SwiftPM ###
+
+/.build/
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+
+### Bundler ###
+
+/vendor
