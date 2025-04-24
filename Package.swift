@@ -2,8 +2,8 @@
 
 import PackageDescription
 
-let checksum = "cdceb6f13d2302bfdbf95f26d013264c678058ffbf1226034aaa0be1763d796b"
-let version = "2.7.0"
+let checksum = "fb0c739872f0284223d1031f865ffb615e9b57fb1098503f123e0b9d08c26499"
+let version = "2.8.1"
 
 let package = Package(
     name: "FingerprintPro",
